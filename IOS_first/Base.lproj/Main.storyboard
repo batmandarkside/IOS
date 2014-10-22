@@ -126,11 +126,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" tableViewCell="1Ys-gr-lad" id="puA-IC-JrV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="49a-o3-3mQ">
-                                                    <rect key="frame" x="23" y="12" width="289" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLw-OX-sNt">
+                                                    <rect key="frame" x="8" y="12" width="304" height="30"/>
+                                                    <state key="normal" title="tab bar">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="NDa-fx-Nl9" kind="push" id="Ogw-0I-I32"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -166,7 +170,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7z-M3-bIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="320"/>
+            <point key="canvasLocation" x="-128" y="172"/>
+        </scene>
+        <!--Temperature-->
+        <scene sceneID="ZOm-Up-Vxs">
+            <objects>
+                <viewController id="rb5-uT-kK0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X4s-k5-hqQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wWA-wL-EGO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9IA-PF-Myg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Temperature" image="50-beaker.png" id="mnk-oq-aJ5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWR-4K-Yn0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="-1112"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="hkk-1H-dPs">
@@ -207,7 +231,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NbA-sx-q0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="320"/>
+            <point key="canvasLocation" x="267" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j3I-bQ-Uvf">
@@ -228,5 +252,76 @@
             </objects>
             <point key="canvasLocation" x="-542" y="172"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LnX-E8-teF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NDa-fx-Nl9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Wx7-u5-LmE"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3JK-4d-hno">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rb5-uT-kK0" kind="relationship" relationship="viewControllers" id="m85-9Z-VJC"/>
+                        <segue destination="2Qy-0j-rzi" kind="relationship" relationship="viewControllers" id="7Me-Aj-Fgu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kxm-KY-Gbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542" y="-454"/>
+        </scene>
+        <!--Distance-->
+        <scene sceneID="Hur-qb-9qJ">
+            <objects>
+                <viewController id="2Qy-0j-rzi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kKs-r4-uoJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="D0e-TD-nSv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zph-Nn-hz4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCI-NU-wMe">
+                                <rect key="frame" x="16" y="72" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woc-Om-z5G">
+                                <rect key="frame" x="16" y="165" width="288" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="рассчитать"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNv-RW-DRV">
+                                <rect key="frame" x="16" y="203" width="288" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите милли" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7VN-Wi-a6E">
+                                <rect key="frame" x="16" y="127" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Distance" image="07-map-marker.png" id="KRy-0B-n0z"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fXY-LM-Xwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="-454"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="07-map-marker.png" width="16" height="26"/>
+        <image name="50-beaker.png" width="18" height="22"/>
+    </resources>
 </document>

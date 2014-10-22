@@ -32,6 +32,8 @@
 		B578AA5419F8491C00A8C18E /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B578AA4319F8491C00A8C18E /* vegetable_curry.jpg */; };
 		B578AA5519F8491C00A8C18E /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B578AA4419F8491C00A8C18E /* white_chocolate_donut.jpg */; };
 		B578AA5719F84BF200A8C18E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B578AA5619F84BF200A8C18E /* CoreImage.framework */; };
+		B578AA5A19F8505700A8C18E /* 07-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */; };
+		B578AA5B19F8505700A8C18E /* 50-beaker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B578AA5919F8505700A8C18E /* 50-beaker@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B578AA4319F8491C00A8C18E /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = vegetable_curry.jpg; path = "../../../Downloads/Lesson_5/Lesson 5/vegetable_curry.jpg"; sourceTree = "<group>"; };
 		B578AA4419F8491C00A8C18E /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = white_chocolate_donut.jpg; path = "../../../Downloads/Lesson_5/Lesson 5/white_chocolate_donut.jpg"; sourceTree = "<group>"; };
 		B578AA5619F84BF200A8C18E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "07-map-marker@2x.png"; path = "../../../Downloads/LessonS_2/Lesson 2/07-map-marker@2x.png"; sourceTree = "<group>"; };
+		B578AA5919F8505700A8C18E /* 50-beaker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "50-beaker@2x.png"; path = "../../../Downloads/LessonS_2/Lesson 2/50-beaker@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 		B578AA3319F848C200A8C18E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */,
+				B578AA5919F8505700A8C18E /* 50-beaker@2x.png */,
 				B578AA3419F8491C00A8C18E /* angry_birds_cake.jpg */,
 				B578AA3519F8491C00A8C18E /* creme_brelee.jpg */,
 				B578AA3619F8491C00A8C18E /* egg_benedict.jpg */,
@@ -265,6 +271,7 @@
 				B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */,
 				B578AA5319F8491C00A8C18E /* thai_shrimp_cake.jpg in Resources */,
 				B578AA5119F8491C00A8C18E /* photo-frame.png in Resources */,
+				B578AA5B19F8505700A8C18E /* 50-beaker@2x.png in Resources */,
 				B578AA4D19F8491C00A8C18E /* instant_noodle_with_egg.jpg in Resources */,
 				B578AA4C19F8491C00A8C18E /* hamburger.jpg in Resources */,
 				B578AA5019F8491C00A8C18E /* noodle_with_bbq_pork.jpg in Resources */,
@@ -278,6 +285,7 @@
 				B578AA4719F8491C00A8C18E /* egg_benedict.jpg in Resources */,
 				B578AA4B19F8491C00A8C18E /* ham_and_egg_sandwich.jpg in Resources */,
 				B578AA4E19F8491C00A8C18E /* japanese_noodle_with_pork.jpg in Resources */,
+				B578AA5A19F8505700A8C18E /* 07-map-marker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
