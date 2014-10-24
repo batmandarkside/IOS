@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UITableViewController {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,7 @@ class ViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	
 
 }
 

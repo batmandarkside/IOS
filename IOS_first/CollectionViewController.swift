@@ -11,7 +11,7 @@ import Foundation
 
 class CollectionViewController {
     
-            var imageArray = [String]()
+	var imageArray = [String]()
     
     init(){
         
