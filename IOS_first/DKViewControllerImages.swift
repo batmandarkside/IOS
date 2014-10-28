@@ -8,13 +8,42 @@
 
 import UIKit
 
-class DKViewControllerImages: UIViewController {
+// добавить обязательные методы
+class DKViewControllerImages: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
 	@IBOutlet weak var newImgView: UIImageView!
+	
+	var collectionImages : [String] = []
+	let identifier = "cell"
+	
+	
+	var name : AnyObject? {
+		get {
+			return NSUserDefaults.standardUserDefaults().objectForKey("name")
+		}
+		set {
+			NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
+			NSUserDefaults.standardUserDefaults().synchronize()
+		}
+	}
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		collectionImages = [
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png",
+			"hotel.jpg", "hotel.png", "test.jpg", "test.png"
+		]
+		
+		// явно сообщаем тип параметра
+		newImgView.image = UIImage(named: name as String)
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +51,30 @@ class DKViewControllerImages: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	
+	// задаем колличество яцеек для вывода на экран
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return collectionImages.count
+	}
+	
+	// метод отображения ячейки на экране
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+	
+		var cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as DKCollectionViewCellImages
+		
+		cell.imageView.image = collectionView[indexPath.row]
+		
+		return cell
+	}
+	
+	// момент выбора ячейки
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		
+		// чтобы передать данные в другую форму
+		// воспользуемся NSUserDefault 
+		name = collectionImages[indexPath.row]
+	}
     
 
     /*
