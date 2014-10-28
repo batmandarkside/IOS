@@ -11,16 +11,19 @@
 		5167FCCF19F92932008AFF52 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167FCCE19F92932008AFF52 /* JavaScriptCore.framework */; };
 		5167FCD119F9293F008AFF52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167FCD019F9293F008AFF52 /* UIKit.framework */; };
 		5167FCD919FA46EE008AFF52 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCD819FA46EE008AFF52 /* Utils.swift */; };
+		5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */; };
+		5167FCDE19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */; };
+		5167FCF519FFFCB2008AFF52 /* hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF119FFFCB2008AFF52 /* hotel.jpg */; };
+		5167FCF619FFFCB2008AFF52 /* hotel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF219FFFCB2008AFF52 /* hotel.png */; };
+		5167FCF719FFFCB2008AFF52 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF319FFFCB2008AFF52 /* test.jpg */; };
+		5167FCF819FFFCB2008AFF52 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF419FFFCB2008AFF52 /* test.png */; };
 		B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA0F19F8332300A8C18E /* AppDelegate.swift */; };
 		B578AA1219F8332300A8C18E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA1119F8332300A8C18E /* ViewController.swift */; };
 		B578AA1519F8332300A8C18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1319F8332300A8C18E /* Main.storyboard */; };
 		B578AA1719F8332300A8C18E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1619F8332300A8C18E /* Images.xcassets */; };
 		B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1819F8332300A8C18E /* LaunchScreen.xib */; };
 		B578AA2619F8332300A8C18E /* IOS_firstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA2519F8332300A8C18E /* IOS_firstTests.swift */; };
-		B578AA3219F8474B00A8C18E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA3119F8474B00A8C18E /* CollectionViewController.swift */; };
 		B578AA5719F84BF200A8C18E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B578AA5619F84BF200A8C18E /* CoreImage.framework */; };
-		B578AA5A19F8505700A8C18E /* 07-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */; };
-		B578AA5B19F8505700A8C18E /* 50-beaker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B578AA5919F8505700A8C18E /* 50-beaker@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,12 @@
 		5167FCD019F9293F008AFF52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5167FCD819FA46EE008AFF52 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5167FCDA19FA4944008AFF52 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKViewControllerImages.swift; sourceTree = "<group>"; };
+		5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKCollectionViewCellImages.swift; sourceTree = "<group>"; };
+		5167FCF119FFFCB2008AFF52 /* hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel.jpg; sourceTree = "<group>"; };
+		5167FCF219FFFCB2008AFF52 /* hotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotel.png; sourceTree = "<group>"; };
+		5167FCF319FFFCB2008AFF52 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		5167FCF419FFFCB2008AFF52 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		B578AA0A19F8332300A8C18E /* IOS_first.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_first.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B578AA0E19F8332300A8C18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B578AA0F19F8332300A8C18E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,10 +58,7 @@
 		B578AA1F19F8332300A8C18E /* IOS_firstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOS_firstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B578AA2419F8332300A8C18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B578AA2519F8332300A8C18E /* IOS_firstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_firstTests.swift; sourceTree = "<group>"; };
-		B578AA3119F8474B00A8C18E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B578AA5619F84BF200A8C18E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "07-map-marker@2x.png"; path = "../../../Downloads/LessonS_2/Lesson 2/07-map-marker@2x.png"; sourceTree = "<group>"; };
-		B578AA5919F8505700A8C18E /* 50-beaker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "50-beaker@2x.png"; path = "../../../Downloads/LessonS_2/Lesson 2/50-beaker@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +85,39 @@
 		5167FCC919F8EC31008AFF52 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				5167FCDA19FA4944008AFF52 /* MyPlayground.playground */,
-				B578AA3119F8474B00A8C18E /* CollectionViewController.swift */,
-				5167FCCA19F8EC46008AFF52 /* TableViewController.swift */,
+				5167FCE019FFF979008AFF52 /* list-data */,
+				5167FCDF19FFF5F9008AFF52 /* CellImages */,
 				5167FCD819FA46EE008AFF52 /* Utils.swift */,
 			);
 			name = components;
+			sourceTree = "<group>";
+		};
+		5167FCDF19FFF5F9008AFF52 /* CellImages */ = {
+			isa = PBXGroup;
+			children = (
+				5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */,
+				5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */,
+			);
+			name = CellImages;
+			sourceTree = "<group>";
+		};
+		5167FCE019FFF979008AFF52 /* list-data */ = {
+			isa = PBXGroup;
+			children = (
+				5167FCCA19F8EC46008AFF52 /* TableViewController.swift */,
+			);
+			name = "list-data";
+			sourceTree = "<group>";
+		};
+		5167FCF919FFFCBD008AFF52 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5167FCF119FFFCB2008AFF52 /* hotel.jpg */,
+				5167FCF219FFFCB2008AFF52 /* hotel.png */,
+				5167FCF319FFFCB2008AFF52 /* test.jpg */,
+				5167FCF419FFFCB2008AFF52 /* test.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		B578AA0119F8332300A8C18E = {
@@ -111,8 +144,9 @@
 		B578AA0C19F8332300A8C18E /* IOS_first */ = {
 			isa = PBXGroup;
 			children = (
+				5167FCF919FFFCBD008AFF52 /* images */,
+				5167FCDA19FA4944008AFF52 /* MyPlayground.playground */,
 				5167FCC919F8EC31008AFF52 /* components */,
-				B578AA3319F848C200A8C18E /* images */,
 				B578AA0F19F8332300A8C18E /* AppDelegate.swift */,
 				B578AA1119F8332300A8C18E /* ViewController.swift */,
 				B578AA1319F8332300A8C18E /* Main.storyboard */,
@@ -146,15 +180,6 @@
 				B578AA2419F8332300A8C18E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B578AA3319F848C200A8C18E /* images */ = {
-			isa = PBXGroup;
-			children = (
-				B578AA5819F8505700A8C18E /* 07-map-marker@2x.png */,
-				B578AA5919F8505700A8C18E /* 50-beaker@2x.png */,
-			);
-			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,9 +264,11 @@
 			files = (
 				B578AA1519F8332300A8C18E /* Main.storyboard in Resources */,
 				B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */,
-				B578AA5B19F8505700A8C18E /* 50-beaker@2x.png in Resources */,
+				5167FCF819FFFCB2008AFF52 /* test.png in Resources */,
+				5167FCF619FFFCB2008AFF52 /* hotel.png in Resources */,
 				B578AA1719F8332300A8C18E /* Images.xcassets in Resources */,
-				B578AA5A19F8505700A8C18E /* 07-map-marker@2x.png in Resources */,
+				5167FCF519FFFCB2008AFF52 /* hotel.jpg in Resources */,
+				5167FCF719FFFCB2008AFF52 /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5167FCDE19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift in Sources */,
 				5167FCD919FA46EE008AFF52 /* Utils.swift in Sources */,
-				B578AA3219F8474B00A8C18E /* CollectionViewController.swift in Sources */,
 				B578AA1219F8332300A8C18E /* ViewController.swift in Sources */,
+				5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */,
 				B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */,
 				5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */,
 			);

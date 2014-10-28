@@ -12,6 +12,8 @@
 	<dict>
 		<key>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</key>
 		<string>https://github.com/batmandarkside/IOS.git</string>
+		<key>753285CC547A40D815BC7003BC10A10BB0D6D9BA</key>
+		<string>https://github.com/batmandarkside/inna.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IOS_first.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</key>
 		<string>../..</string>
+		<key>753285CC547A40D815BC7003BC10A10BB0D6D9BA</key>
+		<string>../../../inna-frontend</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/batmandarkside/IOS.git</string>
@@ -28,6 +32,14 @@
 	<string>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>753285CC547A40D815BC7003BC10A10BB0D6D9BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>inna-frontend</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
