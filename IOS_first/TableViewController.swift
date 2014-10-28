@@ -12,7 +12,7 @@ import UIKit
 
 class DKTableViewController : UITableViewController {
 	
-	var recipies = [
+	var myData = [
 		"Thailand",
 		"Moscow",
 		"Germany",
@@ -38,45 +38,39 @@ class DKTableViewController : UITableViewController {
 
 	
 	
-	/*override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	// Заполняем tableView данными
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-		let identifier = "cell"
-
+		let identifier = "myCell"
+		
+		//let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
+		
 		var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
-		
-		//println(cell)
-		
-		if cell == nil {
-			cell = UITableViewCell(style: UITableViewStyle.Value1, reuseIdentifier: identifier)
-		}
-		
+	
+
+	
 		//cell.imageView.image = UIImage(named: "test")
-		cell.textLabel.text = recipies[indexPath.row]
+		cell.textLabel.text = myData[indexPath.row]
 		
 		return cell
 	}
-
-
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return recipies.count
-	}
-
-*/
 	
-	override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-		
-		let identifier = "cell"
-		
-		var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
+	// Удаление строки
+	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+		if editingStyle == .Delete {
 
-		if cell == nil {
-			cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
+			myData.removeAtIndex(indexPath.row)
+			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 		}
-
-		cell.textLabel.text = recipes[indexPath!.row]
-		
-		return cell
 	}
+	
+
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return myData.count
+	}
+
+
+	
 
 }
