@@ -376,10 +376,10 @@
             </objects>
             <point key="canvasLocation" x="-128" y="-454"/>
         </scene>
-        <!--View Controller-->
+        <!--Dk View Controller Image Collection-->
         <scene sceneID="hTm-SY-nW0">
             <objects>
-                <viewController id="aSG-Gf-MST" sceneMemberID="viewController">
+                <viewController id="aSG-Gf-MST" customClass="DkViewControllerImageCollection" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S4z-lK-k28"/>
                         <viewControllerLayoutGuide type="bottom" id="jl3-xU-Wv8"/>
@@ -397,7 +397,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zvX-DY-s98" customClass="DKCollectionViewCellImages" customModule="IOS_first" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zvX-DY-s98" customClass="DKImageCell" customModule="IOS_first" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

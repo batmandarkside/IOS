@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5143C3381A000B9A0084366B /* DKViewControllerImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5143C3371A000B9A0084366B /* DKViewControllerImageCollection.swift */; };
 		5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCCA19F8EC46008AFF52 /* TableViewController.swift */; };
 		5167FCCF19F92932008AFF52 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167FCCE19F92932008AFF52 /* JavaScriptCore.framework */; };
 		5167FCD119F9293F008AFF52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167FCD019F9293F008AFF52 /* UIKit.framework */; };
 		5167FCD919FA46EE008AFF52 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCD819FA46EE008AFF52 /* Utils.swift */; };
 		5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */; };
-		5167FCDE19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */; };
+		5167FCDE19FFF5F1008AFF52 /* DKImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */; };
 		5167FCF519FFFCB2008AFF52 /* hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF119FFFCB2008AFF52 /* hotel.jpg */; };
 		5167FCF619FFFCB2008AFF52 /* hotel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF219FFFCB2008AFF52 /* hotel.png */; };
 		5167FCF719FFFCB2008AFF52 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF319FFFCB2008AFF52 /* test.jpg */; };
@@ -37,13 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5143C3371A000B9A0084366B /* DKViewControllerImageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKViewControllerImageCollection.swift; sourceTree = "<group>"; };
 		5167FCCA19F8EC46008AFF52 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5167FCCE19F92932008AFF52 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		5167FCD019F9293F008AFF52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5167FCD819FA46EE008AFF52 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5167FCDA19FA4944008AFF52 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKViewControllerImages.swift; sourceTree = "<group>"; };
-		5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKCollectionViewCellImages.swift; sourceTree = "<group>"; };
+		5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKImageCell.swift; sourceTree = "<group>"; };
 		5167FCF119FFFCB2008AFF52 /* hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel.jpg; sourceTree = "<group>"; };
 		5167FCF219FFFCB2008AFF52 /* hotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotel.png; sourceTree = "<group>"; };
 		5167FCF319FFFCB2008AFF52 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
@@ -96,7 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */,
-				5167FCDD19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift */,
+				5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */,
+				5143C3371A000B9A0084366B /* DKViewControllerImageCollection.swift */,
 			);
 			name = CellImages;
 			sourceTree = "<group>";
@@ -286,12 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5167FCDE19FFF5F1008AFF52 /* DKCollectionViewCellImages.swift in Sources */,
+				5167FCDE19FFF5F1008AFF52 /* DKImageCell.swift in Sources */,
 				5167FCD919FA46EE008AFF52 /* Utils.swift in Sources */,
 				B578AA1219F8332300A8C18E /* ViewController.swift in Sources */,
 				5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */,
 				B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */,
 				5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */,
+				5143C3381A000B9A0084366B /* DKViewControllerImageCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
