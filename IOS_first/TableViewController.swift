@@ -25,6 +25,7 @@ class DKTableViewController : UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        println("sasdbfv")
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -51,6 +52,8 @@ class DKTableViewController : UITableViewController {
 	
 		//cell.imageView.image = UIImage(named: "test")
 		cell.textLabel.text = myData[indexPath.row]
+        println(myData[indexPath.row])
+//        var test = DKHttp(name: "test")
 		
 		return cell
 	}
