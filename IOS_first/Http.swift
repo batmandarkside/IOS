@@ -32,8 +32,8 @@ class DKHttp {
         Alamofire.request(.GET, "http://api.test.inna.ru/api/v1", parameters: parameters)
             .response { (request, response, data, error) in
                 println(request)
-                println(response)
-                println(error)
+                println(response, "response")
+                println(error, "error")
         }
         
         

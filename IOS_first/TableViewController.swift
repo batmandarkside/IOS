@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 
 class DKTableViewController : UITableViewController {
@@ -19,13 +20,16 @@ class DKTableViewController : UITableViewController {
 		"Saint-Peterburg",
 		"Italy"
 	]
+    
+
 	
 	
-	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []	
+	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
+    
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        println("sasdbfv")
+        var test = DKHttp(name: "test")
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -52,8 +56,6 @@ class DKTableViewController : UITableViewController {
 	
 		//cell.imageView.image = UIImage(named: "test")
 		cell.textLabel.text = myData[indexPath.row]
-        println(myData[indexPath.row])
-//        var test = DKHttp(name: "test")
 		
 		return cell
 	}
