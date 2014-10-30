@@ -9,15 +9,10 @@
 import Foundation
 
 
-class CollectionViewController {
+class DKCollectionViewImages {
     
-            var imageArray = [String]()
-    
-    init(){
-        
-    
-        
-    }
+	var imageArray : [String] = []
+	
     
     func collectionCount() -> Int{
         return imageArray.count
