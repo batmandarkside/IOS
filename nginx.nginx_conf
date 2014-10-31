@@ -1,7 +1,7 @@
 server {
   listen   80;
   listen   localhost:80;
-  server_name www.lh.IOS.inna.ru lh.IOS.inna.ru;
+  server_name www.lh.ios.inna.ru lh.ios.inna.ru;
 
 
   charset utf-8;
@@ -20,11 +20,11 @@ server {
 
   location / {
 
-    root /Users/batmandarkside/pro/IOS;
+    root /Users/BATMAN/pro/IOS;
     client_max_body_size 15m;
     index  index.html index.htm;
 
-    proxy_pass http://127.0.0.1:8077$request_uri;
+    proxy_pass http://127.0.0.1:80$request_uri;
     proxy_set_header Host $host:8077;
     proxy_set_header Connection close;
     proxy_set_header X-Real-IP  $remote_addr;
@@ -33,7 +33,7 @@ server {
 
   location ^~ /api/v1 {
       resolver 8.8.8.8;
-      proxy_pass       $innaHost$request_uri;
+      proxy_pass       $mainHost$request_uri;
       proxy_set_header Host      $main;
       proxy_set_header X-Real-IP $remote_addr;
   }
@@ -41,7 +41,7 @@ server {
 
   location ~* \.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|ico|map|json)$ {
     gzip_static on;
-    root /Users/batmandarkside/pro/IOS/;
+    root /Users/BATMAN/pro/IOS;
   }
 
 
