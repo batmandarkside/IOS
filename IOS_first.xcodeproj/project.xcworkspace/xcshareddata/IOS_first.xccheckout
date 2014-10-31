@@ -24,7 +24,7 @@
 		<key>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</key>
 		<string>../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../Alamofire/</string>
+		<string>../../Alamofire</string>
 		<key>753285CC547A40D815BC7003BC10A10BB0D6D9BA</key>
 		<string>../../../inna-frontend</string>
 	</dict>
