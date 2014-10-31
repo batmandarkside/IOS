@@ -11,7 +11,7 @@ import Alamofire
 
 struct servicesDP {
 
-	let parametersDP = [
+	static let paramDP = [
 		"DepartureId" : "6733",
 		"ArrivalId" : "1735",
 		"StartVoyageDate" : "2014-11-04",
@@ -24,8 +24,9 @@ struct servicesDP {
 		"_" : "1414760422014"
 	]
 	
-	func getHotels(param : [String:AnyObject] = parametersDP){
-		Alamofire.request(.GET, "lh.ios.inna.ru/api/v1/Packages/SearchHotels", parameters: param)
+	static func getHotels(params : [String: AnyObject] = paramDP){
+		
+		Alamofire.request(.GET, "http://lh.ios.inna.ru/api/v1/Packages/SearchHotels", parameters: params)
 			.response { (request, response, data, error) in
 				println(request)
 				println(response, "response")
@@ -33,8 +34,9 @@ struct servicesDP {
 		}
 	}
 	
-	func getTickets(param : [String:AnyObject] = parametersDP){
-		Alamofire.request(.GET, "lh.ios.inna.ru/api/v1/Packages/SearchTickets", parameters: param)
+	static func getTickets(param : [String: AnyObject] = paramDP){
+		
+		Alamofire.request(.GET, "http://lh.ios.inna.ru/api/v1/Packages/SearchTickets", parameters: param)
 			.response { (request, response, data, error) in
 				println(request)
 				println(response, "response")

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 
 class DKTableViewController : UITableViewController {
@@ -29,7 +28,10 @@ class DKTableViewController : UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        var test = DKHttp(name: "test")
+		println("START")
+		servicesDP.getHotels()
+		println("FINISH")
+		
 	}
 	
 	override func didReceiveMemoryWarning() {
