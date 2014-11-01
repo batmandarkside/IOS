@@ -19,18 +19,32 @@ class DKTableViewController : UITableViewController {
 		"Saint-Peterburg",
 		"Italy"
 	]
-    
-
-	
 	
 	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
+    var viewControllerUtils = ViewControllerUtils()
     
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		println("START")
-		servicesDP.getHotels()
-		println("FINISH")
+        
+        
+        
+        self.viewControllerUtils.showActivityIndicator(self.view)
+        
+        
+        servicesDP.getHotels(
+            hotelSuccess: {(data: AnyObject?) in
+                println("SUCCESS")
+                println(data)
+            },
+            hotelError: {
+                println("ERROR")
+            },
+            complete : {
+                self.viewControllerUtils.hideActivityIndicator(self.view)
+            }
+        )
 		
 	}
 	

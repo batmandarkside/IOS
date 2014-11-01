@@ -27,39 +27,54 @@ if  intTest5 == nil {
 	println("works! \(intTest5)")
 }
 
-func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-	let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-	
-	// Configure the cell...
-	
-	return cell
+
+
+func log(txt: String, #resolve: () -> (), #reject: () -> ()) {
+    var delta: Int64 = 1 * Int64(NSEC_PER_SEC)
+    var time = dispatch_time(DISPATCH_TIME_NOW, delta)
+
+    
+    dispatch_after(time, dispatch_get_main_queue(), {
+        println("closures are " + txt)
+        resolve()
+    });
+}
+
+log("not the same as JS closures",
+    resolve: {
+        println("and done 11")
+    },
+    reject: {
+        // handle errors
+})
+
+
+
+func log(txt: String, completion: () -> ()) {
+    var delta = Int64(1 * Double(NSEC_PER_SEC))
+    var time = dispatch_time(DISPATCH_TIME_NOW, delta)
+
+
+    dispatch_after(time, dispatch_get_main_queue()) {
+        println("closures are " + txt)
+        
+    }
+}
+
+log("not the same as JS closures") {
+    println("and done kjdhsdf")
 }
 
 
-
-
-
-
-let parameters = [
-    "hotel" : "182835",
-    "ticket" : "777478415",
-    "DepartureId" : "6733",
-    "ArrivalId" : "6623",
-    "StartVoyageDate" : "2014-11-12",
-    "EndVoyageDate" : "2014-11-21",
-    "TicketClass" : "0",
-    "Adult" : "2",
-    "HotelId" : "182835",
-    "TicketId" : "777478415",
-    "AddFilter" : "true"
-]
-
-
-/*
-Alamofire.request(.GET, "http://api.test.inna.ru/api/v1", parameters: parameters)
-    .response { (request, response, data, error) in
-        println(request)
-        println(response)
-        println(error)
+func myCallback(paramString: String?, #completion: () ->()){
+    println("Start Completion \(paramString)")
+    completion()
+    println("Stop")
 }
- */
+
+myCallback(nil,
+    completion: {
+        println("adsdfsdf")
+    }
+)
+

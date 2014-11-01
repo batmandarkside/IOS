@@ -18,6 +18,8 @@
 		5167FCF719FFFCB2008AFF52 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF319FFFCB2008AFF52 /* test.jpg */; };
 		5167FCF819FFFCB2008AFF52 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167FCF419FFFCB2008AFF52 /* test.png */; };
 		517C71F71A03E2EF0084E6FE /* services.dp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C71F61A03E2EF0084E6FE /* services.dp.swift */; };
+		B55595F31A04C54100E22F9B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55595F21A04C54100E22F9B /* Promise.swift */; };
+		B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55595F91A04D4C500E22F9B /* Utils.swift */; };
 		B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA0F19F8332300A8C18E /* AppDelegate.swift */; };
 		B578AA1219F8332300A8C18E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA1119F8332300A8C18E /* ViewController.swift */; };
 		B578AA1519F8332300A8C18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1319F8332300A8C18E /* Main.storyboard */; };
@@ -87,6 +89,8 @@
 		5167FCF319FFFCB2008AFF52 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		5167FCF419FFFCB2008AFF52 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		517C71F61A03E2EF0084E6FE /* services.dp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = services.dp.swift; sourceTree = "<group>"; };
+		B55595F21A04C54100E22F9B /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		B55595F91A04D4C500E22F9B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B578AA0A19F8332300A8C18E /* IOS_first.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_first.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B578AA0E19F8332300A8C18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B578AA0F19F8332300A8C18E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,8 +168,10 @@
 		517C71F41A03E15A0084E6FE /* services */ = {
 			isa = PBXGroup;
 			children = (
+				B55595F21A04C54100E22F9B /* Promise.swift */,
 				B592E22F1A02C04A00B8929F /* Http.swift */,
 				517C71F61A03E2EF0084E6FE /* services.dp.swift */,
+				B55595F91A04D4C500E22F9B /* Utils.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -377,9 +383,11 @@
 				517C71F71A03E2EF0084E6FE /* services.dp.swift in Sources */,
 				5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */,
 				B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */,
+				B55595F31A04C54100E22F9B /* Promise.swift in Sources */,
 				B592E2301A02C04A00B8929F /* Http.swift in Sources */,
 				5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */,
 				5143C3381A000B9A0084366B /* DKViewControllerImageCollection.swift in Sources */,
+				B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
