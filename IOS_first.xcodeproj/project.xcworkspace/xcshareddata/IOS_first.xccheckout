@@ -16,6 +16,10 @@
 		<string>https://github.com/Alamofire/Alamofire.git</string>
 		<key>753285CC547A40D815BC7003BC10A10BB0D6D9BA</key>
 		<string>https://github.com/batmandarkside/inna.git</string>
+		<key>79EA0C4F360E98830418AFAE1A03A39D646B0106</key>
+		<string>https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git</string>
+		<key>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</key>
+		<string>https://github.com/SwiftyJSON/SwiftyJSON.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IOS_first.xcodeproj</string>
@@ -27,6 +31,10 @@
 		<string>../../Alamofire</string>
 		<key>753285CC547A40D815BC7003BC10A10BB0D6D9BA</key>
 		<string>../../../inna-frontend</string>
+		<key>79EA0C4F360E98830418AFAE1A03A39D646B0106</key>
+		<string>../../Alamofire-SwiftyJSON</string>
+		<key>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</key>
+		<string>../../Alamofire-SwiftyJSON/SwiftyJSON</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/batmandarkside/IOS.git</string>
@@ -48,6 +56,14 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>79EA0C4F360E98830418AFAE1A03A39D646B0106</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Alamofire-SwiftyJSON</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>753285CC547A40D815BC7003BC10A10BB0D6D9BA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>inna-frontend</string>
@@ -59,6 +75,14 @@
 			<string>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftyJSON</string>
 		</dict>
 	</array>
 </dict>
