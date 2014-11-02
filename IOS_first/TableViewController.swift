@@ -8,17 +8,12 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 
-class DKTableViewController : UITableViewController {
+class DKTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
 	
-	var myData = [
-		"Thailand",
-		"Moscow",
-		"Germany",
-		"Saint-Peterburg",
-		"Italy"
-	]
+    var myData : Array<JSON> = []
 	
 	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
     var viewControllerUtils = ViewControllerUtils()
@@ -33,16 +28,31 @@ class DKTableViewController : UITableViewController {
         self.viewControllerUtils.showActivityIndicator(self.view)
         
         
-        servicesDP.getHotels(
-            hotelSuccess: {(data: AnyObject?) in
-                println("SUCCESS")
-                println(data)
+        ServicesDP.getHotels(
+            hotelSuccess: {(data: NSDictionary) in
+                    println("SUCCESS")
+                    var responseJSON = JSON(data)
+
+                    let list: Array<JSON> = responseJSON["Hotels"].arrayValue
+                
+                if(!list.isEmpty) {
+                    self.myData = list
+                    
+                    // перезагрузаем tableView
+                    self.tableView.reloadData()
+                }
+                
             },
             hotelError: {
                 println("ERROR")
             },
             complete : {
-                self.viewControllerUtils.hideActivityIndicator(self.view)
+                Utils.TimeOut(2,
+                    resolve : {
+                        self.viewControllerUtils.hideActivityIndicator(self.view)
+                    }
+                )
+
             }
         )
 		
@@ -64,25 +74,45 @@ class DKTableViewController : UITableViewController {
 
 		let identifier = "myCell"    
 		
-		var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
+        // кастомный класс ячейки
+		var cell : HotelViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as HotelViewCell
 	
+        
+        if(indexPath.row % 2 == 0){
+            cell.backgroundColor = UIColor.purpleColor()
+        } else {
+            cell.backgroundColor = UIColor.orangeColor()
+        }
+        
+        
 
 	
 		//cell.imageView.image = UIImage(named: "test")
 		//cell.textLabel.text = myData[indexPath.row]
+
+        var iurl: String = myData[indexPath.row]["HotelPhoto70"].stringValue
+        let image_url = NSURL(fileURLWithPath: iurl)
+        let image_data = NSData(contentsOfURL: image_url!)
+        
+        cell.labelTitle.text = myData[indexPath.row]["HotelName"].string
+
 		
+        /*dispatch_async(dispatch_get_main_queue(), {
+            cell.hotelImages.image = UIImage(named: iurl)
+        })*/
+        
 		return cell
 	}
 	
 	
 	// Удаление строки
-	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    /*override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
 
 			myData.removeAtIndex(indexPath.row)
 			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 		}
-	}
+	}*/
 	
 
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

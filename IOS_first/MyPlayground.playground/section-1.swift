@@ -66,13 +66,16 @@ log("not the same as JS closures") {
 }
 
 
-func myCallback(paramString: String?, #completion: () ->()){
+func myCallback(paramString: String?, #completion: (() ->())?){
     println("Start Completion \(paramString)")
-    completion()
+    if(completion != nil){
+        completion!()
+    }
+    
     println("Stop")
 }
 
-myCallback(nil,
+myCallback("",
     completion: {
         println("adsdfsdf")
     }

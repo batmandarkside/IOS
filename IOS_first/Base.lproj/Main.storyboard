@@ -201,29 +201,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="поиск" id="u1L-T4-k0d">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="dcI-Jb-9cq" id="oiQ-Gb-NRG"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="161" id="8B8-ka-Mc5">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="myCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="161" id="8B8-ka-Mc5" customClass="HotelViewCell" customModule="IOS_first" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8B8-ka-Mc5" id="2W0-6G-gXD">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-jU-YQy">
-                                            <rect key="frame" x="8" y="51" width="143" height="110"/>
+                                            <rect key="frame" x="5" y="43" width="143" height="110"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGP-vu-xH8">
-                                            <rect key="frame" x="8" y="8" width="300" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yK8-oY-08H">
                                             <rect key="frame" x="159" y="51" width="150" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -236,8 +222,20 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGP-vu-xH8">
+                                            <rect key="frame" x="8" y="8" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hotelImages" destination="NTU-jU-YQy" id="opf-uP-hpr"/>
+                                    <outlet property="labelMap" destination="yK8-oY-08H" id="3uB-zF-nDh"/>
+                                    <outlet property="labelTest" destination="DEt-C2-V06" id="I3y-s1-E1H"/>
+                                    <outlet property="labelTitle" destination="CGP-vu-xH8" id="wYW-Zf-ft9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -255,7 +253,6 @@
                 <searchDisplayController id="Zg8-h8-i3G">
                     <connections>
                         <outlet property="delegate" destination="dcI-Jb-9cq" id="LIq-Dm-4q7"/>
-                        <outlet property="searchBar" destination="u1L-T4-k0d" id="Ea5-Y4-Icm"/>
                         <outlet property="searchContentsController" destination="dcI-Jb-9cq" id="Ph8-iy-CaX"/>
                         <outlet property="searchResultsDataSource" destination="dcI-Jb-9cq" id="Qbe-Np-D3e"/>
                         <outlet property="searchResultsDelegate" destination="dcI-Jb-9cq" id="vp4-OT-4Iz"/>

@@ -1,20 +1,19 @@
 //
-//  HotelCell.swift
+//  HotelViewCell.swift
 //  IOS_first
 //
-//  Created by дмитрий кузнецов on 11/1/14.
+//  Created by дмитрий кузнецов on 11/2/14.
 //  Copyright (c) 2014 дмитрий кузнецов. All rights reserved.
 //
 
 import UIKit
 
-class HotelCell: UITableViewCell {
+class HotelViewCell: UITableViewCell {
 
     @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var labelMap: UILabel!
     @IBOutlet weak var labelTest: UILabel!
-    @IBOutlet weak var imageHotel: UIImageView!
-    
+    @IBOutlet weak var hotelImages: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

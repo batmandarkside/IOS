@@ -11,13 +11,29 @@ import SwiftyJSON
 import Alamofire
 
 
+/*
 
-struct servicesDP {
+If the responseObject is NSDictionary or NSArray
+let json = JSON(responseObject)
+
+If the responseObject is NSData
+let json = JSON(data: responseObject)
+
+*/
+
+//typealias JSONDictionary = Dictionary<String, JSON>
+
+
+/*
+    Методы получения списка отелей и билетов
+    Оба метода перегруженны
+*/
+struct ServicesDP {
     
-    static let requestCancel: Alamofire.Request?;
+    private static let requestCancel: Alamofire.Request?;
+    
 
-
-	static let paramDP = [
+    private static let paramDP = [
         "hotel" : "358469",
         "ticket" : "777489209",
 		"DepartureId" : "6733",
@@ -35,47 +51,77 @@ struct servicesDP {
     /*
 
     */
+    
+    private static func completeDef(){}
+    private static func errorDef(){}
 	
-    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject?)->(), hotelError: ()->(), complete: ()->()) {
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+        hotelError: ()->(), complete: ()->()) {
 		
-        Alamofire.request(.GET, "http://www.lh.ios.inna.ru/api/v1/Packages/SearchHotels", parameters: params)
-			.responseJSON { (request, response, data, error) in
-				
-                
-                if(error != nil) {
-                    println(error, "error")
-                    println(request, "request")
-                    hotelError()
-                } else {
-
-                    var jsonParse = data as NSDictionary
-                    var responseJSON = JSON(jsonParse)
-
-                    println(responseJSON["Filters"]["Tickets"])
-
-                    println("===============")
-                    //hotelSuccess(data: data?)
-                    println("===============")
-                }
-                
-                complete()
-		}
+        HttpHelper.get("Packages/SearchHotels",
+            params: params,
+            callbackSuccess : hotelSuccess,
+            callbackError: hotelError,
+            complete: complete
+        )
+			
 	}
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+        hotelError: ()->()) {
+            
+            HttpHelper.get("Packages/SearchHotels",
+                params: params,
+                callbackSuccess : hotelSuccess,
+                callbackError: hotelError,
+                complete: completeDef
+            )
+    }
+    
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->()) {
+            
+            HttpHelper.get("Packages/SearchHotels",
+                params: params,
+                callbackSuccess : hotelSuccess,
+                callbackError: errorDef,
+                complete: completeDef
+            )
+    }
+    
+    
+    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+        hotelError: ()->(), complete: ()->()){
+            
+            HttpHelper.get("Packages/SearchTickets",
+                params: params,
+                callbackSuccess : hotelSuccess,
+                callbackError: hotelError,
+                complete: complete
+            )
+    }
+    
 	
-	static func getTickets(param : [String: AnyObject]? = paramDP, hotelSuccess: ()->(), hotelError: ()->(),
-        complete: ()->()){
-		
-        Alamofire.request(.GET, "http://www.lh.ios.inna.ru/api/v1/Packages/SearchTickets", parameters: param)
-			.responseJSON { (request, response, data, error) in
-				println(request)
-				println(response, "response")
-				println(error, "error")
-                
-                complete()
-		}
+	static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+        hotelError: ()->()){
+        
+        HttpHelper.get("Packages/SearchTickets",
+            params: params,
+            callbackSuccess : hotelSuccess,
+            callbackError: hotelError,
+            complete: completeDef
+        )
 	}
     
+    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->()){
+            
+            HttpHelper.get("Packages/SearchTickets",
+                params: params,
+                callbackSuccess : hotelSuccess,
+                callbackError: errorDef,
+                complete: completeDef
+            )
+    }
+    
     static func cancelRequest(){
-        //requestCancel.cancel()
+        requestCancel?.cancel()
     }
 }
