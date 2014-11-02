@@ -68,14 +68,21 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 
 
 	
-	
-	// Заполняем tableView данными
+		
+    /* 
+    ячейка секции
+    Заполняем ее данными в этом методе
+    */
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
 		let identifier = "myCell"    
 		
         // кастомный класс ячейки
 		var cell : HotelViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as HotelViewCell
+        //var TestCell = HotelViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
+        
+        
+
 	
         
         if(indexPath.row % 2 == 0){
@@ -114,7 +121,21 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 		}
 	}*/
 	
+    
+    /* заголовок секции */
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return ""
+    }
+    
+    
+    /* количество секций в таблице */
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
 
+    /* колличество рядов в секции */
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return myData.count
 	}
