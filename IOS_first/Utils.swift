@@ -70,10 +70,6 @@ class ViewControllerUtils {
 
 struct Utils {
     
-    var container: UIView = UIView()
-    var loadingView: UIView = UIView()
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
     /** setTimeout */
     static func TimeOut(timeOut: Int64, resolve: () -> ()){
         var delta: Int64 = timeOut * Int64(NSEC_PER_SEC)

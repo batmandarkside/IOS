@@ -62,16 +62,14 @@ class DKTableViewController : UITableViewController {
 	// Заполняем tableView данными
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-		let identifier = "myCell"
-		
-		//let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
+		let identifier = "myCell"    
 		
 		var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as UITableViewCell
 	
 
 	
 		//cell.imageView.image = UIImage(named: "test")
-		cell.textLabel.text = myData[indexPath.row]
+		//cell.textLabel.text = myData[indexPath.row]
 		
 		return cell
 	}

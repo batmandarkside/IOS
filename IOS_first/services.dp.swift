@@ -48,7 +48,7 @@ struct servicesDP {
                     println(response, "response")
 
                     println("===============")
-                    hotelSuccess(data: data?)
+                    //hotelSuccess(data: data?)
                     println("===============")
                 }
                 
