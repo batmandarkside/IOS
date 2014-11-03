@@ -11,12 +11,14 @@ import UIKit
 import SwiftyJSON
 
 
+
 class DKTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
 	
     var myData : Array<JSON> = []
 	
 	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
     var viewControllerUtils = ViewControllerUtils()
+    let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
     
 	
 	override func viewDidLoad() {
@@ -26,20 +28,24 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         
         
         self.viewControllerUtils.showActivityIndicator(self.view)
+        self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
         
         
         ServicesDP.getHotels(
             hotelSuccess: {(data: NSDictionary) in
-                    println("SUCCESS")
-                    var responseJSON = JSON(data)
+                println("SUCCESS")
+                var responseJSON = JSON(data)
 
-                    let list: Array<JSON> = responseJSON["Hotels"].arrayValue
+                let list: Array<JSON> = responseJSON["Hotels"].arrayValue
                 
                 if(!list.isEmpty) {
                     self.myData = list
-                    
+
                     // перезагрузаем tableView
                     self.tableView.reloadData()
+                } else {
+                    self.viewControllerUtils.hideActivityIndicator(self.view)
+                    self.presentViewController(self.alert, animated: true, completion: nil)
                 }
                 
             },
@@ -82,9 +88,6 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         //var TestCell = HotelViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
         
         
-
-	
-        
         if(indexPath.row % 2 == 0){
             cell.backgroundColor = UIColor.purpleColor()
         } else {
@@ -102,8 +105,15 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         let image_data = NSData(contentsOfURL: image_url!)
         
         cell.labelTitle.text = myData[indexPath.row]["HotelName"].string
+        
 
-		
+
+
+        
+        
+        
+
+		// грузим картинки
         /*dispatch_async(dispatch_get_main_queue(), {
             cell.hotelImages.image = UIImage(named: iurl)
         })*/

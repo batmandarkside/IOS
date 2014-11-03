@@ -4,3 +4,6 @@
 [submodule "Alamofire-SwiftyJSON"]
 	path = Alamofire-SwiftyJSON
 	url = https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git
+[submodule "AFNetworking"]
+	path = AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git

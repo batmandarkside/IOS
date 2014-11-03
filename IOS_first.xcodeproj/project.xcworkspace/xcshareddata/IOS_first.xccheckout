@@ -20,6 +20,8 @@
 		<string>https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git</string>
 		<key>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</key>
 		<string>https://github.com/SwiftyJSON/SwiftyJSON.git</string>
+		<key>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</key>
+		<string>https://github.com/rs/SDWebImage.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IOS_first.xcodeproj</string>
@@ -35,6 +37,8 @@
 		<string>../../Alamofire-SwiftyJSON</string>
 		<key>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</key>
 		<string>../../Alamofire-SwiftyJSON/SwiftyJSON</string>
+		<key>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</key>
+		<string>../../SDWebImage/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/batmandarkside/IOS.git</string>
@@ -75,6 +79,14 @@
 			<string>53D38CE9494EA7BB7AB25665AE47EB24A36FF22E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SDWebImage</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

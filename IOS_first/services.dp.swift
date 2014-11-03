@@ -37,20 +37,15 @@ struct ServicesDP {
         "hotel" : "358469",
         "ticket" : "777489209",
 		"DepartureId" : "6733",
-		"ArrivalId" : "18820",
-		"StartVoyageDate" : "2014-12-09",
-		"EndVoyageDate" : "2014-12-19",
+		"ArrivalId" : "1735",
+		"StartVoyageDate" : "2015-02-09",
+		"EndVoyageDate" : "2015-02-13",
 		"TicketClass" : "0",
 		"Adult" : "2",
-		"HotelId" : "455514",
-		"TicketId" : "942032620",
-		//"AddFilter" : "true",
-		"_" : "1414925006760"
+		"HotelId" : "247116",
+		"TicketId" : "946189296",
+        "Id":"946189296"
 	]
-
-    /*
-
-    */
     
     private static func completeDef(){}
     private static func errorDef(){}
