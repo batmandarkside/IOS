@@ -28,9 +28,7 @@ class CollectionHotels  {
             hotelSuccess: {(data: NSDictionary) in
                 println("SUCCESS LOAD DATA")
                 var responseJSON = JSON(data)
-                self.hotelDataCollection = responseJSON["Hotels"].arrayValue
-                
-                println(self.hotelDataCollection.isEmpty)
+                self.hotelDataCollection = responseJSON["Hotels"].arrayValue            
                 
                 if(!self.hotelDataCollection.isEmpty) {
                     self.fillCollectionHotels()

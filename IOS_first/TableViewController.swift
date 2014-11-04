@@ -41,17 +41,12 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
                 self.myData = self.collectionHotel.getCollection()
                 self.modelHotel = self.collectionHotel.getCollectionModel()
             
-                println(self.modelHotel.isEmpty)
-                if(!self.myData.isEmpty) {
-                    // перезагрузаем tableView
-                    self.tableView.reloadData()
-                } else {
-                    self.activityIndicator.hideActivityIndicator(self.view)
-                    self.presentViewController(self.alert, animated: true, completion: nil)
-                }
-            
+
+                // перезагрузаем tableView
+                self.tableView.reloadData()
                 self.navigationBarShow()
-                Utils.TimeOut(2,
+            
+                Utils.TimeOut(1,
                     resolve : {
                         self.activityIndicator.hideActivityIndicator(self.view)
                     }
@@ -125,6 +120,17 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
             let image = UIImage(data: image_data!)
             cell.hotelImages.image = image
         })*/
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            var iurl: String = self.myData[indexPath.row]["HotelPhoto70"].stringValue
+            let image_url = NSURL(string: iurl) //NSURL(fileURLWithPath: iurl)
+            let image_data = NSData(contentsOfURL: image_url!)
+            let image = UIImage(data: image_data!)
+            
+            dispatch_sync(dispatch_get_main_queue(), {
+                cell.hotelImages.image = image
+            });
+        });
         
 		return cell
 	}
