@@ -38,7 +38,7 @@
 		<key>C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3</key>
 		<string>../../Alamofire-SwiftyJSON/SwiftyJSON</string>
 		<key>E28E36D423EC87798E52E2BF482E9F7A1E6479D6</key>
-		<string>../../SDWebImage/</string>
+		<string>../../SDWebImage</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/batmandarkside/IOS.git</string>

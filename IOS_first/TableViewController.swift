@@ -17,7 +17,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     var myData : Array<JSON> = []
 	
 	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
-    var viewControllerUtils = ViewControllerUtils()
+    var activityIndicator = ActivityIndicator()
     let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
     
 	
@@ -27,7 +27,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         
         
         
-        self.viewControllerUtils.showActivityIndicator(self.view)
+        self.activityIndicator.showActivityIndicator(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: nil))
         
         
@@ -44,7 +44,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
                     // перезагрузаем tableView
                     self.tableView.reloadData()
                 } else {
-                    self.viewControllerUtils.hideActivityIndicator(self.view)
+                    self.activityIndicator.hideActivityIndicator(self.view)
                     self.presentViewController(self.alert, animated: true, completion: nil)
                 }
                 
@@ -55,7 +55,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
             complete : {
                 Utils.TimeOut(2,
                     resolve : {
-                        self.viewControllerUtils.hideActivityIndicator(self.view)
+                        self.activityIndicator.hideActivityIndicator(self.view)
                     }
                 )
 
@@ -84,7 +84,14 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 		let identifier = "myCell"    
 		
         // кастомный класс ячейки
-		var cell : HotelViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as HotelViewCell
+		var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as HotelViewCell!
+        
+        if(cell == nil){
+            cell = HotelViewCell(style: .Value1, reuseIdentifier: identifier)
+            println("Create")
+        } else {
+            println("Reuse")
+        }
         //var TestCell = HotelViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: identifier)
         
         
@@ -100,9 +107,6 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 		//cell.imageView.image = UIImage(named: "test")
 		//cell.textLabel.text = myData[indexPath.row]
 
-        var iurl: String = myData[indexPath.row]["HotelPhoto70"].stringValue
-        let image_url = NSURL(fileURLWithPath: iurl)
-        let image_data = NSData(contentsOfURL: image_url!)
         
         cell.labelTitle.text = myData[indexPath.row]["HotelName"].string
         
@@ -110,13 +114,17 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 
 
         
-        
+        //self.activityIndicator.showActivityIndicator(cell.hotelImages, styleIndicator: .White)
         
 
 		// грузим картинки
-        /*dispatch_async(dispatch_get_main_queue(), {
-            cell.hotelImages.image = UIImage(named: iurl)
-        })*/
+        dispatch_async(dispatch_get_main_queue(), {
+            var iurl: String = self.myData[indexPath.row]["HotelPhoto70"].stringValue
+            let image_url = NSURL(string: iurl) //NSURL(fileURLWithPath: iurl)
+            let image_data = NSData(contentsOfURL: image_url!)
+            let image = UIImage(data: image_data!)
+            cell.hotelImages.image = image
+        })
         
 		return cell
 	}

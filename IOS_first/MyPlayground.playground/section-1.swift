@@ -5,6 +5,24 @@ import Alamofire
 
 var str = "Hello, playground"
 
+
+private enum Size : String {
+    case Big = "Big"
+    case Medium = "Medium"
+    case Mini = "Mini"
+    func getSize() -> CGRect {
+        switch self {
+        case .Big:
+            return CGRectMake(0, 0, 80, 80)
+        case .Medium:
+            return CGRectMake(0, 0, 40, 40)
+        case .Mini:
+            return CGRectMake(0, 0, 20, 20)
+        }
+    }
+}
+
+
 func test(name: String!, testInt : Int) -> String {
 	
 	if (name == nil) {
