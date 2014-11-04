@@ -20,7 +20,7 @@ import Alamofire
 */
 struct HttpHelper {
     
-    static let baseUrl: String = "http://www.lh.ios.inna.ru/"
+    static let baseUrl: String = "http://www.inna.ru/"
     static let baseUrlApi: String = "api/v1/"
 
     
@@ -37,7 +37,7 @@ struct HttpHelper {
                     println(error, "error")
                     println(request, "request")
                     callbackError()
-                } else {
+                } else {                    
                     callbackSuccess(data: (data as NSDictionary))
                 }
                 
@@ -46,9 +46,12 @@ struct HttpHelper {
         
     }
     
-    static func post(params : [String: AnyObject]?, hotelSuccess: (data: NSDictionary)->(), hotelError: ()->(), complete: ()->()){
+    static func post(urlParam: String, params : [String: AnyObject]?,
+        hotelSuccess: (data: NSDictionary)->(), hotelError: ()->(), complete: ()->()){
         
-        Alamofire.request(.POST, "http://www.lh.ios.inna.ru/api/v1/Packages/SearchHotels", parameters: params)
+        let URL: String = baseUrl + baseUrlApi + urlParam
+        
+        Alamofire.request(.POST, URL, parameters: params)
             .responseJSON { (request, response, data, error) in
                 
                 

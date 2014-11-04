@@ -26,6 +26,17 @@ struct Utils {
         });
     }
     
+    static func parseJson(data: NSData, completionParse: (data : AnyObject)->()) {
+        var error: NSError?
+        let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments, error: &error)!
+        if (error != nil) {
+            println("Error parsing json: \(error)")
+            completionParse(data: json)
+        } else {
+            completionParse(data: json)
+        }
+    }
+    
     /** setInterval */
     class Timer {
         

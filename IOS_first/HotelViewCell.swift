@@ -12,7 +12,6 @@ class HotelViewCell: UITableViewCell {
 
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelMap: UILabel!
-    @IBOutlet weak var labelTest: UILabel!
     @IBOutlet weak var hotelImages: UIImageView!
     
     override func awakeFromNib() {
