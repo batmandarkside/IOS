@@ -37,6 +37,8 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         // получаем даные с сервера - collectionHotel.fetch()
         // обновляем данные view  - self.tableView.reloadData()
         
+        //ServicesDP.getHotelsAfNetworking()
+        
         collectionHotel.fetch({
                 self.myData = self.collectionHotel.getCollection()
                 self.modelHotel = self.collectionHotel.getCollectionModel()
@@ -108,29 +110,12 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         cell.labelTitle.text =  self.myData[indexPath.row]["HotelName"].stringValue
         //cell.labelTitle.text = self.modelHotel[indexPath.row].getName()
         //println(self.modelHotel[indexPath.row].getName())
-
         
-        //self.activityIndicator.showActivityIndicator(cell.hotelImages, styleIndicator: .White)
-
-		// грузим картинки
-        /*dispatch_async(dispatch_get_main_queue(), {
-            var iurl: String = self.myData[indexPath.row]["HotelPhoto70"].stringValue
-            let image_url = NSURL(string: iurl) //NSURL(fileURLWithPath: iurl)
-            let image_data = NSData(contentsOfURL: image_url!)
-            let image = UIImage(data: image_data!)
-            cell.hotelImages.image = image
-        })*/
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-            var iurl: String = self.myData[indexPath.row]["HotelPhoto70"].stringValue
-            let image_url = NSURL(string: iurl) //NSURL(fileURLWithPath: iurl)
-            let image_data = NSData(contentsOfURL: image_url!)
-            let image = UIImage(data: image_data!)
-            
-            dispatch_sync(dispatch_get_main_queue(), {
-                cell.hotelImages.image = image
-            });
-        });
+        let image_url = NSURL(string: self.myData[indexPath.row]["HotelPhoto70"].stringValue)
+        let placeholder = UIImage(named: "no_photo_hotel.png")
+        //cell.hotelImages.sd_setImageWithURL(image_url, placeholderImage: placeholder)
+        cell.hotelImages.sd_setImageWithURL(image_url, placeholderImage: placeholder, options:SDWebImageOptions.RetryFailed)         
+       
         
 		return cell
 	}
@@ -163,8 +148,22 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.modelHotel.count
 	}
-
-
-	
-
+    
+    
+    // AFNetworking
+    
+    /*cell.hotelImages.setImageWithURLRequest(url_request, placeholderImage: placeholder,
+    success: {[weak cell] (request:NSURLRequest!,response:NSHTTPURLResponse!, image:UIImage!) -> Void in
+    if let cell_for_image = cell {
+    cell_for_image.imageView.image = image
+    cell_for_image.setNeedsLayout()
+    }
+    },
+    failure: {[weak cell](request:NSURLRequest!,response:NSHTTPURLResponse!, error:NSError!) -> Void in
+    if let cell_for_image = cell {
+    cell_for_image.imageView.image = nil
+    cell_for_image.imageView.cancelImageRequestOperation()
+    cell_for_image.setNeedsLayout()
+    }
+    })*/
 }

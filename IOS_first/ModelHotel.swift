@@ -13,6 +13,7 @@ import SwiftyJSON
 class ModelHotel {
     
     private var rawHotelData: [String: JSON]!
+    //private let manager: AFImageRequestOperation
     
     init(data: [String: JSON]){
         
@@ -26,6 +27,10 @@ class ModelHotel {
     
     func setData(data: [String: JSON]){
         
+    }
+    
+    func getImage(success:(()->()), fail:(()->())){
+        //let manager = AFImageRequestOperation
     }
     
     /*

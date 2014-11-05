@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import UIKit
 import Alamofire
 
 
@@ -31,6 +32,8 @@ let json = JSON(data: responseObject)
 struct ServicesDP {
     
     private static let requestCancel: Alamofire.Request?;
+    //private static let manager = AFHTTPRequestOperationManager()
+    
     
 
     private static let paramDP = [
@@ -52,7 +55,26 @@ struct ServicesDP {
     */
     
     private static func completeDef(){}
-    private static func errorDef(){}
+    private static func errorDef(){}        
+    
+    /*static func getHotelsAfNetworking(){
+        let baseUrl: String = "http://www.inna.ru/"
+        let baseUrlApi: String = "api/v1/"
+        let urlHotels: String = "Packages/SearchHotels"
+
+        
+        self.manager.GET( baseUrl + baseUrlApi + urlHotels,
+            parameters: self.paramDP,
+            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                let str: NSDictionary = responseObject as NSDictionary
+                let Filters: NSDictionary = str["Filters"] as NSDictionary
+                println(Filters)
+            
+            },
+            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+                println("Error: " + error.localizedDescription)
+        })
+    }*/
 	
     static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
         hotelError: ()->(), complete: ()->()) {
