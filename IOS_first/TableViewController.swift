@@ -59,8 +59,39 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
                 self.activityIndicator.hideActivityIndicator(self.view)
                 self.presentViewController(self.alert, animated: true, completion: nil)
         })
+        
+        
+        var testDate: NSDate = NSDate()
+        var dateFormater : NSDateFormatter = NSDateFormatter()
+        dateFormater.dateStyle = .ShortStyle
+        println(dateFormater.stringFromDate(testDate))
+        
+        var myCalendar: NSCalendar = NSCalendar.currentCalendar()
+        var myDateComponents: NSDateComponents = myCalendar.components(
+            NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay, fromDate: testDate)
+        //println(dateFormater.dateFromString("2014/11/06 12:05"))
+        println(myDateComponents)
+        
+        var timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerTest:", userInfo: nil, repeats: true)
+    
+        //timer.fireDate(testDate.timeIntervalSinceNow)
 
+        /*
+        static var CalendarUnitYear: NSCalendarUnit { get }
+        static var CalendarUnitMonth: NSCalendarUnit { get }
+        static var CalendarUnitDay: NSCalendarUnit { get }
+        static var CalendarUnitHour: NSCalendarUnit { get }
+        static var CalendarUnitMinute: NSCalendarUnit { get }
+        static var CalendarUnitSecond: NSCalendarUnit { get }
+        static var CalendarUnitWeekday: NSCalendarUnit { get }
+        */
 	}
+    
+    func timerTest(timer: NSTimer){
+        var dateFormater : NSDateFormatter = NSDateFormatter()
+        dateFormater.dateFormat = "HH:mm:ss:SSS"
+        //println(dateFormater.stringFromDate(NSDate()))
+    }
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
