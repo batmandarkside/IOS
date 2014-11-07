@@ -21,7 +21,7 @@ DerivedData
 *UserInterfaceState.xcuserstate
 *Breakpoints_v2.xcbkptlist
 *.xcodeproj/project.xcworkspace/xcuserdata
-
+*.swift.*.swift
 
 # CocoaPods
 #
