@@ -55,30 +55,11 @@ struct ServicesDP {
     */
     
     private static func completeDef(){}
-    private static func errorDef(){}        
-    
-    /*static func getHotelsAfNetworking(){
-        let baseUrl: String = "http://www.inna.ru/"
-        let baseUrlApi: String = "api/v1/"
-        let urlHotels: String = "Packages/SearchHotels"
-
-        
-        self.manager.GET( baseUrl + baseUrlApi + urlHotels,
-            parameters: self.paramDP,
-            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                let str: NSDictionary = responseObject as NSDictionary
-                let Filters: NSDictionary = str["Filters"] as NSDictionary
-                println(Filters)
-            
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                println("Error: " + error.localizedDescription)
-        })
-    }*/
+    private static func errorDef(){}
 	
-    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->(), complete: ()->()) {
-		
+
         HttpHelper.get("Packages/SearchHotels",
             params: params,
             callbackSuccess : hotelSuccess,
@@ -87,7 +68,7 @@ struct ServicesDP {
         )
 			
 	}
-    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->()) {
             
             HttpHelper.get("Packages/SearchHotels",
@@ -98,7 +79,7 @@ struct ServicesDP {
             )
     }
     
-    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->()) {
+    static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->()) {
             
             HttpHelper.get("Packages/SearchHotels",
                 params: params,
@@ -109,7 +90,7 @@ struct ServicesDP {
     }
     
     
-    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->(), complete: ()->()){
             
             HttpHelper.get("Packages/SearchTickets",
@@ -121,7 +102,7 @@ struct ServicesDP {
     }
     
 	
-	static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->(),
+	static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->()){
         
         HttpHelper.get("Packages/SearchTickets",
@@ -132,7 +113,7 @@ struct ServicesDP {
         )
 	}
     
-    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: NSDictionary)->()){
+    static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->()){
             
             HttpHelper.get("Packages/SearchTickets",
                 params: params,

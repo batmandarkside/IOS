@@ -15,7 +15,6 @@ import SwiftyJSON
 
 class DKTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
 	
-    private var myData : Array<JSON> = []
     private var modelHotel: [ModelHotel] = []
 	
 	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
@@ -35,15 +34,10 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         self.navigationBarHidden()
         
         // получаем даные с сервера - collectionHotel.fetch()
-        // обновляем данные view  - self.tableView.reloadData()
-        
-        //ServicesDP.getHotelsAfNetworking()
+        // обновляем данные view  - self.tableView.reloadData()	
         
         collectionHotel.fetch({
-                self.myData = self.collectionHotel.getCollection()
                 self.modelHotel = self.collectionHotel.getCollectionModel()
-            
-
                 // перезагрузаем tableView
                 self.tableView.reloadData()
                 self.navigationBarShow()
@@ -55,10 +49,12 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
                 )
             },
             {
-                println("FAIL")
                 self.activityIndicator.hideActivityIndicator(self.view)
                 self.presentViewController(self.alert, animated: true, completion: nil)
         })
+		
+		var newDate: NSDate = NSDate()
+		var DateFormater: NSDateFormatter = NSDateFormatter()
 
 	}
 	
@@ -88,6 +84,8 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     */
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
+		// Млдель отеля
+		let Hotel: ModelHotel = self.modelHotel[indexPath.row]
 		let identifier = "myCell"    
 		
         // кастомный класс ячейки
@@ -95,9 +93,6 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         
         if(cell == nil){
             cell = HotelViewCell(style: .Value1, reuseIdentifier: identifier)
-            println("Create")
-        } else {
-            println("Reuse")
         }
         
         /*if(indexPath.row % 2 == 0){
@@ -107,15 +102,12 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         }*/
 
         
-        cell.labelTitle.text =  self.myData[indexPath.row]["HotelName"].stringValue
-        //cell.labelTitle.text = self.modelHotel[indexPath.row].getName()
-        //println(self.modelHotel[indexPath.row].getName())
-        
-        let image_url = NSURL(string: self.myData[indexPath.row]["HotelPhoto70"].stringValue)
-        let placeholder = UIImage(named: "no_photo_hotel.png")
-        //cell.hotelImages.sd_setImageWithURL(image_url, placeholderImage: placeholder)
-        cell.hotelImages.sd_setImageWithURL(image_url, placeholderImage: placeholder, options:SDWebImageOptions.RetryFailed)         
-       
+        cell.labelTitle.text =  Hotel.getName()
+		
+		cell.hotelImages.sd_setImageWithURL(
+			Hotel.getImageUrl(),
+			placeholderImage: Hotel.getNoImage(),
+			options:SDWebImageOptions.RetryFailed)
         
 		return cell
 	}
@@ -133,14 +125,12 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     
     /* заголовок секции */
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         return ""
     }
     
     
     /* количество секций в таблице */
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
@@ -148,22 +138,4 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.modelHotel.count
 	}
-    
-    
-    // AFNetworking
-    
-    /*cell.hotelImages.setImageWithURLRequest(url_request, placeholderImage: placeholder,
-    success: {[weak cell] (request:NSURLRequest!,response:NSHTTPURLResponse!, image:UIImage!) -> Void in
-    if let cell_for_image = cell {
-    cell_for_image.imageView.image = image
-    cell_for_image.setNeedsLayout()
-    }
-    },
-    failure: {[weak cell](request:NSURLRequest!,response:NSHTTPURLResponse!, error:NSError!) -> Void in
-    if let cell_for_image = cell {
-    cell_for_image.imageView.image = nil
-    cell_for_image.imageView.cancelImageRequestOperation()
-    cell_for_image.setNeedsLayout()
-    }
-    })*/
 }

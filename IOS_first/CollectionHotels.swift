@@ -25,7 +25,7 @@ class CollectionHotels  {
         println("START LOAD DATA")
         
         ServicesDP.getHotels(
-            hotelSuccess: {(data: NSDictionary) in
+            hotelSuccess: {(data: AnyObject) in
                 println("SUCCESS LOAD DATA")
                 var responseJSON = JSON(data)
                 self.hotelDataCollection = responseJSON["Hotels"].arrayValue            
@@ -39,7 +39,6 @@ class CollectionHotels  {
             },
             hotelError: {
                 reject()
-                println("ERROR LOAD DATA")
             },
             complete : {
 
@@ -86,7 +85,7 @@ class CollectionHotels  {
     */
     private func fillCollectionHotels(){
         for hotel in self.hotelDataCollection {        
-            let newModelHotel = ModelHotel(data: hotel.dictionaryValue)
+            let newModelHotel = ModelHotel(data: hotel)
             modelHotel.append(newModelHotel)
         }
     }

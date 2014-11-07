@@ -12,12 +12,12 @@ import SwiftyJSON
 
 class ModelHotel {
     
-    private var rawHotelData: [String: JSON]!
+    private var rawHotelData: JSON!
     //private let manager: AFImageRequestOperation
     
-    init(data: [String: JSON]){
-        
-        if !data.isEmpty {
+    init(data: JSON){
+        let d = data.dictionaryValue
+        if !d.isEmpty {
             self.rawHotelData = data
         } else {
             println("HOTEL is EMPTY")
@@ -28,37 +28,34 @@ class ModelHotel {
     func setData(data: [String: JSON]){
         
     }
-    
+	
+	func getImagePreview() -> String{
+		return self.rawHotelData["HotelPhoto70"].stringValue
+	}
+	
+	func getNoImage() -> UIImage? {
+		return UIImage(named: "no_photo_hotel.png")
+	}
+	
+	func getImageUrl() -> NSURL {
+		return NSURL(string: self.getImagePreview())!
+	}
+	
     func getImage(success:(()->()), fail:(()->())){
-        //let manager = AFImageRequestOperation
+		
     }
+	
     
-    /*
-    func loadAsyncImage(){        
-        dispatch_async(dispatch_get_main_queue(), {
-            let iurl: String = self.rawHotelData["HotelPhoto70"]!.stringValue
-            let image_url = NSURL(string: iurl) //NSURL(fileURLWithPath: iurl)
-            let image_data = NSData(contentsOfURL: image_url!)
-            let image = UIImage(data: image_data!)
-        })
-    }*/
-    
-    /*
+	
     func getName() -> String {
-        return self.rawHotelData["HotelName"]!.stringValue
-    }*/
-    
-    /*
-    func getHotelId(id: Int) -> [String:JSON]{
-        
-        if(self.rowHotelData["HotelId"].intValue == id){
-            return rowHotelData
+        return rawHotelData["HotelName"].stringValue
+    }
+	
+    func getHotelId(id: Int) -> JSON{
+        if(self.rawHotelData["HotelId"].intValue == id){
+            return self.rawHotelData
         } else {
             return [:]
         }
-    }*/
-    
-    func getHotelName(){
-        
     }
 }
