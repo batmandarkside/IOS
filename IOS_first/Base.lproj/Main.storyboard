@@ -28,7 +28,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="dcI-Jb-9cq" kind="push" id="gN1-CC-Reb"/>
+                                                        <segue destination="fD5-Qw-Ugi" kind="show" id="YRn-Xm-INk"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -46,7 +46,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="NDa-fx-Nl9" kind="push" id="Ogw-0I-I32"/>
+                                                        <segue destination="NDa-fx-Nl9" kind="show" id="5Vj-gn-gtx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -64,7 +64,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="aSG-Gf-MST" kind="push" id="jA9-dZ-Fer"/>
+                                                        <segue destination="aSG-Gf-MST" kind="show" id="VbG-q1-7um"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -120,7 +120,6 @@
                                     <outlet property="hotelImages" destination="NTU-jU-YQy" id="opf-uP-hpr"/>
                                     <outlet property="labelMap" destination="yK8-oY-08H" id="3uB-zF-nDh"/>
                                     <outlet property="labelTitle" destination="CGP-vu-xH8" id="wYW-Zf-ft9"/>
-                                    <segue destination="fD5-Qw-Ugi" kind="push" id="9YP-7k-49N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,12 +144,68 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="368" y="225"/>
+            <point key="canvasLocation" x="762" y="194"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="bI5-dv-Jfz">
+            <objects>
+                <navigationController id="4qC-WZ-MYn" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hx2-Uu-L1x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GgU-WH-gbA" kind="relationship" relationship="rootViewController" id="kPh-SY-Rxf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YLw-QR-TUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="858"/>
+        </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="7iI-3R-LI2">
+            <objects>
+                <viewController id="GgU-WH-gbA" customClass="DKPopoverViewController" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cZq-yU-Xwq"/>
+                        <viewControllerLayoutGuide type="bottom" id="PbI-CQ-t2e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g1J-zN-F5S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="una-4f-7K5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="437227772.83502102">
+                                    <!--2014-11-09 12:09:32 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="39d-JG-ppR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JTu-pc-hc5">
+                            <connections>
+                                <action selector="dateSelectCancel:" destination="GgU-WH-gbA" id="k0J-SQ-9Kp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vgw-Yz-sXg">
+                            <connections>
+                                <action selector="dateSelectDone:" destination="GgU-WH-gbA" id="uDe-yy-pix"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBH-Dz-PeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="858"/>
+        </scene>
+        <!--Search Form Controller-->
         <scene sceneID="d7D-Wn-KWH">
             <objects>
-                <viewController id="fD5-Qw-Ugi" sceneMemberID="viewController">
+                <viewController id="fD5-Qw-Ugi" customClass="DKSearchFormController" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X7t-yZ-Who"/>
                         <viewControllerLayoutGuide type="bottom" id="glU-0r-JnR"/>
@@ -159,21 +214,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0rc-Cl-41d" customClass="DKDatePicker" customModule="IOS_first" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="436970807.05150199">
-                                    <!--2014-11-06 12:46:47 +0000-->
-                                </date>
-                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKt-c4-s2Y">
+                                <rect key="frame" x="16" y="157" width="288" height="35"/>
+                                <color key="backgroundColor" red="0.093753951406789993" green="0.14922773834225855" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Искать">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dcI-Jb-9cq" kind="show" id="Ibv-NM-V2S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0p-z8-fex">
+                                <rect key="frame" x="16" y="200" width="288" height="39"/>
+                                <color key="backgroundColor" red="0.10643624597554568" green="0.21436273556895336" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Popover">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4qC-WZ-MYn" kind="presentation" modalPresentationStyle="currentContext" modalTransitionStyle="coverVertical" id="yqF-4z-kZ3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Туда" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olv-Lh-7Xa">
+                                <rect key="frame" x="16" y="72" width="288" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Обратно" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TM-OV-F1V">
+                                <rect key="frame" x="16" y="113" width="288" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dS-IG-eSc">
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DatePIckerViewPopover" translatesAutoresizingMaskIntoConstraints="NO" id="SfL-9Z-K70" customClass="DKDatePIckerViewPopover" customModule="IOS_first" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="361" width="320" height="207"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Un0-ml-bdL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="dateBack" destination="9TM-OV-F1V" id="LfC-z2-Dj5"/>
+                        <outlet property="dateThere" destination="Olv-Lh-7Xa" id="gjl-3i-bIZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t77-pd-dDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="225"/>
+            <point key="canvasLocation" x="368" y="203"/>
         </scene>
         <!--Temperature-->
         <scene sceneID="ZOm-Up-Vxs">

@@ -21,15 +21,18 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     var activityIndicator = ActivityIndicator()
     let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
     let collectionHotel = CollectionHotels()
-    
+        
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        println("---viewDidLoad---")
         
         self.activityIndicator.showActivityIndicator(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
             self.goBack()
         }))
+        
+        
         
         self.navigationBarHidden()
         
@@ -84,6 +87,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         */
 
 	}
+    
 
 	func timerTest(timer: NSTimer){
         var dateFormater : NSDateFormatter = NSDateFormatter()

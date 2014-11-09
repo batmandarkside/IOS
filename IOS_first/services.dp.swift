@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 import UIKit
-import Alamofire
 
 
 /*
@@ -31,23 +30,20 @@ let json = JSON(data: responseObject)
 */
 struct ServicesDP {
     
-    private static let requestCancel: Alamofire.Request?;
     //private static let manager = AFHTTPRequestOperationManager()
     
     
 
     private static let paramDP = [
-        "hotel" : "358469",
-        "ticket" : "777489209",
 		"DepartureId" : "6733",
-		"ArrivalId" : "6623",
+		"ArrivalId" : "1735",
 		"StartVoyageDate" : "2015-02-10",
-		"EndVoyageDate" : "2015-02-13",
+		"EndVoyageDate" : "2015-02-20",
 		"TicketClass" : "0",
 		"Adult" : "2",
-		"HotelId" : "311565",
-		"TicketId" : "949211536",
-        "Id":"949211536"
+		"HotelId" : "247116",
+		"TicketId" : "966006679",
+        "AddFilter" : "true"
 	]
     
     /*
@@ -124,6 +120,6 @@ struct ServicesDP {
     }
     
     static func cancelRequest(){
-        requestCancel?.cancel()
+        
     }
 }
