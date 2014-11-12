@@ -10,13 +10,15 @@ import UIKit
 
 class DKSearchFormController: UIViewController {
 
+	
     var dateDatePicker: NSDate!
 
-    @IBOutlet weak var dateThere: UILabel!
-    @IBOutlet weak var dateBack: UILabel!
+
+	@IBOutlet var ViewDatePickerComponent: DKDatePickerView!
+
     @IBOutlet weak var popoverAdd: UIBarButtonItem!
-    
-    
+	
+	
     // Способ показать поповер на iPhone
     @IBAction func showDkPopover(sender: UIButton) {
         let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverCodeController") as UIViewController
@@ -31,6 +33,15 @@ class DKSearchFormController: UIViewController {
     }
 
     
+	@IBAction func actionDateThere(sender: UIButton) {
+		ViewDatePickerComponent.showDatePicker(sender)
+	}
+	
+	@IBAction func actionDateBack(sender: UIButton) {
+		ViewDatePickerComponent.showDatePicker(sender)		
+	}
+	
+	
     @IBAction func popoverAddAction(sender: UIBarButtonItem) {
         
     }
@@ -66,7 +77,7 @@ class DKSearchFormController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
 
-        let nvk: UINavigationController = segue.destinationViewController as UINavigationController
+        //let nvk: UINavigationController = segue.destinationViewController as UINavigationController
         //let navDetailViewController: DKPopoverViewController = nvk.viewControllers
     }
     

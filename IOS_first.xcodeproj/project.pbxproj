@@ -14,6 +14,8 @@
 		5167FCD119F9293F008AFF52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167FCD019F9293F008AFF52 /* UIKit.framework */; };
 		5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */; };
 		5167FCDE19FFF5F1008AFF52 /* DKImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */; };
+		51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */; };
+		51798A271A13ADBA00B5FE48 /* ProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */; };
 		517C71F71A03E2EF0084E6FE /* services.dp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C71F61A03E2EF0084E6FE /* services.dp.swift */; };
 		B510C6BB1A0E21C5005D85C0 /* DKSearchFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */; };
 		B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55595F91A04D4C500E22F9B /* Utils.swift */; };
@@ -37,7 +39,6 @@
 		B5815F641A0AD9A8004EDAA6 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = B5815F5C1A0AD9A8004EDAA6 /* test.png */; };
 		B583C94B1A08ADE1003EA493 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583C94A1A08ADE1003EA493 /* ActivityIndicator.swift */; };
 		B590762F1A0AB8D2005B0410 /* ModelHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FE97A1A063DAD0078D92B /* ModelHotel.swift */; };
-		B5AA34CF1A0FCD9700900398 /* DKDatePIckerViewPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AA34CE1A0FCD9700900398 /* DKDatePIckerViewPopover.swift */; };
 		B5DDFBAF1A08C62500B2339A /* SwiftyJSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B5DDFBAA1A08C61700B2339A /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B5DDFBC51A08D4AF00B2339A /* HotelViewCell.swift in Resources */ = {isa = PBXBuildFile; fileRef = B57A45141A06849E0047B7A6 /* HotelViewCell.swift */; };
 		B5DDFBC71A08D4BC00B2339A /* Utils.swift in Resources */ = {isa = PBXBuildFile; fileRef = B55595F91A04D4C500E22F9B /* Utils.swift */; };
@@ -102,6 +103,8 @@
 		5167FCD019F9293F008AFF52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKViewControllerImages.swift; sourceTree = "<group>"; };
 		5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKImageCell.swift; sourceTree = "<group>"; };
+		51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDatePickerView.swift; sourceTree = "<group>"; };
+		51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolDelegate.swift; sourceTree = "<group>"; };
 		517C71F61A03E2EF0084E6FE /* services.dp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = services.dp.swift; sourceTree = "<group>"; };
 		77BD000212A6FDB9C51E2214 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSearchFormController.swift; sourceTree = "<group>"; };
@@ -132,7 +135,6 @@
 		B5815F5B1A0AD9A8004EDAA6 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		B5815F5C1A0AD9A8004EDAA6 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		B583C94A1A08ADE1003EA493 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		B5AA34CE1A0FCD9700900398 /* DKDatePIckerViewPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDatePIckerViewPopover.swift; sourceTree = "<group>"; };
 		B5DDFBA31A08C61700B2339A /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B5F6726D1A0F4A19001E90CA /* DKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKPopoverViewController.swift; sourceTree = "<group>"; };
 		CDA6D13F469AD3BF3EA46D8E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,9 +212,10 @@
 		B510C6B81A0E2170005D85C0 /* search-form */ = {
 			isa = PBXGroup;
 			children = (
+				51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */,
 				B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */,
 				B5F6726D1A0F4A19001E90CA /* DKPopoverViewController.swift */,
-				B5AA34CE1A0FCD9700900398 /* DKDatePIckerViewPopover.swift */,
+				51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */,
 			);
 			name = "search-form";
 			sourceTree = "<group>";
@@ -527,7 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5AA34CF1A0FCD9700900398 /* DKDatePIckerViewPopover.swift in Sources */,
+				51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */,
 				B5F6726E1A0F4A19001E90CA /* DKPopoverViewController.swift in Sources */,
 				B590762F1A0AB8D2005B0410 /* ModelHotel.swift in Sources */,
 				B5DDFBD61A08E06D00B2339A /* CollectionHotels.swift in Sources */,
@@ -541,6 +544,7 @@
 				B57A45151A06849E0047B7A6 /* HotelViewCell.swift in Sources */,
 				5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */,
 				B56090CB1A064CE4008DF0B3 /* filters.swift in Sources */,
+				51798A271A13ADBA00B5FE48 /* ProtocolDelegate.swift in Sources */,
 				5143C3381A000B9A0084366B /* DKViewControllerImageCollection.swift in Sources */,
 				B56090CE1A065778008DF0B3 /* HttpHelper.swift in Sources */,
 				B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */,
@@ -684,7 +688,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IOS_first/IOS_first-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -700,7 +704,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IOS_first/IOS_first-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

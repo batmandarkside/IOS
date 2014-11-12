@@ -161,7 +161,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLw-QR-TUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="858"/>
+            <point key="canvasLocation" x="368" y="891"/>
         </scene>
         <!--Popover View Controller-->
         <scene sceneID="7iI-3R-LI2">
@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBH-Dz-PeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="858"/>
+            <point key="canvasLocation" x="762" y="891"/>
         </scene>
         <!--Search Form Controller-->
         <scene sceneID="d7D-Wn-KWH">
@@ -210,7 +210,7 @@
                         <viewControllerLayoutGuide type="top" id="X7t-yZ-Who"/>
                         <viewControllerLayoutGuide type="bottom" id="glU-0r-JnR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fWd-Fu-XnR">
+                    <view key="view" contentMode="scaleToFill" id="fWd-Fu-XnR" customClass="DKDatePickerView" customModule="IOS_first" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -222,52 +222,94 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dcI-Jb-9cq" kind="show" id="Ibv-NM-V2S"/>
+                                    <segue destination="dcI-Jb-9cq" kind="show" id="3c9-C8-SWX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0p-z8-fex">
                                 <rect key="frame" x="16" y="200" width="288" height="39"/>
                                 <color key="backgroundColor" red="0.10643624597554568" green="0.21436273556895336" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Popover">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="4qC-WZ-MYn" kind="presentation" modalPresentationStyle="currentContext" modalTransitionStyle="coverVertical" id="yqF-4z-kZ3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Туда" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olv-Lh-7Xa">
-                                <rect key="frame" x="16" y="72" width="288" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Обратно" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TM-OV-F1V">
-                                <rect key="frame" x="16" y="113" width="288" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dS-IG-eSc">
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DatePIckerViewPopover" translatesAutoresizingMaskIntoConstraints="NO" id="SfL-9Z-K70" customClass="DKDatePIckerViewPopover" customModule="IOS_first" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="361" width="320" height="207"/>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8n-Ci-Q6h">
+                                <rect key="frame" x="16" y="72" width="288" height="37"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Туда">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionDateThere:" destination="fD5-Qw-Ugi" eventType="touchDown" id="Pk0-gc-sgY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8g-Oy-EvH">
+                                <rect key="frame" x="16" y="117" width="288" height="32"/>
+                                <state key="normal" title="Обратно">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionDateBack:" destination="fD5-Qw-Ugi" eventType="touchDown" id="Tt1-4M-3qh"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peP-ly-jwu">
+                                <rect key="frame" x="0.0" y="367" width="320" height="201"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-ri-8PC">
+                                        <rect key="frame" x="0.0" y="39" width="320" height="162"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="437471792.05413598">
+                                            <!--2014-11-12 07:56:32 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybw-32-Orx">
+                                        <rect key="frame" x="8" y="1" width="67" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionCancel:" destination="fWd-Fu-XnR" eventType="touchDown" id="kXK-8K-RA2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-RT-6BH">
+                                        <rect key="frame" x="266" y="1" width="46" height="30"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionDone:" destination="fWd-Fu-XnR" eventType="touchDown" id="l5a-5B-9dq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дата" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReH-Db-fcH">
+                                        <rect key="frame" x="113" y="5" width="95" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="componentDatePicker" destination="Gfm-ri-8PC" id="kJ3-9l-V24"/>
+                            <outlet property="componentDatePickerViewWrapper" destination="peP-ly-jwu" id="Wvp-1c-Ooa"/>
+                            <outlet property="labelDatePicker" destination="ReH-Db-fcH" id="Xm4-aK-lQI"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Un0-ml-bdL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="dateBack" destination="9TM-OV-F1V" id="LfC-z2-Dj5"/>
-                        <outlet property="dateThere" destination="Olv-Lh-7Xa" id="gjl-3i-bIZ"/>
+                        <outlet property="ViewDatePickerComponent" destination="fWd-Fu-XnR" id="lLy-5z-wvK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t77-pd-dDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="203"/>
+            <point key="canvasLocation" x="368" y="194"/>
         </scene>
         <!--Temperature-->
         <scene sceneID="ZOm-Up-Vxs">
