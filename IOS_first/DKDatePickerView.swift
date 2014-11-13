@@ -10,17 +10,25 @@ class DKDatePickerView: UIView {
 	@IBOutlet weak var componentDatePicker: UIDatePicker!
 	@IBOutlet weak var componentDatePickerViewWrapper: UIView!
 	@IBOutlet weak var labelDatePicker: UILabel!
+	weak var testDelegate: DKDatePickerViewProtocol!
+	private var dateDatePicker: NSDate!
 	
 	
 	@IBAction func actionDone(sender: UIButton) {
-			self.viewHidden(true)
+		self.sendDate()
+		self.viewHidden(true)
 	}
 	
 	@IBAction func actionCancel(sender: UIButton) {
-			self.viewHidden(true)
+		self.viewHidden(true)
 	}
 	
-    // Only override drawRect: if you perform custom drawing.
+	
+	@IBAction func actionValueChangedDatePicker(sender: UIDatePicker) {
+		self.dateDatePicker = sender.date
+	}
+
+	// Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
@@ -55,5 +63,15 @@ class DKDatePickerView: UIView {
 		labelDatePicker.text = text
 	}
 	
+	func sendDate(){
+		let dateFormater : NSDateFormatter = NSDateFormatter()
+		let calendar: NSCalendar = NSCalendar.currentCalendar()
+		dateFormater.dateFormat = "d MMMM"
+		let d = dateFormater.stringFromDate(self.dateDatePicker)
+		
+		if((testDelegate) != nil){
+			testDelegate.datePickerChanged(d)
+		}
+	}
 
 }

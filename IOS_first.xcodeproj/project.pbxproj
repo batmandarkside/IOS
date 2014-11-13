@@ -15,7 +15,7 @@
 		5167FCDC19FFF5BB008AFF52 /* DKViewControllerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */; };
 		5167FCDE19FFF5F1008AFF52 /* DKImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */; };
 		51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */; };
-		51798A271A13ADBA00B5FE48 /* ProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */; };
+		51798A2B1A14F47C00B5FE48 /* DKDatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A2A1A14F47C00B5FE48 /* DKDatePickerDelegate.swift */; };
 		517C71F71A03E2EF0084E6FE /* services.dp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C71F61A03E2EF0084E6FE /* services.dp.swift */; };
 		B510C6BB1A0E21C5005D85C0 /* DKSearchFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */; };
 		B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55595F91A04D4C500E22F9B /* Utils.swift */; };
@@ -104,7 +104,7 @@
 		5167FCDB19FFF5BB008AFF52 /* DKViewControllerImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKViewControllerImages.swift; sourceTree = "<group>"; };
 		5167FCDD19FFF5F1008AFF52 /* DKImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKImageCell.swift; sourceTree = "<group>"; };
 		51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDatePickerView.swift; sourceTree = "<group>"; };
-		51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolDelegate.swift; sourceTree = "<group>"; };
+		51798A2A1A14F47C00B5FE48 /* DKDatePickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDatePickerDelegate.swift; sourceTree = "<group>"; };
 		517C71F61A03E2EF0084E6FE /* services.dp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = services.dp.swift; sourceTree = "<group>"; };
 		77BD000212A6FDB9C51E2214 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSearchFormController.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */,
 				B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */,
 				B5F6726D1A0F4A19001E90CA /* DKPopoverViewController.swift */,
-				51798A261A13ADBA00B5FE48 /* ProtocolDelegate.swift */,
+				51798A2A1A14F47C00B5FE48 /* DKDatePickerDelegate.swift */,
 			);
 			name = "search-form";
 			sourceTree = "<group>";
@@ -543,8 +543,8 @@
 				B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */,
 				B57A45151A06849E0047B7A6 /* HotelViewCell.swift in Sources */,
 				5167FCCB19F8EC46008AFF52 /* TableViewController.swift in Sources */,
+				51798A2B1A14F47C00B5FE48 /* DKDatePickerDelegate.swift in Sources */,
 				B56090CB1A064CE4008DF0B3 /* filters.swift in Sources */,
-				51798A271A13ADBA00B5FE48 /* ProtocolDelegate.swift in Sources */,
 				5143C3381A000B9A0084366B /* DKViewControllerImageCollection.swift in Sources */,
 				B56090CE1A065778008DF0B3 /* HttpHelper.swift in Sources */,
 				B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */,

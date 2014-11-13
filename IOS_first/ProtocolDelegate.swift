@@ -10,6 +10,5 @@ import Foundation
 
 
 protocol EventManagerDelegate : class {
-	var fullName: String { get }
-	func someMethod()
+	func datePickerChanged(date: String)
 }
