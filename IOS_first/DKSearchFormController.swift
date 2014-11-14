@@ -16,6 +16,7 @@ class DKSearchFormController: UIViewController {
     @IBOutlet weak var dateBack: UILabel!
     @IBOutlet weak var popoverAdd: UIBarButtonItem!
     
+    @IBOutlet weak var customViewDatePicker: DKDatePIckerViewPopover!
     
     // Способ показать поповер на iPhone
     @IBAction func showDkPopover(sender: UIButton) {

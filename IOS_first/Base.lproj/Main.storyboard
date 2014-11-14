@@ -261,6 +261,7 @@
                     <navigationItem key="navigationItem" id="Un0-ml-bdL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="customViewDatePicker" destination="SfL-9Z-K70" id="c8z-qb-iXT"/>
                         <outlet property="dateBack" destination="9TM-OV-F1V" id="LfC-z2-Dj5"/>
                         <outlet property="dateThere" destination="Olv-Lh-7Xa" id="gjl-3i-bIZ"/>
                     </connections>
