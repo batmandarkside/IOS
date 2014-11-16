@@ -1,6 +1,3 @@
-[submodule "AFNetworking"]
-	path = AFNetworking
-	url = https://github.com/AFNetworking/AFNetworking.git
 [submodule "SwiftyJSON"]
 	path = SwiftyJSON
 	url = https://github.com/SwiftyJSON/SwiftyJSON.git

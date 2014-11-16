@@ -38,6 +38,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         // получаем даные с сервера - collectionHotel.fetch()
         // обновляем данные view  - self.tableView.reloadData()	
         
+        /*
         collectionHotel.fetch({
                 self.modelHotel = self.collectionHotel.getCollectionModel()
                 // перезагрузаем tableView
@@ -53,7 +54,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
             {
                 self.activityIndicator.hideActivityIndicator(self.view)
                 self.presentViewController(self.alert, animated: true, completion: nil)
-        })		    
+        })*/		    
 	}
     
 
