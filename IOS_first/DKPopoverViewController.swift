@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-protocol DKPopoverViewControllerDelegate: class {
-    func getPassengersData() -> NSDictionary
-}
-
 class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     weak var popoverDelegate: DKPopoverViewControllerDelegate!

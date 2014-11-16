@@ -101,13 +101,6 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
             cell = HotelViewCell(style: .Value1, reuseIdentifier: identifier)
         }
         
-        /*if(indexPath.row % 2 == 0){
-            cell.backgroundColor = UIColor.purpleColor()
-        } else {
-            cell.backgroundColor = UIColor.orangeColor()
-        }*/
-
-        
         cell.labelTitle.text =  Hotel.getName()
 		
 		cell.hotelImages.sd_setImageWithURL(

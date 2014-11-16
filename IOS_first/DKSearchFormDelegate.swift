@@ -11,3 +11,7 @@ import Foundation
 protocol DKDatePickerViewProtocol: class {
 	func datePickerChanged(data: String)
 }
+
+protocol DKPopoverViewControllerDelegate: class {
+    func getPassengersData() -> NSDictionary
+}
