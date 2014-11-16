@@ -8,24 +8,63 @@
 
 import UIKit
 
-class DKPopoverViewController: UIViewController {
-    
-    var selectDate: NSDate!
 
+protocol DKPopoverViewControllerDelegate: class {
+    func getPassengersData() -> NSDictionary
+}
+
+class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    weak var popoverDelegate: DKPopoverViewControllerDelegate!
+    var testColor: UIColor!
+    @IBOutlet weak var componentPickerView: UIPickerView!
+    @IBOutlet var collectionLabelPassenger: [UILabel]!
+    
+    
+    var collectionLabelPassengerValue : [String: Int] = [
+        "Adult": 1,
+        "Children": 0,
+        "Infant": 0
+    ]
+    
     @IBAction func dateSelectDone(sender: UIBarButtonItem) {
-        println("Cancel Select")
+        self.postNotification()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func dateSelectCancel(sender: UIBarButtonItem) {
-        println("Done Select")
+        self.postNotification()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    var peopleArr: [Int:Array<Int>] = [
+        0: [1, 2, 3, 4, 5, 6, 7, 8],
+        1: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        2: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.componentPickerView.delegate = self
+        self.componentPickerView.dataSource = self
         
         //self.navigationItem.leftBarButtonItem
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // Получаем данные через popoverDelegate из DKSearchFormController
+        if(popoverDelegate != nil) {
+            var passengerDate: Dictionary  = popoverDelegate.getPassengersData()
+            
+        
+            self.componentPickerView.selectRow(2, inComponent: 0, animated: true)
+            self.componentPickerView.selectRow(5, inComponent: 1, animated: true)
+            
+            self.componentPickerView.selectRow(1, inComponent: 2, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +72,86 @@ class DKPopoverViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        
+        var rowIndex = row
+
+        if(component == 0 && rowIndex != 0){
+          rowIndex - 1
+        }
+        
+        //println(NSString(format: "row %d : component %d", rowIndex, component ))
+        
+        let Label: UILabel = UILabel(frame: CGRectMake(40, 0, 70, 30))
+        Label.textAlignment = .Left
+        Label.adjustsFontSizeToFitWidth = true
+        Label.font = UIFont.systemFontOfSize(25)
+        
+        var compArr: Array<Int> = self.peopleArr[component]!
+        
+        Label.text = NSString(format: "%d", compArr[rowIndex])
+        
+        return Label
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(component == 0){
+            row - 1
+        }
+        
+        self.setTitleCountPeople(component, row: row)
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        var compArr: Array<Int> = self.peopleArr[component]!
+        return compArr.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 35
+    }
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 3
+    }
+   
+    
+    func setTitleCountPeople(component: Int, row: Int){
+        let label: UILabel = self.collectionLabelPassenger[component]
+        label.text = NSString( format: "%d", row)
+        
+        //collectionLabelPassengerValue[component]
+        self.insertCollectionPassengerValue(component, row: row)
+    }
+    
+    
+    // Собираем данные в коллекцию
+    func insertCollectionPassengerValue(component: Int, row: Int){
+        var associationName = ""
+        switch(component){
+            case 0:
+                associationName = "Adult"
+            case 1:
+                associationName = "Children"
+            case 2:
+                associationName = "Infant"
+            default:
+                associationName = ""
+            
+        }
+
+        self.collectionLabelPassengerValue[associationName] = row
+    }
+    
+    
+    func postNotification(){
+        NSNotificationCenter.defaultCenter().postNotificationName(
+            DKNotification.PeopleChangeNotification,
+            object: self.collectionLabelPassengerValue)
+    }
+
 
     /*
     // MARK: - Navigation
@@ -45,6 +164,6 @@ class DKPopoverViewController: UIViewController {
     */
 
     deinit {
-            NSLog("Deinit - DKPopoverViewController")
+        NSLog("Deinit - DKPopoverViewController")
     }
 }

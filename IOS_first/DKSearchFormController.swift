@@ -8,19 +8,25 @@
 
 import UIKit
 
-class DKSearchFormController: UIViewController {
+class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopoverViewControllerDelegate {
 
+	
     var dateDatePicker: NSDate!
-
-    @IBOutlet weak var dateThere: UILabel!
-    @IBOutlet weak var dateBack: UILabel!
+    var collectionLabelPassengerValue : [String: Int] = [
+        "Adult": 1,
+        "Children": 0,
+        "Infant": 0
+    ]
     @IBOutlet weak var popoverAdd: UIBarButtonItem!
+	@IBOutlet weak var dateThere: UIButton!
+	@IBOutlet weak var dateBack: UIButton!
     
-    @IBOutlet weak var customViewDatePicker: DKDatePIckerViewPopover!
-    
+    @IBOutlet var ViewDatePickerComponent: DKDatePickerView!
+	private var senderButton : UIButton!
+	
     // Способ показать поповер на iPhone
     @IBAction func showDkPopover(sender: UIButton) {
-        let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverCodeController") as UIViewController
+        let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController") as UIViewController
         
         let navigationController: UINavigationController = UINavigationController(rootViewController: vc)
         
@@ -32,10 +38,49 @@ class DKSearchFormController: UIViewController {
     }
 
     
+	@IBAction func actionDateThere(sender: UIButton) {
+		self.senderButton = sender
+		ViewDatePickerComponent.showDatePicker(sender)
+	}
+	
+	@IBAction func actionDateBack(sender: UIButton) {
+		self.senderButton = sender
+		ViewDatePickerComponent.showDatePicker(sender)
+	}
+	
+	
     @IBAction func popoverAddAction(sender: UIBarButtonItem) {
         
     }
     
+    
+    @IBAction func actionSwitchDatBack(sender: UISwitch) {
+        if(sender.on){
+            self.dateBack.enabled = true
+            self.dateBack.alpha = 1
+        } else {
+            self.dateBack.enabled = false
+            self.dateBack.alpha = 0.3
+            self.dateBack.setTitle(self.dateBack.currentTitle, forState: .Disabled)
+        }
+    }
+    
+	
+    /**
+     Метод делегата DKDatePickerViewProtocol
+     Событие изменения DatePicker
+    */
+	func datePickerChanged(date: String) {
+		if(self.senderButton != nil){
+            var newLabel = NSString(format: "%@", date)
+			self.senderButton.setTitle(newLabel, forState: .Normal)
+		}
+	}
+    
+    func getPassengersData() -> NSDictionary {
+         return self.collectionLabelPassengerValue
+    }
+	
     /*override func viewDidLayoutSubviews() {
         println("viewDidLayoutSubviews")
     }
@@ -46,7 +91,13 @@ class DKSearchFormController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		ViewDatePickerComponent.datePickerDelegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeUserHandler:", name: DKNotification.PeopleChangeNotification, object: AnyObject?())
+        
+        /*let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController") as UIViewController*/
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,16 +111,21 @@ class DKSearchFormController: UIViewController {
     }
     
     
-    func closeKeyboard(sender: UIBarButtonItem){
-
+    // Обработчик события - получаем данные от модального контроллера
+    // Где выбрали количество пассажиров
+    func changeUserHandler(notification: NSNotification){
+        self.collectionLabelPassengerValue = notification.object? as Dictionary<String, Int>
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
 
-        let nvk: UINavigationController = segue.destinationViewController as UINavigationController
-        //let navDetailViewController: DKPopoverViewController = nvk.viewControllers
+        var nvk: UINavigationController = segue.destinationViewController as UINavigationController
+        var navDetailViewController: DKPopoverViewController = nvk.viewControllers[0] as DKPopoverViewController
+        navDetailViewController.popoverDelegate = self
     }
+    
+
     
 
     /*
@@ -81,5 +137,8 @@ class DKSearchFormController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
