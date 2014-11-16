@@ -20,6 +20,7 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     @IBOutlet weak var popoverAdd: UIBarButtonItem!
 	@IBOutlet weak var dateThere: UIButton!
 	@IBOutlet weak var dateBack: UIButton!
+    @IBOutlet weak var labelPassenger: UILabel!
     
     @IBOutlet var ViewDatePickerComponent: DKDatePickerView!
 	private var senderButton : UIButton!
@@ -80,6 +81,13 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     func getPassengersData() -> NSDictionary {
          return self.collectionLabelPassengerValue
     }
+    
+    func setlabelPassenger(){
+        self.labelPassenger.text = NSString(format: "%d - %d - %d",
+            self.collectionLabelPassengerValue["Adult"]!,
+            self.collectionLabelPassengerValue["Children"]!,
+            self.collectionLabelPassengerValue["Infant"]!)    
+    }
 	
     /*override func viewDidLayoutSubviews() {
         println("viewDidLayoutSubviews")
@@ -91,13 +99,11 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		self.setlabelPassenger()
+        
 		ViewDatePickerComponent.datePickerDelegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeUserHandler:", name: DKNotification.PeopleChangeNotification, object: AnyObject?())
-        
-        /*let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController") as UIViewController*/
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -115,6 +121,7 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     // Где выбрали количество пассажиров
     func changeUserHandler(notification: NSNotification){
         self.collectionLabelPassengerValue = notification.object? as Dictionary<String, Int>
+        self.setlabelPassenger()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
