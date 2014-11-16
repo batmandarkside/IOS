@@ -24,9 +24,9 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        println("---viewDidLoad---")
         
         self.activityIndicator.showActivityIndicator(self.view)
+        
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
             self.goBack()
         }))
@@ -53,38 +53,7 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
             {
                 self.activityIndicator.hideActivityIndicator(self.view)
                 self.presentViewController(self.alert, animated: true, completion: nil)
-        })
-		
-		var newDate: NSDate = NSDate()
-		var DateFormater: NSDateFormatter = NSDateFormatter()
-
-
-        var testDate: NSDate = NSDate()
-        var dateFormater : NSDateFormatter = NSDateFormatter()
-        dateFormater.dateStyle = .ShortStyle
-        println(dateFormater.stringFromDate(testDate))
-
-        var myCalendar: NSCalendar = NSCalendar.currentCalendar()
-        var myDateComponents: NSDateComponents = myCalendar.components(
-            NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay, fromDate: testDate)
-        //println(dateFormater.dateFromString("2014/11/06 12:05"))
-        println(myDateComponents)
-
-        var timer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerTest:", userInfo: nil, repeats: true)
-
-        //timer.fireDate(testDate.timeIntervalSinceNow)
-
-
-        /*
-        static var CalendarUnitYear: NSCalendarUnit { get }
-        static var CalendarUnitMonth: NSCalendarUnit { get }
-        static var CalendarUnitDay: NSCalendarUnit { get }
-        static var CalendarUnitHour: NSCalendarUnit { get }
-        static var CalendarUnitMinute: NSCalendarUnit { get }
-        static var CalendarUnitSecond: NSCalendarUnit { get }
-        static var CalendarUnitWeekday: NSCalendarUnit { get }
-        */
-
+        })		    
 	}
     
 
