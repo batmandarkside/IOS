@@ -13,11 +13,13 @@
 		51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A241A134ABF00B5FE48 /* DKDatePickerView.swift */; };
 		51798A2B1A14F47C00B5FE48 /* DKSearchFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51798A2A1A14F47C00B5FE48 /* DKSearchFormDelegate.swift */; };
 		517C71F71A03E2EF0084E6FE /* services.dp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C71F61A03E2EF0084E6FE /* services.dp.swift */; };
+		B505CFB51A46F1C400BE1FCC /* adult.png in Resources */ = {isa = PBXBuildFile; fileRef = B505CFB01A46F1C400BE1FCC /* adult.png */; };
+		B505CFB61A46F1C400BE1FCC /* children.png in Resources */ = {isa = PBXBuildFile; fileRef = B505CFB11A46F1C400BE1FCC /* children.png */; };
+		B505CFB71A46F1C400BE1FCC /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B505CFB21A46F1C400BE1FCC /* Icon-Small-40@2x.png */; };
+		B505CFB81A46F1C400BE1FCC /* infant.png in Resources */ = {isa = PBXBuildFile; fileRef = B505CFB31A46F1C400BE1FCC /* infant.png */; };
+		B505CFB91A46F1C400BE1FCC /* no_photo_hotel.png in Resources */ = {isa = PBXBuildFile; fileRef = B505CFB41A46F1C400BE1FCC /* no_photo_hotel.png */; };
 		B510C6BB1A0E21C5005D85C0 /* DKSearchFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */; };
 		B54E53A41A18A42D00EAE6BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54E53A31A18A42D00EAE6BD /* QuartzCore.framework */; };
-		B54E53AC1A18CE0D00EAE6BD /* adult.png in Resources */ = {isa = PBXBuildFile; fileRef = B54E53A91A18CE0D00EAE6BD /* adult.png */; };
-		B54E53AD1A18CE0D00EAE6BD /* children.png in Resources */ = {isa = PBXBuildFile; fileRef = B54E53AA1A18CE0D00EAE6BD /* children.png */; };
-		B54E53AE1A18CE0D00EAE6BD /* infant.png in Resources */ = {isa = PBXBuildFile; fileRef = B54E53AB1A18CE0D00EAE6BD /* infant.png */; };
 		B54E53B01A18F8F800EAE6BD /* DKNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E53AF1A18F8F800EAE6BD /* DKNotification.swift */; };
 		B55595FA1A04D4C500E22F9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55595F91A04D4C500E22F9B /* Utils.swift */; };
 		B56090CB1A064CE4008DF0B3 /* filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56090CA1A064CE4008DF0B3 /* filters.swift */; };
@@ -29,7 +31,6 @@
 		B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1819F8332300A8C18E /* LaunchScreen.xib */; };
 		B578AA2619F8332300A8C18E /* IOS_firstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA2519F8332300A8C18E /* IOS_firstTests.swift */; };
 		B57A45151A06849E0047B7A6 /* HotelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57A45141A06849E0047B7A6 /* HotelViewCell.swift */; };
-		B5815F621A0AD9A8004EDAA6 /* no_photo_hotel.png in Resources */ = {isa = PBXBuildFile; fileRef = B5815F5A1A0AD9A8004EDAA6 /* no_photo_hotel.png */; };
 		B583C94B1A08ADE1003EA493 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B583C94A1A08ADE1003EA493 /* ActivityIndicator.swift */; };
 		B590762F1A0AB8D2005B0410 /* ModelHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FE97A1A063DAD0078D92B /* ModelHotel.swift */; };
 		B5DDFBAF1A08C62500B2339A /* SwiftyJSON.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B5DDFBAA1A08C61700B2339A /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -97,13 +98,15 @@
 		51798A2A1A14F47C00B5FE48 /* DKSearchFormDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSearchFormDelegate.swift; sourceTree = "<group>"; };
 		517C71F61A03E2EF0084E6FE /* services.dp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = services.dp.swift; sourceTree = "<group>"; };
 		77BD000212A6FDB9C51E2214 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B505CFB01A46F1C400BE1FCC /* adult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adult.png; sourceTree = "<group>"; };
+		B505CFB11A46F1C400BE1FCC /* children.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = children.png; sourceTree = "<group>"; };
+		B505CFB21A46F1C400BE1FCC /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		B505CFB31A46F1C400BE1FCC /* infant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infant.png; sourceTree = "<group>"; };
+		B505CFB41A46F1C400BE1FCC /* no_photo_hotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_photo_hotel.png; sourceTree = "<group>"; };
 		B510C6BA1A0E21C5005D85C0 /* DKSearchFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSearchFormController.swift; sourceTree = "<group>"; };
 		B51FE97A1A063DAD0078D92B /* ModelHotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHotel.swift; sourceTree = "<group>"; };
 		B51FE97C1A063DB20078D92B /* CollectionHotels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHotels.swift; sourceTree = "<group>"; };
 		B54E53A31A18A42D00EAE6BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B54E53A91A18CE0D00EAE6BD /* adult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adult.png; sourceTree = "<group>"; };
-		B54E53AA1A18CE0D00EAE6BD /* children.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = children.png; sourceTree = "<group>"; };
-		B54E53AB1A18CE0D00EAE6BD /* infant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infant.png; sourceTree = "<group>"; };
 		B54E53AF1A18F8F800EAE6BD /* DKNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKNotification.swift; sourceTree = "<group>"; };
 		B55595F91A04D4C500E22F9B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B56090CA1A064CE4008DF0B3 /* filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filters.swift; sourceTree = "<group>"; };
@@ -121,7 +124,6 @@
 		B578AA5619F84BF200A8C18E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B57A45141A06849E0047B7A6 /* HotelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelViewCell.swift; sourceTree = "<group>"; };
 		B5815F4B1A0ABD94004EDAA6 /* IOS_first-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOS_first-Bridging-Header.h"; sourceTree = "<group>"; };
-		B5815F5A1A0AD9A8004EDAA6 /* no_photo_hotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_photo_hotel.png; sourceTree = "<group>"; };
 		B583C94A1A08ADE1003EA493 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B5DDFBA31A08C61700B2339A /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		B5F6726D1A0F4A19001E90CA /* DKPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKPopoverViewController.swift; sourceTree = "<group>"; };
@@ -304,10 +306,11 @@
 		B5815F541A0AD9A8004EDAA6 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				B54E53A91A18CE0D00EAE6BD /* adult.png */,
-				B54E53AA1A18CE0D00EAE6BD /* children.png */,
-				B54E53AB1A18CE0D00EAE6BD /* infant.png */,
-				B5815F5A1A0AD9A8004EDAA6 /* no_photo_hotel.png */,
+				B505CFB01A46F1C400BE1FCC /* adult.png */,
+				B505CFB11A46F1C400BE1FCC /* children.png */,
+				B505CFB21A46F1C400BE1FCC /* Icon-Small-40@2x.png */,
+				B505CFB31A46F1C400BE1FCC /* infant.png */,
+				B505CFB41A46F1C400BE1FCC /* no_photo_hotel.png */,
 			);
 			path = images;
 			sourceTree = SOURCE_ROOT;
@@ -437,20 +440,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5815F621A0AD9A8004EDAA6 /* no_photo_hotel.png in Resources */,
 				B5DDFBD51A08E05900B2339A /* CollectionHotels.swift in Resources */,
 				B5DDFBD21A08DCED00B2339A /* ModelHotel.swift in Resources */,
+				B505CFB51A46F1C400BE1FCC /* adult.png in Resources */,
 				B5DDFBCC1A08D52D00B2339A /* services.dp.swift in Resources */,
-				B54E53AE1A18CE0D00EAE6BD /* infant.png in Resources */,
 				B5DDFBC71A08D4BC00B2339A /* Utils.swift in Resources */,
 				B5DDFBC81A08D4BC00B2339A /* HttpHelper.swift in Resources */,
 				B5DDFBC91A08D4BC00B2339A /* ActivityIndicator.swift in Resources */,
-				B54E53AD1A18CE0D00EAE6BD /* children.png in Resources */,
 				B5DDFBC51A08D4AF00B2339A /* HotelViewCell.swift in Resources */,
+				B505CFB61A46F1C400BE1FCC /* children.png in Resources */,
 				B578AA1519F8332300A8C18E /* Main.storyboard in Resources */,
-				B54E53AC1A18CE0D00EAE6BD /* adult.png in Resources */,
+				B505CFB71A46F1C400BE1FCC /* Icon-Small-40@2x.png in Resources */,
+				B505CFB81A46F1C400BE1FCC /* infant.png in Resources */,
 				B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */,
 				B578AA1719F8332300A8C18E /* Images.xcassets in Resources */,
+				B505CFB91A46F1C400BE1FCC /* no_photo_hotel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +652,7 @@
 			baseConfigurationReference = CDA6D13F469AD3BF3EA46D8E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IOS_first/Info.plist;
@@ -665,6 +670,7 @@
 			baseConfigurationReference = 77BD000212A6FDB9C51E2214 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IOS_first/Info.plist;

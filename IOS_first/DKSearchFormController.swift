@@ -124,13 +124,13 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
         self.setlabelPassenger()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
 
         var nvk: UINavigationController = segue.destinationViewController as UINavigationController
         var navDetailViewController: DKPopoverViewController = nvk.viewControllers[0] as DKPopoverViewController
         navDetailViewController.popoverDelegate = self
-    }
+    }*/
     
 
     

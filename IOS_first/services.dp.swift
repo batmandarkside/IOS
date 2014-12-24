@@ -55,7 +55,7 @@ struct ServicesDP {
 	
     static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->(), complete: ()->()) {
-
+            
         HttpHelper.get("Packages/SearchHotels",
             params: params,
             callbackSuccess : hotelSuccess,

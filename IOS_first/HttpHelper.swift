@@ -10,13 +10,6 @@ import Foundation
 import SwiftyJSON
 
 
-/*
-    Небольшая обертка над Alamofire
-    get
-    post
-    download
-    upload
-*/
 struct HttpHelper {
     
     static let baseUrl: String = "http://www.inna.ru/"
