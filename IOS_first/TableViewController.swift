@@ -8,22 +8,20 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
 
 
-
-class DKTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
-	
-    private var modelHotel: [ModelHotel] = []
-	
-	var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
+class DKTableViewController : UITableViewController {
+    
+    private var _newsModel = []
+    
+    var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
     var activityIndicator = ActivityIndicator()
     let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
-    let collectionHotel = CollectionHotels()
-        
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.activityIndicator.showActivityIndicator(self.view)
         
@@ -34,38 +32,41 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
         
         
         self.navigationBarHidden()
-        
-        // получаем даные с сервера - collectionHotel.fetch()
-        // обновляем данные view  - self.tableView.reloadData()	
-                
-        collectionHotel.fetch({
-                self.modelHotel = self.collectionHotel.getCollectionModel()
-                // перезагрузаем tableView
-                self.tableView.reloadData()
-                self.navigationBarShow()
+        ServicesNews.getNews().then { body -> Void in
+            let _newsModel = Mapper<NewsModel>().map(body);
+            self._newsModel = _newsModel!.items!;
+            self.navigationBarShow()
             
-                Utils.TimeOut(1,
-                    resolve : {
-                        self.activityIndicator.hideActivityIndicator(self.view)
-                    }
-                )
-            },
-            {
-                self.activityIndicator.hideActivityIndicator(self.view)
-                self.presentViewController(self.alert, animated: true, completion: nil)
-        })
-	}
-    
-
-	func timerTest(timer: NSTimer){
-        var dateFormater : NSDateFormatter = NSDateFormatter()
-        dateFormater.dateFormat = "HH:mm:ss:SSS"
-        //println(dateFormater.stringFromDate(NSDate()))
+            // перезагрузаем tableView
+            self.tableView.reloadData()
+            Utils.TimeOut(1,
+                resolve : {
+                    self.activityIndicator.hideActivityIndicator(self.view)
+                }
+            )
+        }
+        // получаем даные с сервера
+        // обновляем данные view  - self.tableView.reloadData()
+        /*ServicesNews.getNews().then { body in
+        
+        }*/
+        
+        /*reject: {
+        self.activityIndicator.hideActivityIndicator(self.view)
+        self.presentViewController(self.alert, animated: true, completion: nil)*/
+        
     }
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-	}
+    
+    
+    func timerTest(timer: NSTimer){
+        let dateFormater : NSDateFormatter = NSDateFormatter()
+        dateFormater.dateFormat = "HH:mm:ss:SSS"
+        //print(dateFormater.stringFromDate(NSDate()))
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func navigationBarHidden(){
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -74,52 +75,52 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     func navigationBarShow(){
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
     
     func goBack(){
         self.navigationController?.popToRootViewControllerAnimated(true)
         self.navigationBarShow()
     }
-
-	
-		
+    
+    
+    
     /*
     ячейка секции
     Заполняем ее данными в этом методе
     */
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-		// Млдель отеля
-		let Hotel: ModelHotel = self.modelHotel[indexPath.row]
-		let identifier = "myCell"    
-		
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        let _news : NewsModelItem = self._newsModel[indexPath.row] as! NewsModelItem
+        let identifier = "myCell"
         // кастомный класс ячейки
-		var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as HotelViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! ViewCell!
         
         if(cell == nil){
-            cell = HotelViewCell(style: .Value1, reuseIdentifier: identifier)
+            cell = ViewCell(style: .Value1, reuseIdentifier: identifier)
         }
         
-        cell.labelTitle.text =  Hotel.getName()
-		
-		cell.hotelImages.sd_setImageWithURL(
-			Hotel.getImageUrl(),
-			placeholderImage: Hotel.getNoImage(),
-			options:SDWebImageOptions.RetryFailed)
+        cell.labelTitle.text =  _news.title
         
-		return cell
-	}
-	
-	
-	// Удаление строки
+        
+        /*cell.hotelImages.sd_setImageWithURL(
+        Hotel.getImageUrl(),
+        placeholderImage: Hotel.getNoImage(),
+        options:SDWebImageOptions.RetryFailed)*/
+        return cell
+        
+    }
+    
+    
+    // Удаление строки
     /*override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-		if editingStyle == .Delete {
-
-			myData.removeAtIndex(indexPath.row)
-			tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-		}
-	}*/
-	
+    if editingStyle == .Delete {
+    
+    myData.removeAtIndex(indexPath.row)
+    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+    }*/
+    
     
     /* заголовок секции */
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -131,9 +132,9 @@ class DKTableViewController : UITableViewController, UITableViewDataSource, UITa
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     /* колличество рядов в секции */
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.modelHotel.count
-	}
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self._newsModel.count
+    }
 }

@@ -56,32 +56,23 @@ struct ServicesDP {
     static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->(), complete: ()->()) {
             
-        HttpHelper.get("Packages/SearchHotels",
-            params: params,
-            callbackSuccess : hotelSuccess,
-            callbackError: hotelError,
-            complete: complete
+        Http.get("Packages/SearchHotels",
+            params: params
         )
 			
 	}
     static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->()) {
             
-            HttpHelper.get("Packages/SearchHotels",
-                params: params,
-                callbackSuccess : hotelSuccess,
-                callbackError: hotelError,
-                complete: completeDef
+            Http.get("Packages/SearchHotels",
+                params: params
             )
     }
     
     static func getHotels(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->()) {
             
-            HttpHelper.get("Packages/SearchHotels",
-                params: params,
-                callbackSuccess : hotelSuccess,
-                callbackError: errorDef,
-                complete: completeDef
+            Http.get("Packages/SearchHotels",
+                params: params
             )
     }
     
@@ -89,11 +80,8 @@ struct ServicesDP {
     static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->(), complete: ()->()){
             
-            HttpHelper.get("Packages/SearchTickets",
-                params: params,
-                callbackSuccess : hotelSuccess,
-                callbackError: hotelError,
-                complete: complete
+            Http.get("Packages/SearchTickets",
+                params: params
             )
     }
     
@@ -101,21 +89,15 @@ struct ServicesDP {
 	static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->(),
         hotelError: ()->()){
         
-        HttpHelper.get("Packages/SearchTickets",
-            params: params,
-            callbackSuccess : hotelSuccess,
-            callbackError: hotelError,
-            complete: completeDef
+        Http.get("Packages/SearchTickets",
+            params: params
         )
 	}
     
     static func getTickets(params : [String: AnyObject]? = paramDP, hotelSuccess: (data: AnyObject)->()){
             
-            HttpHelper.get("Packages/SearchTickets",
-                params: params,
-                callbackSuccess : hotelSuccess,
-                callbackError: errorDef,
-                complete: completeDef
+            Http.get("Packages/SearchTickets",
+                params: params
             )
     }
     

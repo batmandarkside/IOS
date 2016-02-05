@@ -48,17 +48,17 @@ class DKDatePickerView: UIView {
      Минимально и максимально возможный выбор даты
     */
     func minMaxDateCalendar(){
-        let Calendar: NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
-        let dateNow : NSDate = NSDate()
-        let Components: NSDateComponents = NSDateComponents()
+        //let Calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        //let dateNow : NSDate = NSDate()
+        //let Components: NSDateComponents = NSDateComponents()
         
-        Components.year = 1
-        let maxDate: NSDate = Calendar.dateByAddingComponents(Components, toDate: dateNow, options: nil)!
-        Components.year = 0
-        let minDate: NSDate = Calendar.dateByAddingComponents(Components, toDate: dateNow, options: nil)!
+        //Components.year = 1
+        //let maxDate: NSDate = Calendar.dateByAddingComponents(Components, toDate: dateNow, options: nil)!
+        //Components.year = 0
+        //let minDate: NSDate = Calendar.dateByAddingComponents(Components, toDate: dateNow, options: nil)!
         
-        componentDatePicker.minimumDate = minDate
-        componentDatePicker.maximumDate = maxDate
+        //componentDatePicker.minimumDate = minDate
+        //componentDatePicker.maximumDate = maxDate
     }
 	
 	func getViewWrapper() -> UIView{
@@ -67,9 +67,9 @@ class DKDatePickerView: UIView {
 	
 	func viewHidden(param: Bool){
         
-        var bounds: CGRect!
-        var alpha: CGFloat!
-        var hidden: Bool!
+        let bounds: CGRect!
+        let alpha: CGFloat!
+        let hidden: Bool!
         
         if(!param) {
             bounds = CGRectMake(0, 0, 320, 201)
@@ -113,8 +113,8 @@ class DKDatePickerView: UIView {
 	}
 	
 	func sendDate(){
-		let dateFormater : NSDateFormatter = NSDateFormatter()
-		let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let dateFormater : NSDateFormatter = NSDateFormatter()
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
 		dateFormater.dateFormat = "d MMMM"
         
         if(self.dateDatePicker != nil){

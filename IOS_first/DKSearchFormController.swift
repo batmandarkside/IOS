@@ -27,7 +27,7 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
 	
     // Способ показать поповер на iPhone
     @IBAction func showDkPopover(sender: UIButton) {
-        let vc: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController") as UIViewController
+        let vc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController"))! as UIViewController
         
         let navigationController: UINavigationController = UINavigationController(rootViewController: vc)
         
@@ -73,8 +73,8 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     */
 	func datePickerChanged(date: String) {
 		if(self.senderButton != nil){
-            var newLabel = NSString(format: "%@", date)
-			self.senderButton.setTitle(newLabel, forState: .Normal)
+            let newLabel = NSString(format: "%@", date)
+			self.senderButton.setTitle(newLabel as String, forState: .Normal)
 		}
 	}
     
@@ -86,15 +86,15 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
         self.labelPassenger.text = NSString(format: "%d - %d - %d",
             self.collectionLabelPassengerValue["Adult"]!,
             self.collectionLabelPassengerValue["Children"]!,
-            self.collectionLabelPassengerValue["Infant"]!)    
+            self.collectionLabelPassengerValue["Infant"]!) as String    
     }
 	
     /*override func viewDidLayoutSubviews() {
-        println("viewDidLayoutSubviews")
+        print("viewDidLayoutSubviews")
     }
     
     override func viewWillLayoutSubviews() {
-        println("viewWillLayoutSubviews")
+        print("viewWillLayoutSubviews")
     }*/
 
     override func viewDidLoad() {
@@ -102,13 +102,13 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
 		self.setlabelPassenger()
         
 		ViewDatePickerComponent.datePickerDelegate = self
-        
+    
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeUserHandler:", name: DKNotification.PeopleChangeNotification, object: AnyObject?())
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println("===viewWillAppear----")
+        print("===viewWillAppear----")
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,7 +120,7 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     // Обработчик события - получаем данные от модального контроллера
     // Где выбрали количество пассажиров
     func changeUserHandler(notification: NSNotification){
-        self.collectionLabelPassengerValue = notification.object? as Dictionary<String, Int>
+        self.collectionLabelPassengerValue = notification.object as! Dictionary<String, Int>
         self.setlabelPassenger()
     }
     

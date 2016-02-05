@@ -20,7 +20,7 @@ class ModelHotel {
         if !d.isEmpty {
             self.rawHotelData = data
         } else {
-            println("HOTEL is EMPTY")
+            print("HOTEL is EMPTY")
 
         }
     }

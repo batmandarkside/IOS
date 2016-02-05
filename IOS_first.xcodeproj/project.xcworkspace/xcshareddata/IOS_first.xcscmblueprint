@@ -1,0 +1,58 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "53D38CE9494EA7BB7AB25665AE47EB24A36FF22E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 0,
+    "753285CC547A40D815BC7003BC10A10BB0D6D9BA" : 0,
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : 0,
+    "53D38CE9494EA7BB7AB25665AE47EB24A36FF22E" : 0,
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 0,
+    "79EA0C4F360E98830418AFAE1A03A39D646B0106" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D1CF0491-3FFE-427D-9F13-A5B4E0A89CA2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "IOS\/Alamofire",
+    "753285CC547A40D815BC7003BC10A10BB0D6D9BA" : "inna-frontend",
+    "E28E36D423EC87798E52E2BF482E9F7A1E6479D6" : "IOS\/SDWebImage",
+    "53D38CE9494EA7BB7AB25665AE47EB24A36FF22E" : "IOS",
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "IOS\/Alamofire-SwiftyJSON\/SwiftyJSON",
+    "79EA0C4F360E98830418AFAE1A03A39D646B0106" : "IOS\/Alamofire-SwiftyJSON"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IOS_first",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IOS_first.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/batmandarkside\/IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "53D38CE9494EA7BB7AB25665AE47EB24A36FF22E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/batmandarkside\/inna.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "753285CC547A40D815BC7003BC10A10BB0D6D9BA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/Alamofire-SwiftyJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "79EA0C4F360E98830418AFAE1A03A39D646B0106"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rs\/SDWebImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E28E36D423EC87798E52E2BF482E9F7A1E6479D6"
+    }
+  ]
+}

@@ -22,11 +22,11 @@ class CollectionHotels  {
     
     // получаем список отелей
     func fetch(resolve:(()->()), reject:(()->())) {
-        println("START LOAD DATA")
+        print("START LOAD DATA")
         
         ServicesDP.getHotels(
             hotelSuccess: {(data: AnyObject) in
-                println("SUCCESS LOAD DATA")
+                print("SUCCESS LOAD DATA")
                 var responseJSON = JSON(data)
                 self.hotelDataCollection = responseJSON["Hotels"].arrayValue            
                 
@@ -71,7 +71,7 @@ class CollectionHotels  {
                 returnModelHotel = modelHotelFind
                 break
             } else {
-                println("DO NOT FOUND HOTEL")
+                print("DO NOT FOUND HOTEL")
             }
         }
         

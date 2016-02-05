@@ -1,0 +1,50 @@
+server {
+    listen   80;
+    listen   localhost:80;
+    server_name www.lh.ios.ru lh.ios.ru
+
+    gzip on;
+    gzip_types      text/plain application/xml application/json;
+
+    charset utf-8;
+    client_max_body_size 1m;
+
+    set $QA 'http://qa01.family.rambler.ru';
+    set $family 'http://family.rambler.ru';
+    set $develop 'http://dev02.family.rambler.ru:8004';
+    set $develop01 'http://dev01.family.rambler.ru';
+    set $developOld 'http://family02.dev.rambler.ru:8003';
+    set $release 'http://stage.family.rambler.ru';
+    set $vagrant 'http://127.0.0.1:9002';
+    set $production 'http://family.rambler.ru';
+
+    location / {
+        root /Users/dmitry/pro/IOS;
+        client_max_body_size 15m;
+        index  index.html index.htm;
+
+        proxy_pass http://127.0.0.1$request_uri;
+        proxy_set_header Host $host;
+        proxy_set_header Connection close;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+
+    location ^~ /api/ {
+        gzip on;
+        gzip_types      text/plain application/xml application/json;
+        resolver 8.8.8.8;
+        proxy_pass       $production$request_uri;
+        #proxy_set_header Host      $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location ~* \.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|ico|map|json)$ {
+      gzip_static on;
+      root /Users/dmitry/pro/IOS;
+    }
+
+
+    error_page 500 502 503 504 /500.html;
+}
