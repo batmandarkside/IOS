@@ -8,13 +8,12 @@
 
 import Foundation
 import UIKit
-import ObjectMapper
 
 
 
-class DKTableViewController : UITableViewController {
+class NewsTableViewController : UITableViewController {
     
-    private var _newsModel = []
+    private var _newsModel : NewsModel?
     
     var CountrySearch : [(id: Int, name: String, desc: String, time: Int)] = []
     var activityIndicator = ActivityIndicator()
@@ -32,28 +31,22 @@ class DKTableViewController : UITableViewController {
         
         
         self.navigationBarHidden()
-        ServicesNews.getNews().then { body -> Void in
-            let _newsModel = Mapper<NewsModel>().map(body);
-            self._newsModel = _newsModel!.items!;
-            self.navigationBarShow()
-            
-            // перезагрузаем tableView
-            self.tableView.reloadData()
-            Utils.TimeOut(1,
-                resolve : {
-                    self.activityIndicator.hideActivityIndicator(self.view)
-                }
-            )
+        ServicesNews.getNews()
+            .then { body -> Void in
+                self._newsModel = NewsModel(data : body);
+                self.navigationBarShow()
+                
+                // перезагрузаем tableView
+                self.tableView.reloadData()
+                Utils.TimeOut(1,
+                    resolve : {
+                        self.activityIndicator.hideActivityIndicator(self.view)
+                    }
+                )
+            }
+            .error { eror in
+                self.presentViewController(self.alert, animated: true, completion: nil)
         }
-        // получаем даные с сервера
-        // обновляем данные view  - self.tableView.reloadData()
-        /*ServicesNews.getNews().then { body in
-        
-        }*/
-        
-        /*reject: {
-        self.activityIndicator.hideActivityIndicator(self.view)
-        self.presentViewController(self.alert, animated: true, completion: nil)*/
         
     }
     
@@ -91,8 +84,9 @@ class DKTableViewController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let _news : NewsModelItem = self._newsModel[indexPath.row] as! NewsModelItem
+        let _newsItem = (self._newsModel?.getItem(indexPath.row))!
         let identifier = "myCell"
+        
         // кастомный класс ячейки
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! ViewCell!
         
@@ -100,15 +94,8 @@ class DKTableViewController : UITableViewController {
             cell = ViewCell(style: .Value1, reuseIdentifier: identifier)
         }
         
-        cell.labelTitle.text =  _news.title
-        
-        
-        /*cell.hotelImages.sd_setImageWithURL(
-        Hotel.getImageUrl(),
-        placeholderImage: Hotel.getNoImage(),
-        options:SDWebImageOptions.RetryFailed)*/
+        cell.labelTitle.text = _newsItem.get("title")
         return cell
-        
     }
     
     
@@ -135,6 +122,11 @@ class DKTableViewController : UITableViewController {
     
     /* колличество рядов в секции */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self._newsModel.count
+        var count = 0
+        
+        if(self._newsModel != nil){
+            count = (self._newsModel?.getProps("items").count)!
+        }
+        return count
     }
 }

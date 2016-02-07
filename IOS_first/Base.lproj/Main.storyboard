@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vm2-8C-31X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vm2-8C-31X">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--News Table View Controller-->
         <scene sceneID="7zO-Qh-9dk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vqC-kx-ppg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Zg8-h8-i3G">
-                    <connections>
-                        <outlet property="delegate" destination="dcI-Jb-9cq" id="LIq-Dm-4q7"/>
-                        <outlet property="searchContentsController" destination="dcI-Jb-9cq" id="Ph8-iy-CaX"/>
-                        <outlet property="searchResultsDataSource" destination="dcI-Jb-9cq" id="Qbe-Np-D3e"/>
-                        <outlet property="searchResultsDelegate" destination="dcI-Jb-9cq" id="vp4-OT-4Iz"/>
-                    </connections>
-                </searchDisplayController>
-                <tableViewController id="dcI-Jb-9cq" customClass="DKTableViewController" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dcI-Jb-9cq" customClass="NewsTableViewController" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="fqg-GJ-5Li">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +17,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8B8-ka-Mc5" id="2W0-6G-gXD">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-jU-YQy">
@@ -64,6 +55,15 @@
                         <outlet property="searchDisplayController" destination="Zg8-h8-i3G" id="OoX-pK-lYV"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vqC-kx-ppg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Zg8-h8-i3G">
+                    <connections>
+                        <outlet property="delegate" destination="dcI-Jb-9cq" id="LIq-Dm-4q7"/>
+                        <outlet property="searchContentsController" destination="dcI-Jb-9cq" id="Ph8-iy-CaX"/>
+                        <outlet property="searchResultsDataSource" destination="dcI-Jb-9cq" id="Qbe-Np-D3e"/>
+                        <outlet property="searchResultsDelegate" destination="dcI-Jb-9cq" id="vp4-OT-4Iz"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="266" y="194"/>
         </scene>

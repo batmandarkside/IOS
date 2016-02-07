@@ -8,12 +8,21 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
+import ReactiveCocoa
 
-class ViewCell: UITableViewCell {
+class ViewCell: UITableViewCell, ReactiveView {
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelMap: UILabel!
     @IBOutlet weak var hotelImages: UIImageView!
+    
+    
+    func bindViewModel(viewModel: AnyObject) {
+        
+    }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +33,16 @@ class ViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func setData() {
+        
+        self.labelTitle.text = ""
+        
+        /*cell.hotelImages.sd_setImageWithURL(
+        Hotel.getImageUrl(),
+        placeholderImage: Hotel.getNoImage(),
+        options:SDWebImageOptions.RetryFailed)*/
     }
     
 }
