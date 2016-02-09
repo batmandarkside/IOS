@@ -14,7 +14,7 @@ import SwiftyJSON
 struct ServicesNews {
     
     
-    static func getNews (page : Int? = 1, rubr : String? = "") -> Promise<JSON>{
+    static func getNews (page : Int? = 1, rubr : String? = "") -> Promise<AnyObject>{
         let url = String(format: "content/news.json?page=%d", page!)
         return Http.get(url, params: nil)
     }

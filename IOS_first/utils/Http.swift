@@ -9,8 +9,19 @@
 import Foundation
 import Alamofire
 import PromiseKit
-import SwiftyJSON
+import ObjectMapper
 
+class Result<T: Mappable>: Mappable {
+    var result: T?
+    
+    required init?(_ map: Map){
+        
+    }
+    
+    func mapping(map: Map) {
+        result <- map["result"]
+    }
+}
 
 
 struct Http {
@@ -20,7 +31,7 @@ struct Http {
     
     
     /*  */
-    static func get(urlParam: String, params: [String: AnyObject]?) -> Promise<JSON>{
+    static func get(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
         
         let URL: String = baseUrl + baseUrlApi + urlParam;
         
@@ -28,8 +39,9 @@ struct Http {
             Alamofire.request(.GET, URL, parameters: params)
                 .responseJSON { response in
                     switch response.result {
-                    case .Success(let json):
-                        fulfill(JSON(json))
+                    case .Success(let JSON):
+                        //let result = Mapper<Result<User>>().map(JSON)
+                        fulfill(JSON)
                     case .Failure(let error):
                         reject(error)
                     }
@@ -37,7 +49,7 @@ struct Http {
         }
     }
     
-    static func post(urlParam: String, params: [String: AnyObject]?) -> Promise<JSON>{
+    static func post(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
         
         let URL: String = baseUrl + baseUrlApi + urlParam;
         
@@ -45,8 +57,8 @@ struct Http {
             Alamofire.request(.POST, URL, parameters: params)
                 .responseJSON { response in
                     switch response.result {
-                    case .Success(let json):
-                        fulfill(JSON(json))
+                    case .Success(let JSON):
+                        fulfill(JSON)
                     case .Failure(let error):
                         reject(error)
                     }

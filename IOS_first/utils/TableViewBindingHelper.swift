@@ -66,17 +66,17 @@ class TableViewBindingHelper: NSObject, UITableViewDataSource, UITableViewDelega
     return cell!
   }
   
-  func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return templateCell.frame.size.height
   }
   
-  func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if selectionCommand != nil {
       selectionCommand?.execute(data[indexPath.row])
     }
   }
   
-  func scrollViewDidScroll(scrollView: UIScrollView!) {
+  func scrollViewDidScroll(scrollView: UIScrollView) {
     if self.delegate?.respondsToSelector(Selector("scrollViewDidScroll:")) == true {
       self.delegate?.scrollViewDidScroll?(scrollView);
     }
