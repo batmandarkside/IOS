@@ -9,13 +9,12 @@
 import UIKit
 import ObjectMapper
 import SDWebImage
-import ReactiveCocoa
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    private var _newsModel : NewsModel!
-    var isVisible : String = ""
+    private var _newsItems : [NewsModelItemMapper]?
+    private var _pageNext = ""
     
     var activityIndicator = ActivityIndicator()
     let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
@@ -23,8 +22,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.delegate = self
+        //tableView.dataSource = self
         
         self.activityIndicator.showActivityIndicator(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
@@ -32,66 +31,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }))
         
         self.navigationBarHidden()
-        
-        ServicesNews.getNews()
-            .then { body -> Void in
-                self._newsModel = Mapper<NewsModel>().map(body)
-                self.navigationBarShow()
-                
-                // перезагрузаем tableView
-                self.tableView.reloadData()
-                Utils.TimeOut(1,
-                    resolve : {
-                        self.activityIndicator.hideActivityIndicator(self.view)
-                    }
-                )
-                
-                let visibleStateChanged = RACObserve(self._newsModel, keyPath: "count")
-                
-                
-                visibleStateChanged.subscribeNext { (value) -> Void in
-                    print(value)
-                }
-            }
-            .error { error in
-                self.presentViewController(self.alert, animated: true, completion: nil)
-        }
-        
-        
-        let testSignal : RACSignal = RACSignal.createSignal { (subscriber) -> RACDisposable! in
-            var i = 0
-            let Timer = Utils.Timer(duration: 1000, handler: { params -> Void in
-                
-                subscriber.sendNext(i++)
-                
-                if(i == 10){
-                    subscriber.sendCompleted()
-                }
-            })
-            
-            Timer.start()
-            
-            
-            return nil
-            }
-            .finally { () -> Void in
-                print("finally")
-                //Timer.stop()
-        	}
-        
-        
-        testSignal.doNext { (value) -> Void in
-                        print(value, "doNext")
-        }
-        testSignal.subscribeNext { (value) -> Void in
-            print(value, "subscribeNext")
-        }
-        
-        //RACSignal
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        self.getNews()
     }
     
     func goBack(){
@@ -113,6 +53,60 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // список новостей
+    func getNews(){
+        ServicesNews.getNews()
+            .then { body -> Void in
+                self.setPageItensAndReloadTableView(body as! NSDictionary)
+                self.navigationBarShow()
+                Utils.TimeOut(1,
+                    resolve : {
+                        self.activityIndicator.hideActivityIndicator(self.view)
+                    }
+                )
+            }
+            .error { error in self.errorLoadContent()}
+        
+    }
+    
+    /**
+     Получаем список новостей
+     создаем модель, достаем сам список и дальше работает с ним
+     если список не пустой, то добавляем к нему новые элементы
+     */
+    func setPageItensAndReloadTableView(data : NSDictionary) {
+        let _model = Mapper<NewsModel>().map(data)
+        
+        if(self._newsItems != nil && self._newsItems?.count > 0){
+            self._newsItems?.appendContentsOf(_model!.items!)
+        } else {
+            self._newsItems = _model!.items!
+        }
+        
+        
+        self._pageNext = _model!.getPageNext()
+        // перезагрузаем tableView
+        self.tableView.reloadData()
+    }
+    
+    // список новостей по доскроллу
+    // TODO : доработать
+    func onEndReached(url : String){
+        ServicesNews.getNewsByUrl(url)
+            .then { body -> Void in
+                
+                self.setPageItensAndReloadTableView(body as! NSDictionary)
+            }
+            .error { error in self.errorLoadContent()}
+        
+    }
+    
+    func errorLoadContent(){
+        self.presentViewController(self.alert, animated: true, completion: nil)
+    }
+    
+    
     /*
     ячейка секции
     Заполняем ее данными в этом методе
@@ -120,36 +114,25 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let _newsItems = (self._newsModel?.items![indexPath.row])!
+        let _newsItem  = self._newsItems![indexPath.row]
         let identifier = "myCell"
         
         // кастомный класс ячейки
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! DKViewCell!
+        //var cell : DKViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! DKViewCell!
+        tableView.registerNib(UINib(nibName: "cell", bundle: nil), forCellReuseIdentifier: identifier)
+        let cell = (tableView.dequeueReusableCellWithIdentifier(identifier) as? DKViewCell)!
         
-        /*if(cell == nil){
-        cell = DKViewCell(style: .Value1, reuseIdentifier: identifier)
-        }*/
+        cell.cellText?.text = _newsItem.getTitle()
+        cell.cellRubricButton?.setTitle(_newsItem.getMainTagTitle(), forState: .Normal)
+        //print(_newsItem.getTitle())
         
-        cell.labelTitle?.text = _newsItems.getTitle()
-        print(_newsItems.getTitle())
-        
-        cell.itemImage?.sd_setImageWithURL(
-            _newsItems.getMainImage(),
-            placeholderImage: UIImage(named :_newsItems.getNoImage()),
+        cell.cellImage?.sd_setImageWithURL(
+            _newsItem.getMainImage(),
+            placeholderImage: UIImage(named :_newsItem.getNoImage()),
             options:SDWebImageOptions.RetryFailed)
         
         return cell
     }
-    
-    
-    // Удаление строки
-    /*override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    
-    myData.removeAtIndex(indexPath.row)
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    }
-    }*/
     
     
     /* заголовок секции */
@@ -166,13 +149,21 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     /* колличество рядов в секции */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
-        
-        if(self._newsModel != nil){
-            count = (self._newsModel?.items!.count)!
+        if(self._newsItems != nil){
+            count = self._newsItems!.count
         }
         return count
     }
     
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let lastRow = self._newsItems!.count - 1
+        if(indexPath.row == lastRow) {
+            if !self._pageNext.isEmpty {
+                print("LOAD MORE", self._pageNext)
+                self.onEndReached(self._pageNext)
+            }
+        }
+    }
 }
 

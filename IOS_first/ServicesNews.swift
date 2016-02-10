@@ -15,10 +15,13 @@ struct ServicesNews {
     
     
     static func getNews (page : Int? = 1, rubr : String? = "") -> Promise<AnyObject>{
-        let url = String(format: "content/news.json?page=%d", page!)
+        let url = String(format: "api/v1/content/news.json?page=%d", page!)
         return Http.get(url, params: nil)
     }
     
+    static func getNewsByUrl (url : String) -> Promise<AnyObject> {
+        return Http.get(url, params: nil)
+    }
     
     static func getNewsByRubric (){
         

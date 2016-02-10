@@ -12,13 +12,12 @@ import ReactiveCocoa
 
 class DKViewCell: UITableViewCell {
     
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
-    
+    @IBOutlet weak var cellText: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellRubricButton: UIButton!
     func bindViewModel(viewModel: AnyObject) {
-        
+
     }
-    
     
     
     override func awakeFromNib() {
@@ -28,7 +27,7 @@ class DKViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+    
         // Configure the view for the selected state
     }
 }

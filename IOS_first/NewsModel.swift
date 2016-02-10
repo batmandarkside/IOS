@@ -13,11 +13,20 @@ class NewsModel : NSObject, Mappable {
     
     var count: Int = 0
     var items: [NewsModelItemMapper]?
-    var page: [String : AnyObject] = [:]
+    var page: [String : AnyObject] = [
+        "next" : "",
+        "page_size": 0,
+        "prev": ""
+    ]
     var request: [String : AnyObject] = [:]
     
 
     required init?(_ map: Map) {}
+    
+    
+    func getPageNext () -> String {
+        return self.page["next"] as! String
+    }
     
     
     // Mappable
@@ -55,6 +64,14 @@ class NewsModelItemMapper : NSObject,  Mappable {
     
     func getTitle() -> String {
         return self.title
+    }
+    
+    func getMainTagTitle() -> String {
+        var mainTag = ""
+        if !self.main_tag.isEmpty {
+            mainTag = self.main_tag["title"]! as! String
+        }
+        return mainTag
     }
     
     func getMainImage() -> NSURL {

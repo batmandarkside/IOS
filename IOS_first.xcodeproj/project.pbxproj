@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A5FB9D41C68953700D49909 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FB9D31C68953700D49909 /* NewsModel.swift */; };
-		0A5FBA131C6A271000D49909 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A5FBA121C6A271000D49909 /* View.xib */; };
+		0A5FBA2C1C6B6AC800D49909 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A5FBA2B1C6B6AC800D49909 /* cell.xib */; };
+		0A5FBA2E1C6B8F1400D49909 /* testRAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FBA2D1C6B8F1400D49909 /* testRAC.swift */; };
 		0A6BB9001C679A9B009A6986 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB8F71C679A9B009A6986 /* ActivityIndicator.swift */; };
 		0A6BB9011C679A9B009A6986 /* DKNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB8F81C679A9B009A6986 /* DKNotification.swift */; };
 		0A6BB9021C679A9B009A6986 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB8F91C679A9B009A6986 /* Filters.swift */; };
@@ -20,7 +21,6 @@
 		0A6BB9081C679A9B009A6986 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB8FF1C679A9B009A6986 /* Utils.swift */; };
 		0A6BB90E1C679AB9009A6986 /* ArticlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB90A1C679AB9009A6986 /* ArticlesModel.swift */; };
 		0A6BB90F1C679AB9009A6986 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB90B1C679AB9009A6986 /* BaseModel.swift */; };
-		0A6BB9101C679AB9009A6986 /* ModelHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB90C1C679AB9009A6986 /* ModelHotel.swift */; };
 		0A6BB9191C67C3D1009A6986 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */; };
 		0A93D0AE1C639DA2006517AF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0A93D0AD1C639DA2006517AF /* Podfile */; };
 		0A93D0E11C63B100006517AF /* ServicesNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93D0E01C63B100006517AF /* ServicesNews.swift */; };
@@ -135,7 +135,8 @@
 
 /* Begin PBXFileReference section */
 		0A5FB9D31C68953700D49909 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		0A5FBA121C6A271000D49909 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = View.xib; path = components/ItemTableView/View.xib; sourceTree = "<group>"; };
+		0A5FBA2B1C6B6AC800D49909 /* cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
+		0A5FBA2D1C6B8F1400D49909 /* testRAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testRAC.swift; sourceTree = "<group>"; };
 		0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		0A6BB8F71C679A9B009A6986 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = utils/ActivityIndicator.swift; sourceTree = "<group>"; };
 		0A6BB8F81C679A9B009A6986 /* DKNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DKNotification.swift; path = utils/DKNotification.swift; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		0A6BB8FF1C679A9B009A6986 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
 		0A6BB90A1C679AB9009A6986 /* ArticlesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticlesModel.swift; path = models/ArticlesModel.swift; sourceTree = "<group>"; };
 		0A6BB90B1C679AB9009A6986 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = models/BaseModel.swift; sourceTree = "<group>"; };
-		0A6BB90C1C679AB9009A6986 /* ModelHotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelHotel.swift; path = models/ModelHotel.swift; sourceTree = "<group>"; };
 		0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		0A93D0AD1C639DA2006517AF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0A93D0E01C63B100006517AF /* ServicesNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesNews.swift; sourceTree = "<group>"; };
@@ -233,6 +233,7 @@
 				0A6BB8FD1C679A9B009A6986 /* RACSignal+Extensions.swift */,
 				0A6BB8FE1C679A9B009A6986 /* TableViewBindingHelper.swift */,
 				0A6BB8FF1C679A9B009A6986 /* Utils.swift */,
+				0A5FBA2D1C6B8F1400D49909 /* testRAC.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -242,7 +243,6 @@
 			children = (
 				0A6BB90A1C679AB9009A6986 /* ArticlesModel.swift */,
 				0A6BB90B1C679AB9009A6986 /* BaseModel.swift */,
-				0A6BB90C1C679AB9009A6986 /* ModelHotel.swift */,
 				0A5FB9D31C68953700D49909 /* NewsModel.swift */,
 			);
 			name = Models;
@@ -264,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */,
-				0A5FBA121C6A271000D49909 /* View.xib */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -304,6 +303,7 @@
 		0A93D10D1C64BD01006517AF /* ItemView */ = {
 			isa = PBXGroup;
 			children = (
+				0A5FBA2B1C6B6AC800D49909 /* cell.xib */,
 				0A93D10E1C64BD15006517AF /* DKViewCell.swift */,
 			);
 			name = ItemView;
@@ -597,8 +597,8 @@
 				B578AA1519F8332300A8C18E /* Main.storyboard in Resources */,
 				0A93D0AE1C639DA2006517AF /* Podfile in Resources */,
 				B505CFB71A46F1C400BE1FCC /* Icon-Small-40@2x.png in Resources */,
+				0A5FBA2C1C6B6AC800D49909 /* cell.xib in Resources */,
 				B505CFB81A46F1C400BE1FCC /* infant.png in Resources */,
-				0A5FBA131C6A271000D49909 /* View.xib in Resources */,
 				B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */,
 				B578AA1719F8332300A8C18E /* Images.xcassets in Resources */,
 				B505CFB91A46F1C400BE1FCC /* no_photo_hotel.png in Resources */,
@@ -668,11 +668,11 @@
 			files = (
 				51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */,
 				B5F6726E1A0F4A19001E90CA /* DKPopoverViewController.swift in Sources */,
-				0A6BB9101C679AB9009A6986 /* ModelHotel.swift in Sources */,
 				0A6BB9071C679A9B009A6986 /* TableViewBindingHelper.swift in Sources */,
 				0A6BB90E1C679AB9009A6986 /* ArticlesModel.swift in Sources */,
 				0A93D10F1C64BD15006517AF /* DKViewCell.swift in Sources */,
 				0A6BB9191C67C3D1009A6986 /* NewsScreen.swift in Sources */,
+				0A5FBA2E1C6B8F1400D49909 /* testRAC.swift in Sources */,
 				B510C6BB1A0E21C5005D85C0 /* DKSearchFormController.swift in Sources */,
 				0A6BB9001C679A9B009A6986 /* ActivityIndicator.swift in Sources */,
 				B578AA1219F8332300A8C18E /* ViewController.swift in Sources */,

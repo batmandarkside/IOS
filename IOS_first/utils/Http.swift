@@ -25,15 +25,15 @@ class Result<T: Mappable>: Mappable {
 
 
 struct Http {
-    
-    static let baseUrl: String = "http://family.rambler.ru/"
-    static let baseUrlApi: String = "api/v1/"
+
+    private static let urlTempl = "http://family.rambler.ru/%@"
     
     
     /*  */
     static func get(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
         
-        let URL: String = baseUrl + baseUrlApi + urlParam;
+        
+        let URL: String =  String(format: urlTempl, urlParam)
         
         return Promise { fulfill, reject in
             Alamofire.request(.GET, URL, parameters: params)
@@ -50,9 +50,7 @@ struct Http {
     }
     
     static func post(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
-        
-        let URL: String = baseUrl + baseUrlApi + urlParam;
-        
+        let URL: String =  String(format: urlTempl, urlParam)
         return Promise { fulfill, reject in
             Alamofire.request(.POST, URL, parameters: params)
                 .responseJSON { response in
