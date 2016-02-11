@@ -82,7 +82,6 @@ class ActivityIndicator {
         
         loadingView.frame = loadingViewFrameSize!
         loadingView.center = uiView.convertPoint(CGPointMake(50, 50), toView: nil)
-        loadingView.backgroundColor = UIColorFromHex(0x444444, alpha: 0.7)
         loadingView.clipsToBounds = true
         loadingView.layer.cornerRadius = 10
         
@@ -90,6 +89,7 @@ class ActivityIndicator {
         if(styleIndicator != nil){
             activityIndicator.activityIndicatorViewStyle = styleIndicator!
         } else {
+            loadingView.backgroundColor = UIColorFromHex(0x444444, alpha: 0.7)
             activityIndicator.activityIndicatorViewStyle = .White
         }
         
@@ -102,16 +102,16 @@ class ActivityIndicator {
     }
     
     
-    func showActivityIndicator(uiView: UIView, sizeIndicator: String, styleIndicator: UIActivityIndicatorViewStyle!) {
+    func show(uiView: UIView, sizeIndicator: String, styleIndicator: UIActivityIndicatorViewStyle!) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : styleIndicator)
     }
-    func showActivityIndicator(uiView: UIView, styleIndicator: UIActivityIndicatorViewStyle!) {
+    func show(uiView: UIView, styleIndicator: UIActivityIndicatorViewStyle!) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : styleIndicator)
     }
-    func showActivityIndicator(uiView: UIView, sizeIndicator: String) {
+    func show(uiView: UIView, sizeIndicator: String) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : nil)
     }
-    func showActivityIndicator(uiView: UIView) {
+    func show(uiView: UIView) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : nil)
     }
     
@@ -121,7 +121,7 @@ class ActivityIndicator {
     
     @param uiView - remove activity indicator from this view
     */
-    func hideActivityIndicator(uiView: UIView) {
+    func hide(uiView: UIView) {
         activityIndicator.stopAnimating()
         container.removeFromSuperview()
     }
@@ -138,5 +138,29 @@ class ActivityIndicator {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
+}
+
+
+struct PagingSpinner {
+    private static let pagingSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    private static var parentView = UITableView()
     
+    static func appendSpinner(view : UITableView) {
+        self.parentView = view;
+        self.pagingSpinner.color = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+        self.pagingSpinner.hidesWhenStopped = true
+        //self.pagingSpinner.backgroundColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+		self.pagingSpinner.bounds.size.height = 50.0
+        view.tableFooterView = self.pagingSpinner;
+    }
+    
+    static func show() {
+        //self.parentView.bounds = CGRectMake(0, 0, 0, 0)
+        self.pagingSpinner.startAnimating()
+    }
+    
+    static func hide() {
+        self.pagingSpinner.stopAnimating()
+    }
+
 }

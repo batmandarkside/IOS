@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import RxSwift
 
 class NewsModel : NSObject, Mappable {
     
@@ -46,7 +47,7 @@ class NewsModelItemMapper : NSObject,  Mappable {
     var feed: String = ""
     var id: Int?
     var link: String = ""
-    var main_image: MainImageMapper?
+    var main_image: ImageMapper?
     var main_tag: [String : AnyObject] = [:]
     var media: [String : AnyObject] = [:]
     var original_author: String = ""
@@ -55,7 +56,7 @@ class NewsModelItemMapper : NSObject,  Mappable {
     var related_api_urls: [String : AnyObject] = [:]
     var seo: [String : AnyObject] = [:]
     var slug: String = ""
-    var tags: [TagsMapper]?
+    var tags: [TagsNewsMapper]?
     var text: String = ""
     var title: String = ""
     
@@ -113,7 +114,7 @@ class NewsModelItemMapper : NSObject,  Mappable {
     }
 }
 
-class MainImageMapper:  Mappable {
+class ImageMapper:  Mappable {
     var description: String = ""
     var image_url: String = ""
     var image_url_template: String = ""
@@ -142,7 +143,7 @@ class MainImageMapper:  Mappable {
     
 }
 
-class TagsMapper: NSObject, Mappable {
+class TagsNewsMapper: NSObject, Mappable {
     var slug: String = ""
     var title: String = ""
     

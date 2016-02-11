@@ -8,15 +8,17 @@
 
 import UIKit
 import ObjectMapper
+import RxSwift
 import SDWebImage
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    private var _newsItems : [NewsModelItemMapper]?
+    private var _newsItems : [ContentModelItemMapper]?
     private var _pageNext = ""
     
     var activityIndicator = ActivityIndicator()
+    
     let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
     
     override func viewDidLoad() {
@@ -25,13 +27,14 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //tableView.delegate = self
         //tableView.dataSource = self
         
-        self.activityIndicator.showActivityIndicator(self.view)
+        self.activityIndicator.show(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
             self.goBack()
         }))
         
         self.navigationBarHidden()
-        self.getNews()
+        self.getNews()        
+        PagingSpinner.appendSpinner(self.tableView)
     }
     
     func goBack(){
@@ -59,10 +62,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ServicesNews.getNews()
             .then { body -> Void in
                 self.setPageItensAndReloadTableView(body as! NSDictionary)
-                self.navigationBarShow()
+                
                 Utils.TimeOut(1,
                     resolve : {
-                        self.activityIndicator.hideActivityIndicator(self.view)
+                        self.activityIndicator.hide(self.view)
+                        self.navigationBarShow()
                     }
                 )
             }
@@ -76,7 +80,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
      если список не пустой, то добавляем к нему новые элементы
      */
     func setPageItensAndReloadTableView(data : NSDictionary) {
-        let _model = Mapper<NewsModel>().map(data)
+        let _model = Mapper<ContentModel>().map(data)
         
         if(self._newsItems != nil && self._newsItems?.count > 0){
             self._newsItems?.appendContentsOf(_model!.items!)
@@ -93,10 +97,12 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // список новостей по доскроллу
     // TODO : доработать
     func onEndReached(url : String){
+        PagingSpinner.show()        
         ServicesNews.getNewsByUrl(url)
             .then { body -> Void in
                 
                 self.setPageItensAndReloadTableView(body as! NSDictionary)
+                PagingSpinner.hide()
             }
             .error { error in self.errorLoadContent()}
         
@@ -155,6 +161,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return count
     }
     
+    //func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    //    <#code#>
+    //}
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let lastRow = self._newsItems!.count - 1

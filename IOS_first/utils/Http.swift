@@ -11,21 +11,25 @@ import Alamofire
 import PromiseKit
 import ObjectMapper
 
-class Result<T: Mappable>: Mappable {
-    var result: T?
+public enum HttpError: ErrorType {
+    case NotDetermined
+    case Restricted
+    case Denied
     
-    required init?(_ map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        result <- map["result"]
+    public var localizedDescription: String {
+        switch self {
+        case .NotDetermined:
+            return "Access NotDetermined"
+        case .Restricted:
+            return "Restricted"
+        case .Denied:
+            return "Denied"
+        }
     }
 }
 
-
 struct Http {
-
+    
     private static let urlTempl = "http://family.rambler.ru/%@"
     
     
@@ -35,15 +39,14 @@ struct Http {
         
         let URL: String =  String(format: urlTempl, urlParam)
         
-        return Promise { fulfill, reject in
+        return Promise<AnyObject> { fulfill, reject in
             Alamofire.request(.GET, URL, parameters: params)
                 .responseJSON { response in
                     switch response.result {
                     case .Success(let JSON):
-                        //let result = Mapper<Result<User>>().map(JSON)
                         fulfill(JSON)
                     case .Failure(let error):
-                        reject(error)
+						reject(error)
                     }
             }
         }
