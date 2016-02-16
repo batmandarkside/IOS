@@ -23,7 +23,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         self.activityIndicator.show(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
             self.goBack()

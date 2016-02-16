@@ -20,6 +20,9 @@
 		0A6BB9191C67C3D1009A6986 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */; };
 		0A71B0211C6CE0A6002A65BB /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71B0201C6CE0A6002A65BB /* ArticlesScreen.swift */; };
 		0A71B0231C6CEBDC002A65BB /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71B0221C6CEBDC002A65BB /* SearchScreen.swift */; };
+		0A72FBBB1C732E6100739306 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBBA1C732E6100739306 /* SWRevealViewController.m */; };
+		0A72FBC81C7339AB00739306 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC71C7339AB00739306 /* SlideMenuController.swift */; };
+		0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC91C733C6800739306 /* IndexScreen.swift */; };
 		0A93D0AE1C639DA2006517AF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0A93D0AD1C639DA2006517AF /* Podfile */; };
 		0A93D0E11C63B100006517AF /* ServicesNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93D0E01C63B100006517AF /* ServicesNews.swift */; };
 		0A93D0E31C63B10E006517AF /* ServicesArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93D0E21C63B10E006517AF /* ServicesArticles.swift */; };
@@ -153,6 +156,10 @@
 		0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		0A71B0201C6CE0A6002A65BB /* ArticlesScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 		0A71B0221C6CEBDC002A65BB /* SearchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		0A72FBB91C732E6100739306 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0A72FBBA1C732E6100739306 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0A72FBC71C7339AB00739306 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		0A72FBC91C733C6800739306 /* IndexScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexScreen.swift; sourceTree = "<group>"; };
 		0A93D0AD1C639DA2006517AF /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0A93D0E01C63B100006517AF /* ServicesNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesNews.swift; sourceTree = "<group>"; };
 		0A93D0E21C63B10E006517AF /* ServicesArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesArticles.swift; sourceTree = "<group>"; };
@@ -250,6 +257,7 @@
 		0A6BB9121C67C36B009A6986 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A72FBCB1C7340B600739306 /* Index */,
 				0A6BB9171C67C393009A6986 /* ArticleItem */,
 				0A6BB9161C67C389009A6986 /* NewsItem */,
 				0A6BB9151C67C384009A6986 /* Search */,
@@ -302,6 +310,22 @@
 			name = ArticleItem;
 			sourceTree = "<group>";
 		};
+		0A72FBAE1C732CDC00739306 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0A72FBC71C7339AB00739306 /* SlideMenuController.swift */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		0A72FBCB1C7340B600739306 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				0A72FBC91C733C6800739306 /* IndexScreen.swift */,
+			);
+			name = Index;
+			sourceTree = "<group>";
+		};
 		0A93D10D1C64BD01006517AF /* ItemView */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +347,7 @@
 		5167FCC919F8EC31008AFF52 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0A72FBAE1C732CDC00739306 /* SlideMenu */,
 				0A93D10D1C64BD01006517AF /* ItemView */,
 				5167FCE019FFF979008AFF52 /* ListData */,
 			);
@@ -378,7 +403,6 @@
 				0A6BB8F61C679A7E009A6986 /* Utils */,
 				0A93D0AD1C639DA2006517AF /* Podfile */,
 				B5815F541A0AD9A8004EDAA6 /* images */,
-				B5815F4B1A0ABD94004EDAA6 /* IOS_first-Bridging-Header.h */,
 				517C71F41A03E15A0084E6FE /* Services */,
 				5167FCC919F8EC31008AFF52 /* Components */,
 				B578AA0F19F8332300A8C18E /* AppDelegate.swift */,
@@ -394,6 +418,9 @@
 		B578AA0D19F8332300A8C18E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5815F4B1A0ABD94004EDAA6 /* IOS_first-Bridging-Header.h */,
+				0A72FBB91C732E6100739306 /* SWRevealViewController.h */,
+				0A72FBBA1C732E6100739306 /* SWRevealViewController.m */,
 				B578AA0E19F8332300A8C18E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -675,9 +702,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */,
 				0A71B0211C6CE0A6002A65BB /* ArticlesScreen.swift in Sources */,
 				51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */,
 				B5F6726E1A0F4A19001E90CA /* DKPopoverViewController.swift in Sources */,
+				0A72FBBB1C732E6100739306 /* SWRevealViewController.m in Sources */,
 				0A6BB90E1C679AB9009A6986 /* ContentModel.swift in Sources */,
 				0A93D10F1C64BD15006517AF /* DKViewCell.swift in Sources */,
 				0A5FBA311C6C833B00D49909 /* NewsViewModel.swift in Sources */,
@@ -696,6 +725,7 @@
 				0A6BB9081C679A9B009A6986 /* Utils.swift in Sources */,
 				0A93D0E11C63B100006517AF /* ServicesNews.swift in Sources */,
 				0A6BB9021C679A9B009A6986 /* Filters.swift in Sources */,
+				0A72FBC81C7339AB00739306 /* SlideMenuController.swift in Sources */,
 				0A71B0231C6CEBDC002A65BB /* SearchScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

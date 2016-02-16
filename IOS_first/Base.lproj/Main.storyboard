@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vm2-8C-31X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lgC-pF-0nX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Reveal View Controller-->
         <scene sceneID="R3r-cm-Lri">
             <objects>
-                <viewController id="lgC-pF-0nX" sceneMemberID="viewController">
+                <viewController id="lgC-pF-0nX" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eie-rj-zdq"/>
                         <viewControllerLayoutGuide type="bottom" id="3cm-Ul-BmA"/>
@@ -16,51 +15,73 @@
                     <view key="view" contentMode="scaleToFill" id="9u7-PA-ekJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-Wr-Ahc">
-                                <rect key="frame" x="20" y="72" width="374" height="30"/>
-                                <state key="normal" title="Новости"/>
-                                <connections>
-                                    <segue destination="J9h-ul-XBa" kind="show" id="KmQ-qB-KZ3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhG-XP-Zmy">
-                                <rect key="frame" x="20" y="110" width="374" height="30"/>
-                                <state key="normal" title="Статьи"/>
-                                <connections>
-                                    <segue destination="kGc-1H-g03" kind="show" id="uCa-rc-pdc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-2u-3BH">
-                                <rect key="frame" x="20" y="148" width="374" height="30"/>
-                                <state key="normal" title="Поиск"/>
-                                <connections>
-                                    <segue destination="u7g-7e-D43" kind="show" id="MBU-Oi-fPn"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="b7Z-Wr-Ahc" firstAttribute="leading" secondItem="9u7-PA-ekJ" secondAttribute="leadingMargin" id="Mwf-8T-Nkl"/>
-                            <constraint firstItem="pj5-2u-3BH" firstAttribute="leading" secondItem="9u7-PA-ekJ" secondAttribute="leadingMargin" id="P1h-ie-N9Q"/>
-                            <constraint firstItem="XhG-XP-Zmy" firstAttribute="top" secondItem="b7Z-Wr-Ahc" secondAttribute="bottom" constant="8" id="PUi-Cx-Bcn"/>
-                            <constraint firstItem="pj5-2u-3BH" firstAttribute="width" secondItem="b7Z-Wr-Ahc" secondAttribute="width" id="TKi-Lr-eCm"/>
-                            <constraint firstItem="pj5-2u-3BH" firstAttribute="trailing" secondItem="9u7-PA-ekJ" secondAttribute="trailingMargin" id="ait-Co-B8x"/>
-                            <constraint firstItem="XhG-XP-Zmy" firstAttribute="trailing" secondItem="9u7-PA-ekJ" secondAttribute="trailingMargin" id="hnh-Lb-pht"/>
-                            <constraint firstItem="XhG-XP-Zmy" firstAttribute="width" secondItem="b7Z-Wr-Ahc" secondAttribute="width" id="hyC-TQ-Cvm"/>
-                            <constraint firstItem="pj5-2u-3BH" firstAttribute="top" secondItem="XhG-XP-Zmy" secondAttribute="bottom" constant="8" id="mGD-Ai-JkK"/>
-                            <constraint firstItem="b7Z-Wr-Ahc" firstAttribute="trailing" secondItem="9u7-PA-ekJ" secondAttribute="trailingMargin" id="mOY-VL-9CL"/>
-                            <constraint firstItem="XhG-XP-Zmy" firstAttribute="leading" secondItem="9u7-PA-ekJ" secondAttribute="leadingMargin" id="oif-Ap-Kai"/>
-                            <constraint firstItem="b7Z-Wr-Ahc" firstAttribute="top" secondItem="eie-rj-zdq" secondAttribute="bottom" constant="8" id="vnw-ge-X6H"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2pw-uc-1EZ"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <segue destination="vm2-8C-31X" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Z9v-Qc-RcF"/>
+                        <segue destination="rCC-DU-nhK" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Bzj-rh-R69"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0J-V0-67E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-793" y="193"/>
+            <point key="canvasLocation" x="-2331" y="211"/>
+        </scene>
+        <!--Slide Menu Controller-->
+        <scene sceneID="l7i-39-LwO">
+            <objects>
+                <viewController id="rCC-DU-nhK" customClass="SlideMenuController" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PrL-TA-73d"/>
+                        <viewControllerLayoutGuide type="bottom" id="25V-Wt-VCv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gpj-xp-2u0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-Wr-Ahc">
+                                <rect key="frame" x="20" y="67" width="374" height="30"/>
+                                <state key="normal" title="Новости">
+                                    <color key="titleColor" red="0.68627450980392157" green="0.70980392156862748" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J9h-ul-XBa" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="0DE-au-q0J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhG-XP-Zmy">
+                                <rect key="frame" x="20" y="105" width="374" height="30"/>
+                                <state key="normal" title="Статьи">
+                                    <color key="titleColor" red="0.68627450980000004" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kGc-1H-g03" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dZx-xb-B0Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-2u-3BH">
+                                <rect key="frame" x="20" y="143" width="374" height="30"/>
+                                <state key="normal" title="Поиск">
+                                    <color key="titleColor" red="0.68627450980000004" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="u7g-7e-D43" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="PGf-8y-Nmg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2196078431372549" green="0.27058823529411763" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="articlesButton" destination="XhG-XP-Zmy" id="660-OJ-Jbt"/>
+                        <outlet property="newsButton" destination="b7Z-Wr-Ahc" id="D5n-Vo-YWe"/>
+                        <outlet property="searchButton" destination="pj5-2u-3BH" id="Rpp-ch-nBZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2c-b2-9pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1262" y="-146"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="sMX-j1-6os">
@@ -100,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rpc-Fv-w16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-307" y="193"/>
+            <point key="canvasLocation" x="-78" y="-617"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="i3m-Qf-bmR">
@@ -170,7 +191,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-307" y="-597"/>
+            <point key="canvasLocation" x="-604" y="260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bI5-dv-Jfz">
@@ -187,7 +208,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLw-QR-TUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-828" y="1025"/>
+            <point key="canvasLocation" x="-684" y="2057"/>
         </scene>
         <!--Пассажиры-->
         <scene sceneID="7iI-3R-LI2">
@@ -284,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBH-Dz-PeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-473" y="1025"/>
+            <point key="canvasLocation" x="-329" y="2057"/>
         </scene>
         <!--Search Form Controller-->
         <scene sceneID="d7D-Wn-KWH">
@@ -411,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t77-pd-dDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1264" y="1109"/>
+            <point key="canvasLocation" x="-1120" y="2141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j3I-bQ-Uvf">
@@ -426,12 +447,33 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lgC-pF-0nX" kind="relationship" relationship="rootViewController" id="j6n-jl-kQn"/>
+                        <segue destination="8eG-ao-OMd" kind="relationship" relationship="rootViewController" id="Ktr-u7-l47"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2P-Yl-nwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1263.75" y="193.30985915492957"/>
+            <point key="canvasLocation" x="-1799" y="741"/>
+        </scene>
+        <!--Index Screen-->
+        <scene sceneID="bSj-wn-MK4">
+            <objects>
+                <viewController id="8eG-ao-OMd" customClass="IndexScreen" customModule="IOS_first" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0AI-eC-73r"/>
+                        <viewControllerLayoutGuide type="bottom" id="QpY-Kk-spx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b1q-Ba-qvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="q8k-95-s6R"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSG-xC-Vql" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1262" y="765"/>
         </scene>
         <!--Detail Content-->
         <scene sceneID="inV-ew-xuj">
@@ -451,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uf5-2z-Zrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1264" y="-597"/>
+            <point key="canvasLocation" x="-66" y="260"/>
         </scene>
         <!--Articles View Controller-->
         <scene sceneID="aV7-CR-z1X">
@@ -491,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLs-j0-Fen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-793" y="-597"/>
+            <point key="canvasLocation" x="-604" y="-617"/>
         </scene>
     </scenes>
     <resources>

@@ -26,6 +26,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //tableView.delegate = self
         //tableView.dataSource = self
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.activityIndicator.show(self.view)
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in

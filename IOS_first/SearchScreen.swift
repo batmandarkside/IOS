@@ -24,6 +24,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         //tableView.delegate = self
         //tableView.dataSource = self
