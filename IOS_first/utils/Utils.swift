@@ -17,9 +17,9 @@ class ViewControllerUtils {
 struct Utils {
     
     /** setTimeout */
-    static func TimeOut(timeOut: Int64, resolve: () -> ()){
-        let delta: Int64 = timeOut * Int64(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, delta)
+    static func TimeOut(timeOut: Double, resolve: () -> ()){
+        let delta = timeOut * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delta))
         
         dispatch_after(time, dispatch_get_main_queue(), {
             resolve()

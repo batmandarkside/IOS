@@ -14,6 +14,7 @@ import SDWebImage
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     private var _newsItems : [ContentModelItemMapper]?
     private var _pageNext = ""
     
@@ -61,7 +62,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             .then { body -> Void in
                 self.setPageItensAndReloadTableView(body as! NSDictionary)
                 
-                Utils.TimeOut(1,
+                Utils.TimeOut(0.3,
                     resolve : {
                         self.activityIndicator.hide(self.view)
                         self.navigationBarShow()

@@ -20,6 +20,9 @@
 		0A6BB9191C67C3D1009A6986 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */; };
 		0A71B0211C6CE0A6002A65BB /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71B0201C6CE0A6002A65BB /* ArticlesScreen.swift */; };
 		0A71B0231C6CEBDC002A65BB /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71B0221C6CEBDC002A65BB /* SearchScreen.swift */; };
+		0A72014A1C73591800739306 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7201491C73591800739306 /* LaunchScreen.swift */; };
+		0A72014C1C735E4F00739306 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A72014B1C735E4F00739306 /* LaunchScreen.storyboard */; };
+		0A72014E1C73838100739306 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A72014D1C73838100739306 /* Media.xcassets */; };
 		0A72FBBB1C732E6100739306 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBBA1C732E6100739306 /* SWRevealViewController.m */; };
 		0A72FBC81C7339AB00739306 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC71C7339AB00739306 /* SlideMenuController.swift */; };
 		0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC91C733C6800739306 /* IndexScreen.swift */; };
@@ -41,8 +44,6 @@
 		B578AA1019F8332300A8C18E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA0F19F8332300A8C18E /* AppDelegate.swift */; };
 		B578AA1219F8332300A8C18E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA1119F8332300A8C18E /* ViewController.swift */; };
 		B578AA1519F8332300A8C18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1319F8332300A8C18E /* Main.storyboard */; };
-		B578AA1719F8332300A8C18E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1619F8332300A8C18E /* Images.xcassets */; };
-		B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B578AA1819F8332300A8C18E /* LaunchScreen.xib */; };
 		B578AA2619F8332300A8C18E /* IOS_firstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578AA2519F8332300A8C18E /* IOS_firstTests.swift */; };
 		B5F6726E1A0F4A19001E90CA /* DKPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F6726D1A0F4A19001E90CA /* DKPopoverViewController.swift */; };
 		E2050808333ADE06D3874E44 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED85A53CDFF7AF39FAC37586 /* Pods.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -156,6 +157,9 @@
 		0A6BB9181C67C3D1009A6986 /* NewsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		0A71B0201C6CE0A6002A65BB /* ArticlesScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 		0A71B0221C6CEBDC002A65BB /* SearchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		0A7201491C73591800739306 /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		0A72014B1C735E4F00739306 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A72014D1C73838100739306 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = IOS_first/Media.xcassets; sourceTree = "<group>"; };
 		0A72FBB91C732E6100739306 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0A72FBBA1C732E6100739306 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0A72FBC71C7339AB00739306 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
@@ -182,8 +186,6 @@
 		B578AA0F19F8332300A8C18E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B578AA1119F8332300A8C18E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B578AA1419F8332300A8C18E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B578AA1619F8332300A8C18E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B578AA1919F8332300A8C18E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B578AA1F19F8332300A8C18E /* IOS_firstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOS_firstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B578AA2419F8332300A8C18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B578AA2519F8332300A8C18E /* IOS_firstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_firstTests.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		0A6BB9121C67C36B009A6986 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A7201481C73590100739306 /* Launch */,
 				0A72FBCB1C7340B600739306 /* Index */,
 				0A6BB9171C67C393009A6986 /* ArticleItem */,
 				0A6BB9161C67C389009A6986 /* NewsItem */,
@@ -308,6 +311,14 @@
 			children = (
 			);
 			name = ArticleItem;
+			sourceTree = "<group>";
+		};
+		0A7201481C73590100739306 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0A7201491C73591800739306 /* LaunchScreen.swift */,
+			);
+			name = Launch;
 			sourceTree = "<group>";
 		};
 		0A72FBAE1C732CDC00739306 /* SlideMenu */ = {
@@ -374,6 +385,7 @@
 		B578AA0119F8332300A8C18E = {
 			isa = PBXGroup;
 			children = (
+				0A72014D1C73838100739306 /* Media.xcassets */,
 				0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */,
 				5167FCD019F9293F008AFF52 /* UIKit.framework */,
 				5167FCCE19F92932008AFF52 /* JavaScriptCore.framework */,
@@ -408,9 +420,8 @@
 				B578AA0F19F8332300A8C18E /* AppDelegate.swift */,
 				B578AA1119F8332300A8C18E /* ViewController.swift */,
 				B578AA1319F8332300A8C18E /* Main.storyboard */,
-				B578AA1619F8332300A8C18E /* Images.xcassets */,
-				B578AA1819F8332300A8C18E /* LaunchScreen.xib */,
 				B578AA0D19F8332300A8C18E /* Supporting Files */,
+				0A72014B1C735E4F00739306 /* LaunchScreen.storyboard */,
 			);
 			path = IOS_first;
 			sourceTree = "<group>";
@@ -628,6 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A72014E1C73838100739306 /* Media.xcassets in Resources */,
 				B505CFB51A46F1C400BE1FCC /* adult.png in Resources */,
 				B505CFB61A46F1C400BE1FCC /* children.png in Resources */,
 				B578AA1519F8332300A8C18E /* Main.storyboard in Resources */,
@@ -635,8 +647,7 @@
 				B505CFB71A46F1C400BE1FCC /* Icon-Small-40@2x.png in Resources */,
 				0A5FBA2C1C6B6AC800D49909 /* cell.xib in Resources */,
 				B505CFB81A46F1C400BE1FCC /* infant.png in Resources */,
-				B578AA1A19F8332300A8C18E /* LaunchScreen.xib in Resources */,
-				B578AA1719F8332300A8C18E /* Images.xcassets in Resources */,
+				0A72014C1C735E4F00739306 /* LaunchScreen.storyboard in Resources */,
 				B505CFB91A46F1C400BE1FCC /* no_photo_hotel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A72014A1C73591800739306 /* LaunchScreen.swift in Sources */,
 				0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */,
 				0A71B0211C6CE0A6002A65BB /* ArticlesScreen.swift in Sources */,
 				51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */,
@@ -757,14 +769,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B578AA1819F8332300A8C18E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B578AA1919F8332300A8C18E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -804,7 +808,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -842,7 +846,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -855,7 +859,7 @@
 			baseConfigurationReference = CDA6D13F469AD3BF3EA46D8E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IOS_first/Info.plist;
@@ -874,7 +878,7 @@
 			baseConfigurationReference = 77BD000212A6FDB9C51E2214 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = IOS_first/Info.plist;
