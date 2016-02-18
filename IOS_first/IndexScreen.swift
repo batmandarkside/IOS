@@ -9,10 +9,15 @@
 import Foundation
 
 class IndexScreen : UIViewController {
-    //@IBOutlet weak var Open: UIBarButtonItem!
+    @IBOutlet weak var openMenu: UIBarButtonItem!
     override func viewDidLoad() {
-        //Open.target = self.revealViewController()
-        //Open.action = Selector("revealToggle:")
+        openMenu.target = self.revealViewController()
+        openMenu.action = Selector("revealToggle:")
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("prepareForSegue")
+        
     }
 }

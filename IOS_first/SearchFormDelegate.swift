@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol SearchInputProtocol: class {
+    func searchInputChanged(data: String)
+}
+
 protocol DKDatePickerViewProtocol: class {
 	func datePickerChanged(data: String)
 }

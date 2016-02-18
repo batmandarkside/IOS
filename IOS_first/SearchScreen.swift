@@ -13,9 +13,7 @@ import SDWebImage
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var backButton: UIBarButtonItem!
     private var _newsItems : [ContentModelItemMapper]?
     private var _pageNext = ""
     
@@ -30,19 +28,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         //tableView.delegate = self
         //tableView.dataSource = self
         
-        self.activityIndicator.show(self.view)
+
         self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
             self.goBack()
         }))
         
-        self.navigationBarHidden()
-        self.getNews()
+        //self.activityIndicator.show(self.view)
+        //self.navigationBarHidden()
+        //self.getNews()
         PagingSpinner.appendSpinner(self.tableView)
     }
     
     func goBack(){
-        //self.navigationController?.popToRootViewControllerAnimated(true)
-        self.navigationBarShow()
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        //self.navigationBarShow()
     }
     
     
@@ -57,6 +56,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func newsAction(sender: AnyObject) {
+        print("newsAction")
+        
+    }
+    
+    @IBAction func articlesAction(sender: AnyObject) {
+        print("articlesAction")
+    }
+    
+    @IBAction func allResultAction(sender: AnyObject) {
+        print("allResultAction")
     }
     
     
