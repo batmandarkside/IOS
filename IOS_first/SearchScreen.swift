@@ -11,8 +11,9 @@ import ObjectMapper
 import RxSwift
 import SDWebImage
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SearchInputProtocol {
     
+    @IBOutlet weak var CurrentViewSearchSuggest: SearchSuggest!
     @IBOutlet weak var tableView: UITableView!
     private var _newsItems : [ContentModelItemMapper]?
     private var _pageNext = ""
@@ -25,6 +26,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
+        CurrentViewSearchSuggest.hidden = true
+        
         //tableView.delegate = self
         //tableView.dataSource = self
         
@@ -35,8 +38,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         //self.activityIndicator.show(self.view)
         //self.navigationBarHidden()
-        //self.getNews()
+        self.getNews()
         PagingSpinner.appendSpinner(self.tableView)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification:", name:"NotificationIdentifier", object: nil)
     }
     
     func goBack(){
@@ -56,6 +61,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func methodOfReceivedNotification(notification: NSNotification){
+        print(notification.object!.dynamicType)
+            //if(object.count > 3)
+        //{
+        //   self.CurrentViewSearchSuggest.hidden = false
+        //}
+    }
+    
+    func searchInputChanged(data: String){
+        print(data)
     }
     
     
@@ -116,7 +134,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         PagingSpinner.show()
         ServicesNews.getNewsByUrl(url)
             .then { body -> Void in
-                
+                //self.CurrentViewSearchSuggest.hidden = false
                 self.setPageItensAndReloadTableView(body as! NSDictionary)
                 PagingSpinner.hide()
             }

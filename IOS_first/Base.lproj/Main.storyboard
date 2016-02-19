@@ -250,25 +250,57 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aos-Iw-At1" customClass="SearchBarWidget" customModule="IOS_first" customModuleProvider="target">
-                                <rect key="frame" x="4" y="72" width="316" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="4" y="72" width="316" height="40"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOv-ei-lbZ" customClass="SearchSuggest" customModule="IOS_first" customModuleProvider="target">
+                                <rect key="frame" x="4" y="120" width="312" height="448"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ju4-xZ-0Nn">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="448"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="rOv-ei-lbZ" id="h3L-Hp-ivf"/>
+                                            <outlet property="delegate" destination="rOv-ei-lbZ" id="KTf-sh-lPU"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70343244075775146" green="0.67973357439041138" blue="0.083951003849506378" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ju4-xZ-0Nn" secondAttribute="trailing" id="HZ9-KI-LJb"/>
+                                    <constraint firstAttribute="bottom" secondItem="ju4-xZ-0Nn" secondAttribute="bottom" id="K1s-wG-2F4"/>
+                                    <constraint firstItem="ju4-xZ-0Nn" firstAttribute="top" secondItem="rOv-ei-lbZ" secondAttribute="top" id="N21-J8-Dhk"/>
+                                    <constraint firstItem="ju4-xZ-0Nn" firstAttribute="leading" secondItem="rOv-ei-lbZ" secondAttribute="leading" id="pR5-dJ-sPc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="tableView" destination="ju4-xZ-0Nn" id="wqe-jQ-H8e"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aos-Iw-At1" secondAttribute="trailing" id="4Ts-Hx-FID"/>
                             <constraint firstItem="E1K-ES-A2T" firstAttribute="top" secondItem="1X6-G2-hIG" secondAttribute="bottom" constant="56" id="5g9-qj-uJk"/>
+                            <constraint firstItem="E1K-ES-A2T" firstAttribute="top" secondItem="aos-Iw-At1" secondAttribute="bottom" constant="8" symbolic="YES" id="6Hn-Av-cdW"/>
+                            <constraint firstItem="aos-Iw-At1" firstAttribute="leading" secondItem="9Dn-lg-shq" secondAttribute="leading" constant="4" id="7rM-41-N7E"/>
                             <constraint firstItem="ttF-Nb-KOX" firstAttribute="top" secondItem="E1K-ES-A2T" secondAttribute="bottom" constant="-4" id="8GD-TD-ee9"/>
-                            <constraint firstItem="aos-Iw-At1" firstAttribute="top" secondItem="1X6-G2-hIG" secondAttribute="bottom" constant="8" id="Ab6-R2-ibU"/>
+                            <constraint firstItem="CX0-GU-gTB" firstAttribute="top" secondItem="rOv-ei-lbZ" secondAttribute="bottom" id="9gX-mF-yft"/>
+                            <constraint firstAttribute="trailing" secondItem="rOv-ei-lbZ" secondAttribute="trailing" constant="4" id="BJu-1q-QJe"/>
+                            <constraint firstItem="rOv-ei-lbZ" firstAttribute="leading" secondItem="9Dn-lg-shq" secondAttribute="leading" constant="4" id="EXE-9A-XGL"/>
                             <constraint firstItem="E1K-ES-A2T" firstAttribute="centerX" secondItem="9Dn-lg-shq" secondAttribute="centerX" id="EZw-bm-b1y"/>
-                            <constraint firstItem="aos-Iw-At1" firstAttribute="leading" secondItem="9Dn-lg-shq" secondAttribute="leading" constant="4" id="FmK-tG-xy6"/>
+                            <constraint firstItem="rOv-ei-lbZ" firstAttribute="top" secondItem="aos-Iw-At1" secondAttribute="bottom" constant="8" id="GKI-UR-VTy"/>
+                            <constraint firstItem="aos-Iw-At1" firstAttribute="top" secondItem="1X6-G2-hIG" secondAttribute="bottom" constant="8" id="JPT-0t-XiN"/>
+                            <constraint firstItem="rOv-ei-lbZ" firstAttribute="top" secondItem="aos-Iw-At1" secondAttribute="bottom" constant="8" id="KPJ-2Q-Ej7"/>
                             <constraint firstAttribute="trailing" secondItem="E1K-ES-A2T" secondAttribute="trailing" constant="4" id="Nyu-1y-waI"/>
                             <constraint firstItem="E1K-ES-A2T" firstAttribute="trailing" secondItem="ttF-Nb-KOX" secondAttribute="trailing" id="ROX-Nz-POj"/>
+                            <constraint firstAttribute="trailing" secondItem="aos-Iw-At1" secondAttribute="trailing" id="Sk9-lu-ORA"/>
                             <constraint firstItem="ttF-Nb-KOX" firstAttribute="bottom" secondItem="CX0-GU-gTB" secondAttribute="top" id="XD4-1F-3gM"/>
                             <constraint firstItem="E1K-ES-A2T" firstAttribute="leading" secondItem="9Dn-lg-shq" secondAttribute="leading" constant="4" id="b7J-VD-y0i"/>
+                            <constraint firstAttribute="trailing" secondItem="rOv-ei-lbZ" secondAttribute="trailing" constant="4" id="ju3-p6-hB2"/>
                             <constraint firstItem="E1K-ES-A2T" firstAttribute="leading" secondItem="ttF-Nb-KOX" secondAttribute="leading" id="r6b-to-OfA"/>
+                            <constraint firstItem="aos-Iw-At1" firstAttribute="leading" secondItem="E1K-ES-A2T" secondAttribute="leading" id="rm1-YF-rKc"/>
                             <constraint firstItem="ttF-Nb-KOX" firstAttribute="top" secondItem="E1K-ES-A2T" secondAttribute="bottom" constant="-4" id="w5p-FN-6Px"/>
-                            <constraint firstItem="E1K-ES-A2T" firstAttribute="top" secondItem="aos-Iw-At1" secondAttribute="bottom" constant="13" id="zsr-qG-jb5"/>
+                            <constraint firstItem="CX0-GU-gTB" firstAttribute="top" secondItem="rOv-ei-lbZ" secondAttribute="bottom" id="zD4-TD-NXM"/>
+                            <constraint firstItem="rOv-ei-lbZ" firstAttribute="leading" secondItem="9Dn-lg-shq" secondAttribute="leading" constant="4" id="zZS-J5-hKZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск" id="hjS-8x-6ny">
@@ -281,6 +313,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="CurrentViewSearchSuggest" destination="rOv-ei-lbZ" id="yTH-W9-Cg6"/>
                         <outlet property="searchDisplayController" destination="Am9-ci-V0b" id="eXC-gn-pPS"/>
                         <outlet property="tableView" destination="ttF-Nb-KOX" id="D6S-Ob-tYl"/>
                     </connections>
@@ -372,20 +405,6 @@
                     <view key="view" contentMode="scaleToFill" id="vbS-Fg-uhd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SK0-YD-gnN" customClass="SearchBarWidget" customModule="IOS_first" customModuleProvider="target">
-                                <rect key="frame" x="6" y="207" width="306" height="128"/>
-                                <color key="backgroundColor" red="0.81097549200057983" green="0.8895917534828186" blue="0.047571249306201935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXa-sf-8qA">
-                                <rect key="frame" x="6" y="399" width="306" height="128"/>
-                                <color key="backgroundColor" red="0.81097549200057983" green="0.8895917534828186" blue="0.047571249306201935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rzg-KP-65m" customClass="SearchBarWidget" customModule="IOS_first" customModuleProvider="target">
-                                <rect key="frame" x="6" y="35" width="306" height="129"/>
-                                <color key="backgroundColor" red="0.81097549200057983" green="0.8895917534828186" blue="0.047571249306201935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

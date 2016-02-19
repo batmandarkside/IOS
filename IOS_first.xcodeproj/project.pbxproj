@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0A044E921C7612290078FF32 /* SearchBarWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A044E911C7612290078FF32 /* SearchBarWidget.xib */; };
 		0A044E941C761C910078FF32 /* SearchBarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A044E931C761C910078FF32 /* SearchBarWidget.swift */; };
+		0A044E971C770F810078FF32 /* BaseWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A044E961C770F810078FF32 /* BaseWidgets.swift */; };
+		0A044EA91C7753380078FF32 /* SearchSuggest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A044EA81C7753380078FF32 /* SearchSuggest.swift */; };
+		0A044EAB1C77550C0078FF32 /* SearchSuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A044EAA1C77550C0078FF32 /* SearchSuggestCell.swift */; };
+		0A044EAD1C775C2D0078FF32 /* SearchSuggestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A044EAC1C775C2D0078FF32 /* SearchSuggestCell.xib */; };
 		0A5FB9D41C68953700D49909 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FB9D31C68953700D49909 /* NewsModel.swift */; };
 		0A5FBA2C1C6B6AC800D49909 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A5FBA2B1C6B6AC800D49909 /* cell.xib */; };
 		0A5FBA311C6C833B00D49909 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FBA301C6C833B00D49909 /* NewsViewModel.swift */; };
@@ -25,7 +29,6 @@
 		0A72014A1C73591800739306 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7201491C73591800739306 /* LaunchScreen.swift */; };
 		0A72014C1C735E4F00739306 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A72014B1C735E4F00739306 /* LaunchScreen.storyboard */; };
 		0A72014E1C73838100739306 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A72014D1C73838100739306 /* Media.xcassets */; };
-		0A7201501C7480B500739306 /* articles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A72014F1C7480B500739306 /* articles.storyboard */; };
 		0A72FBBB1C732E6100739306 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBBA1C732E6100739306 /* SWRevealViewController.m */; };
 		0A72FBC81C7339AB00739306 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC71C7339AB00739306 /* SlideMenuController.swift */; };
 		0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A72FBC91C733C6800739306 /* IndexScreen.swift */; };
@@ -148,6 +151,10 @@
 /* Begin PBXFileReference section */
 		0A044E911C7612290078FF32 /* SearchBarWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchBarWidget.xib; path = components/Search/SearchBarWidget.xib; sourceTree = "<group>"; };
 		0A044E931C761C910078FF32 /* SearchBarWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarWidget.swift; path = components/Search/SearchBarWidget.swift; sourceTree = "<group>"; };
+		0A044E961C770F810078FF32 /* BaseWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseWidgets.swift; path = utils/BaseWidgets.swift; sourceTree = "<group>"; };
+		0A044EA81C7753380078FF32 /* SearchSuggest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSuggest.swift; path = components/Search/SearchSuggest.swift; sourceTree = "<group>"; };
+		0A044EAA1C77550C0078FF32 /* SearchSuggestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSuggestCell.swift; path = components/Search/SearchSuggestCell.swift; sourceTree = "<group>"; };
+		0A044EAC1C775C2D0078FF32 /* SearchSuggestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchSuggestCell.xib; path = components/Search/SearchSuggestCell.xib; sourceTree = "<group>"; };
 		0A5FB9D31C68953700D49909 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		0A5FBA2B1C6B6AC800D49909 /* cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
 		0A5FBA301C6C833B00D49909 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -165,7 +172,6 @@
 		0A7201491C73591800739306 /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		0A72014B1C735E4F00739306 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A72014D1C73838100739306 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = IOS_first/Media.xcassets; sourceTree = "<group>"; };
-		0A72014F1C7480B500739306 /* articles.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = articles.storyboard; sourceTree = "<group>"; };
 		0A72FBB91C732E6100739306 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0A72FBBA1C732E6100739306 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0A72FBC71C7339AB00739306 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 				0A6BB8F91C679A9B009A6986 /* Filters.swift */,
 				0A6BB8FA1C679A9B009A6986 /* Http.swift */,
 				0A6BB8FF1C679A9B009A6986 /* Utils.swift */,
+				0A044E961C770F810078FF32 /* BaseWidgets.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -289,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				0A71B0201C6CE0A6002A65BB /* ArticlesScreen.swift */,
-				0A72014F1C7480B500739306 /* articles.storyboard */,
 			);
 			name = Articles;
 			sourceTree = "<group>";
@@ -333,6 +339,9 @@
 			children = (
 				0A044E911C7612290078FF32 /* SearchBarWidget.xib */,
 				0A044E931C761C910078FF32 /* SearchBarWidget.swift */,
+				0A044EA81C7753380078FF32 /* SearchSuggest.swift */,
+				0A044EAA1C77550C0078FF32 /* SearchSuggestCell.swift */,
+				0A044EAC1C775C2D0078FF32 /* SearchSuggestCell.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -658,6 +667,7 @@
 			files = (
 				0A72014E1C73838100739306 /* Media.xcassets in Resources */,
 				B505CFB51A46F1C400BE1FCC /* adult.png in Resources */,
+				0A044EAD1C775C2D0078FF32 /* SearchSuggestCell.xib in Resources */,
 				B505CFB61A46F1C400BE1FCC /* children.png in Resources */,
 				B578AA1519F8332300A8C18E /* Main.storyboard in Resources */,
 				0A93D0AE1C639DA2006517AF /* Podfile in Resources */,
@@ -666,7 +676,6 @@
 				B505CFB81A46F1C400BE1FCC /* infant.png in Resources */,
 				0A044E921C7612290078FF32 /* SearchBarWidget.xib in Resources */,
 				0A72014C1C735E4F00739306 /* LaunchScreen.storyboard in Resources */,
-				0A7201501C7480B500739306 /* articles.storyboard in Resources */,
 				B505CFB91A46F1C400BE1FCC /* no_photo_hotel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,12 +741,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A044EA91C7753380078FF32 /* SearchSuggest.swift in Sources */,
 				0A72014A1C73591800739306 /* LaunchScreen.swift in Sources */,
 				0A72FBCA1C733C6800739306 /* IndexScreen.swift in Sources */,
+				0A044E971C770F810078FF32 /* BaseWidgets.swift in Sources */,
 				0A71B0211C6CE0A6002A65BB /* ArticlesScreen.swift in Sources */,
 				51798A251A134ABF00B5FE48 /* DKDatePickerView.swift in Sources */,
 				B5F6726E1A0F4A19001E90CA /* DKPopoverViewController.swift in Sources */,
 				0A72FBBB1C732E6100739306 /* SWRevealViewController.m in Sources */,
+				0A044EAB1C77550C0078FF32 /* SearchSuggestCell.swift in Sources */,
 				0A6BB90E1C679AB9009A6986 /* ContentModel.swift in Sources */,
 				0A93D10F1C64BD15006517AF /* DKViewCell.swift in Sources */,
 				0A5FBA311C6C833B00D49909 /* NewsViewModel.swift in Sources */,

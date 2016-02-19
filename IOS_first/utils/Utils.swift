@@ -72,14 +72,12 @@ struct Utils {
 
     }
     
-    
-    struct LoadViewFromNib {
-        
-        static func loadViewFromNib(owner: AnyClass, forClass : AnyClass, nibName: String) -> UIView {        
-            let bundle = NSBundle(forClass: forClass)
-            let nib = UINib(nibName: nibName, bundle: bundle)
-            let view = nib.instantiateWithOwner(owner, options: nil)[0] as! UIView
-            return view
-        }
+}
+
+
+struct console {
+    static func log(text:Any) -> Void {
+        print(text)
     }
 }
+
