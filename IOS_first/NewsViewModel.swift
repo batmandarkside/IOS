@@ -8,8 +8,6 @@
 
 import Foundation
 import ObjectMapper
-import RxSwift
-import RxCocoa
 
 class NewsViewModel: NSObject  {
     
@@ -36,8 +34,7 @@ class NewsViewModel: NSObject  {
     
     // create observer
     func getNews() -> Observable<NewsModel>{
-        return Observable.create { observer in
-	        ServicesNews.getNews()
+	        return ServicesNews.getNews()
                 .then { body -> Void in
                     print("view model call")
                     let _model = Mapper<NewsModel>().map(body)!
@@ -47,11 +44,7 @@ class NewsViewModel: NSObject  {
             	.error { err  in
                     observer.on(.Error(err))
             	}
-            
-            return AnonymousDisposable {
-                
-            }
-        }
+        
     }
     
     func onEndReached (){

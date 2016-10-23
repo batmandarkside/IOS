@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import ObjectMapper
-import RxSwift
 import SDWebImage
 
 class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchInputProtocol {

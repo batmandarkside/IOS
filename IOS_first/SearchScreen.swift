@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import RxSwift
 import SDWebImage
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SearchInputProtocol {

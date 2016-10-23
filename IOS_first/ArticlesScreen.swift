@@ -8,7 +8,6 @@
 
 import UIKit
 import ObjectMapper
-import RxSwift
 import SDWebImage
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

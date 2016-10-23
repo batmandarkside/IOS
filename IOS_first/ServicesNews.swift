@@ -9,7 +9,6 @@
 import Foundation
 import PromiseKit
 import SwiftyJSON
-import RxSwift
 
 
 struct ServicesNews {

@@ -8,7 +8,6 @@
 
 import Foundation
 import ObjectMapper
-import RxSwift
 
 class ContentModel : NSObject, Mappable {
     

@@ -1,1 +1,1 @@
-../../../PromiseKit/Categories/UIKit/UIView+AnyPromise.h
+../../../PromiseKit/Extensions/UIKit/Sources/UIView+AnyPromise.h

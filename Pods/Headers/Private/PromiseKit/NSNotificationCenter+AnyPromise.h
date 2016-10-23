@@ -1,1 +1,1 @@
-../../../PromiseKit/Categories/Foundation/NSNotificationCenter+AnyPromise.h
+../../../PromiseKit/Extensions/Foundation/Sources/NSNotificationCenter+AnyPromise.h
