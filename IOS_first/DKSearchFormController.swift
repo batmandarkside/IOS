@@ -11,7 +11,7 @@ import UIKit
 class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopoverViewControllerDelegate {
 
 	
-    var dateDatePicker: NSDate!
+    var dateDatePicker: Date!
     var collectionLabelPassengerValue : [String: Int] = [
         "Adult": 1,
         "Children": 0,
@@ -23,46 +23,46 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     @IBOutlet weak var labelPassenger: UILabel!
     
     @IBOutlet var ViewDatePickerComponent: DKDatePickerView!
-	private var senderButton : UIButton!
+	fileprivate var senderButton : UIButton!
 	
     // Способ показать поповер на iPhone
-    @IBAction func showDkPopover(sender: UIButton) {
-        let vc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("PopoverViewController"))! as UIViewController
+    @IBAction func showDkPopover(_ sender: UIButton) {
+        let vc: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController"))! as UIViewController
         
         let navigationController: UINavigationController = UINavigationController(rootViewController: vc)
         
         // если iPhone
-        if(UIDevice.currentDevice().userInterfaceIdiom == .Phone){
-            self.presentViewController(navigationController, animated: true, completion: {
+        if(UIDevice.current.userInterfaceIdiom == .phone){
+            self.present(navigationController, animated: true, completion: {
             })
         }
     }
 
     
-	@IBAction func actionDateThere(sender: UIButton) {
+	@IBAction func actionDateThere(_ sender: UIButton) {
 		self.senderButton = sender
 		ViewDatePickerComponent.showDatePicker(sender)
 	}
 	
-	@IBAction func actionDateBack(sender: UIButton) {
+	@IBAction func actionDateBack(_ sender: UIButton) {
 		self.senderButton = sender
 		ViewDatePickerComponent.showDatePicker(sender)
 	}
 	
 	
-    @IBAction func popoverAddAction(sender: UIBarButtonItem) {
+    @IBAction func popoverAddAction(_ sender: UIBarButtonItem) {
         
     }
     
     
-    @IBAction func actionSwitchDatBack(sender: UISwitch) {
-        if(sender.on){
-            self.dateBack.enabled = true
+    @IBAction func actionSwitchDatBack(_ sender: UISwitch) {
+        if(sender.isOn){
+            self.dateBack.isEnabled = true
             self.dateBack.alpha = 1
         } else {
-            self.dateBack.enabled = false
+            self.dateBack.isEnabled = false
             self.dateBack.alpha = 0.3
-            self.dateBack.setTitle(self.dateBack.currentTitle, forState: .Disabled)
+            self.dateBack.setTitle(self.dateBack.currentTitle, for: .disabled)
         }
     }
     
@@ -71,15 +71,15 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
      Метод делегата DKDatePickerViewProtocol
      Событие изменения DatePicker
     */
-	func datePickerChanged(date: String) {
+	func datePickerChanged(_ date: String) {
 		if(self.senderButton != nil){
             let newLabel = NSString(format: "%@", date)
-			self.senderButton.setTitle(newLabel as String, forState: .Normal)
+			self.senderButton.setTitle(newLabel as String, for: UIControlState())
 		}
 	}
     
     func getPassengersData() -> NSDictionary {
-         return self.collectionLabelPassengerValue
+         return self.collectionLabelPassengerValue as NSDictionary
     }
     
     func setlabelPassenger(){
@@ -103,10 +103,10 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
         
 		ViewDatePickerComponent.datePickerDelegate = self
     
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeUserHandler:", name: DKNotification.PeopleChangeNotification, object: AnyObject?())
+        NotificationCenter.default.addObserver(self, selector: "changeUserHandler:", name: NSNotification.Name(rawValue: DKNotification.PeopleChangeNotification), object: AnyObject?())
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("===viewWillAppear----")
     }
@@ -119,7 +119,7 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     
     // Обработчик события - получаем данные от модального контроллера
     // Где выбрали количество пассажиров
-    func changeUserHandler(notification: NSNotification){
+    func changeUserHandler(_ notification: Notification){
         self.collectionLabelPassengerValue = notification.object as! Dictionary<String, Int>
         self.setlabelPassenger()
     }
@@ -146,6 +146,6 @@ class DKSearchFormController: UIViewController, DKDatePickerViewProtocol, DKPopo
     */
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }

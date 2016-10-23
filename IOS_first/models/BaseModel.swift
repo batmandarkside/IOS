@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class BaseModel {
-    private var jsonData: JSON!
+    fileprivate var jsonData: JSON!
     
     init(data: JSON) {
         let d = data.dictionaryValue
@@ -28,7 +28,7 @@ class BaseModel {
     }
     
     //
-    func getProps(props : String) -> JSON {
+    func getProps(_ props : String) -> JSON {
         print(self.jsonData[props])
         if self.jsonData[props] != nil {
             return self.jsonData[props]
@@ -37,12 +37,12 @@ class BaseModel {
         }
     }
     
-    func get(props : String) -> String {
+    func get(_ props : String) -> String {
         return self.jsonData[props].stringValue
     }
     
     //
-    func setProps(props : String, value : AnyObject){
+    func setProps(_ props : String, value : AnyObject){
         if self.jsonData[props] != nil {
            self.jsonData[props] = JSON(value)
         }

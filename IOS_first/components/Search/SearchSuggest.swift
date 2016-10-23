@@ -10,12 +10,32 @@ import Foundation
 import UIKit
 import ObjectMapper
 import SDWebImage
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchInputProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-    private var itemsCollection : [ContentModelItemMapper]?
-    private var _pageNext = ""
+    fileprivate var itemsCollection : [ContentModelItemMapper]?
+    fileprivate var _pageNext = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +51,7 @@ class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchI
 
     
     
-    func searchInputChanged(data: String) {
+    func searchInputChanged(_ data: String) {
         print(data, "searchInputChanged")
     }
 
@@ -52,7 +72,7 @@ class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchI
      создаем модель, достаем сам список и дальше работает с ним
      если список не пустой, то добавляем к нему новые элементы
      */
-    func setPageItensAndReloadTableView(data : NSDictionary) {
+    func setPageItensAndReloadTableView(_ data : NSDictionary) {
         let _model = Mapper<ContentModel>().map(data)
         
         if(self.itemsCollection != nil && self.itemsCollection?.count > 0){
@@ -69,7 +89,7 @@ class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchI
     
     // список новостей по доскроллу
     // TODO : доработать
-    func onEndReached(url : String){
+    func onEndReached(_ url : String){
         PagingSpinner.show()
         ServicesNews.getNewsByUrl(url)
             .then { body -> Void in
@@ -90,33 +110,33 @@ class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchI
     ячейка секции
     Заполняем ее данными в этом методе
     */
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let _newsItem  = self.itemsCollection![indexPath.row]
+        let _newsItem  = self.itemsCollection![(indexPath as NSIndexPath).row]
         let identifier = "suggestCell"
         
         // кастомный класс ячейки
-        tableView.registerNib(UINib(nibName: "SearchSuggestCell", bundle: nil), forCellReuseIdentifier: identifier)
-        let cell = (tableView.dequeueReusableCellWithIdentifier(identifier) as? SearchSuggestCell)!
+        tableView.register(UINib(nibName: "SearchSuggestCell", bundle: nil), forCellReuseIdentifier: identifier)
+        let cell = (tableView.dequeueReusableCell(withIdentifier: identifier) as? SearchSuggestCell)!
         cell.labelOutlet?.text = _newsItem.getTitle()
         return cell
     }
     
     
     /* заголовок секции */
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ""
     }
     
     
     /* количество секций в таблице */
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     /* колличество рядов в секции */
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         if(self.itemsCollection != nil){
             count = self.itemsCollection!.count
@@ -124,9 +144,9 @@ class SearchSuggest: UIView, UITableViewDataSource, UITableViewDelegate, SearchI
         return count
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRow = self.itemsCollection!.count - 1
-        if(indexPath.row == lastRow) {
+        if((indexPath as NSIndexPath).row == lastRow) {
             if !self._pageNext.isEmpty {
                 self.onEndReached(self._pageNext)
             }

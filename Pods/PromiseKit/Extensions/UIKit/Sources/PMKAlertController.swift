@@ -27,21 +27,21 @@ import PromiseKit
         }
     }
 */
-public class PMKAlertController {
+open class PMKAlertController {
     /// The title of the alert.
-    public var title: String? { return UIAlertController.title }
+    open var title: String? { return UIAlertController.title }
     /// Descriptive text that provides more details about the reason for the alert.
-    public var message: String? { return UIAlertController.message }
+    open var message: String? { return UIAlertController.message }
     /// The style of the alert controller.
-    public var preferredStyle: UIAlertControllerStyle { return UIAlertController.preferredStyle }
+    open var preferredStyle: UIAlertControllerStyle { return UIAlertController.preferredStyle }
     /// The actions that the user can take in response to the alert or action sheet.
-    public var actions: [UIAlertAction] { return UIAlertController.actions }
+    open var actions: [UIAlertAction] { return UIAlertController.actions }
     /// The array of text fields displayed by the alert.
-    public var textFields: [UITextField]? { return UIAlertController.textFields }
+    open var textFields: [UITextField]? { return UIAlertController.textFields }
 
 #if !os(tvOS)
     /// The nearest popover presentation controller that is managing the current view controller.
-    public var popoverPresentationController: UIPopoverPresentationController? { return UIAlertController.popoverPresentationController }
+    open var popoverPresentationController: UIPopoverPresentationController? { return UIAlertController.popoverPresentationController }
 #endif
 
     /// Creates and returns a view controller for displaying an alert to the user.
@@ -50,7 +50,7 @@ public class PMKAlertController {
     }
 
     /// Attaches an action title to the alert or action sheet.
-    public func addActionWithTitle(title: String, style: UIAlertActionStyle = .default) -> UIAlertAction {
+    open func addActionWithTitle(_ title: String, style: UIAlertActionStyle = .default) -> UIAlertAction {
         let action = UIAlertAction(title: title, style: style) { action in
             if style != .cancel {
                 self.fulfill(action)
@@ -63,7 +63,7 @@ public class PMKAlertController {
     }
 
     /// Adds a text field to an alert.
-    public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField) -> Void)?) {
+    open func addTextFieldWithConfigurationHandler(_ configurationHandler: ((UITextField) -> Void)?) {
         UIAlertController.addTextField(configurationHandler: configurationHandler)
     }
 

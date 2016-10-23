@@ -29,10 +29,10 @@ extension NotificationCenter {
 }
 
 /// The promise returned by `NotificationCenter.observe(once:)`
-public class NotificationPromise: Promise<[AnyHashable: Any]> {
-    private let pending = Promise<Notification>.pending()
+open class NotificationPromise: Promise<[AnyHashable: Any]> {
+    fileprivate let pending = Promise<Notification>.pending()
 
-    public func asNotification() -> Promise<Notification> {
+    open func asNotification() -> Promise<Notification> {
         return pending.promise
     }
 

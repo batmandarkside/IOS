@@ -17,37 +17,37 @@ class ViewControllerUtils {
 struct Utils {
     
     /** setTimeout */
-    static func TimeOut(timeOut: Double, resolve: () -> ()){
+    static func TimeOut(_ timeOut: Double, resolve: @escaping () -> ()){
         let delta = timeOut * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delta))
+        let time = DispatchTime.now() + Double(Int64(delta)) / Double(NSEC_PER_SEC)
         
-        dispatch_after(time, dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
             resolve()
         });
     }
     
-    static func parseJson(data: NSData, completionParse: (data : AnyObject)->()) {
+    static func parseJson(_ data: Data, completionParse: (_ data : AnyObject)->()) {
         
     }
     
     /** setInterval */
     class Timer {
         
-        var timer = NSTimer()
+        var timer = Foundation.Timer()
         var handler: (Int) -> ()
         
         let duration: Int
         var elapsedTime: Int = 0
         
-        init(duration: Int, handler: (Int) -> ()) {
+        init(duration: Int, handler: @escaping (Int) -> ()) {
             self.duration = duration
             self.handler = handler
         }
 
         func start() {
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            self.timer = Foundation.Timer.scheduledTimer(timeInterval: 1.0,
                 target: self,
-                selector: Selector("tick"),
+                selector: #selector(Timer.tick),
                 userInfo: nil,
                 repeats: true)
         }
@@ -57,7 +57,7 @@ struct Utils {
         }
         
         @objc func tick() {
-            self.elapsedTime++
+            self.elapsedTime += 1
             
             self.handler(elapsedTime)
             
@@ -76,7 +76,7 @@ struct Utils {
 
 
 struct console {
-    static func log(text:Any) -> Void {
+    static func log(_ text:Any) -> Void {
         print(text)
     }
 }

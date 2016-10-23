@@ -20,34 +20,34 @@ class ActivityIndicator {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     // размер прелоадера
-    private enum Size: String {
+    fileprivate enum Size: String {
         case Big = "Big"
         case Medium = "Medium"
         case Mini = "Mini"
         func getSize() -> CGRect {
             switch self {
             case .Big:
-                return CGRectMake(0, 0, 80, 80)
+                return CGRect(x: 0, y: 0, width: 80, height: 80)
             case .Medium:
-                return CGRectMake(0, 0, 40, 40)
+                return CGRect(x: 0, y: 0, width: 40, height: 40)
             case .Mini:
-                return CGRectMake(0, 0, 20, 20)
+                return CGRect(x: 0, y: 0, width: 20, height: 20)
             }
         }
     }
     
-    private enum IndicatorFrame: String {
+    fileprivate enum IndicatorFrame: String {
         case Big = "Big"
         case Medium = "Medium"
         case Mini = "Mini"
         func getSize() -> CGRect {
             switch self {
             case .Big:
-                return CGRectMake(0.0, 0.0, 40.0, 40.0)
+                return CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
             case .Medium:
-                return CGRectMake(0.0, 0.0, 30.0, 30.0);
+                return CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0);
             case .Mini:
-                return CGRectMake(0.0, 0.0, 20.0, 20.0);
+                return CGRect(x: 0.0, y: 0.0, width: 20.0, height: 20.0);
             }
         }
     }
@@ -66,7 +66,7 @@ class ActivityIndicator {
     @param uiView - add activity indicator to this view
     */
     
-    private func createIndicator(uiView: UIView, sizeIndicator: String!,  styleIndicator: UIActivityIndicatorViewStyle!) {
+    fileprivate func createIndicator(_ uiView: UIView, sizeIndicator: String!,  styleIndicator: UIActivityIndicatorViewStyle!) {
         container.frame = uiView.frame
         container.center = uiView.center
         container.backgroundColor = UIColorFromHex(0xffffff, alpha: 0.6)
@@ -81,7 +81,7 @@ class ActivityIndicator {
         
         
         loadingView.frame = loadingViewFrameSize!
-        loadingView.center = uiView.convertPoint(CGPointMake(50, 50), toView: nil)
+        loadingView.center = uiView.convert(CGPoint(x: 50, y: 50), to: nil)
         loadingView.clipsToBounds = true
         loadingView.layer.cornerRadius = 10
         
@@ -90,10 +90,10 @@ class ActivityIndicator {
             activityIndicator.activityIndicatorViewStyle = styleIndicator!
         } else {
             loadingView.backgroundColor = UIColorFromHex(0x444444, alpha: 0.7)
-            activityIndicator.activityIndicatorViewStyle = .White
+            activityIndicator.activityIndicatorViewStyle = .white
         }
         
-        activityIndicator.center = CGPointMake(loadingView.frame.size.width / 2, loadingView.frame.size.height / 2);
+        activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2);
         
         loadingView.addSubview(activityIndicator)
         container.addSubview(loadingView)
@@ -102,16 +102,16 @@ class ActivityIndicator {
     }
     
     
-    func show(uiView: UIView, sizeIndicator: String, styleIndicator: UIActivityIndicatorViewStyle!) {
+    func show(_ uiView: UIView, sizeIndicator: String, styleIndicator: UIActivityIndicatorViewStyle!) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : styleIndicator)
     }
-    func show(uiView: UIView, styleIndicator: UIActivityIndicatorViewStyle!) {
+    func show(_ uiView: UIView, styleIndicator: UIActivityIndicatorViewStyle!) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : styleIndicator)
     }
-    func show(uiView: UIView, sizeIndicator: String) {
+    func show(_ uiView: UIView, sizeIndicator: String) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : nil)
     }
-    func show(uiView: UIView) {
+    func show(_ uiView: UIView) {
         self.createIndicator(uiView, sizeIndicator: "Medium", styleIndicator : nil)
     }
     
@@ -121,7 +121,7 @@ class ActivityIndicator {
     
     @param uiView - remove activity indicator from this view
     */
-    func hide(uiView: UIView) {
+    func hide(_ uiView: UIView) {
         activityIndicator.stopAnimating()
         container.removeFromSuperview()
     }
@@ -132,7 +132,7 @@ class ActivityIndicator {
     @param rgbValue - hex color value
     @param alpha - transparency level
     */
-    func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+    func UIColorFromHex(_ rgbValue:UInt32, alpha:Double=1.0)->UIColor {
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
         let blue = CGFloat(rgbValue & 0xFF)/256.0
@@ -142,10 +142,10 @@ class ActivityIndicator {
 
 
 struct PagingSpinner {
-    private static let pagingSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-    private static var parentView = UITableView()
+    fileprivate static let pagingSpinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    fileprivate static var parentView = UITableView()
     
-    static func appendSpinner(view : UITableView) {
+    static func appendSpinner(_ view : UITableView) {
         self.parentView = view;
         self.pagingSpinner.color = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
         self.pagingSpinner.hidesWhenStopped = true

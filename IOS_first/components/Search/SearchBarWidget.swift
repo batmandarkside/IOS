@@ -43,24 +43,24 @@ import UIKit
         
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 		print(searchBar.text)
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print(searchBar.text)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
         print(searchBar.text, "searchBarCancelButtonClicked")
     }
     
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchProtocol?.searchInputChanged(searchText)
-        NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: searchText)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NotificationIdentifier"), object: searchText)
     }
 
     

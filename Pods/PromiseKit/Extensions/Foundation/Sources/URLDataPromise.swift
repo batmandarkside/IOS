@@ -16,14 +16,14 @@ public enum Encoding {
  
  But probably of general use to any promises that receive HTTP `Data`.
  */
-public class URLDataPromise: Promise<Data> {
+open class URLDataPromise: Promise<Data> {
     /// Convert the promise to a tuple of `(Data, URLResponse)`
-    public func asDataAndResponse() -> Promise<(Data, Foundation.URLResponse)> {
+    open func asDataAndResponse() -> Promise<(Data, Foundation.URLResponse)> {
         return then(on: zalgo) { ($0, self.URLResponse) }
     }
 
     /// Decode the HTTP response to a String, the string encoding is read from the response.
-    public func asString() -> Promise<String> {
+    open func asString() -> Promise<String> {
         return then(on: waldo) { data -> String in
             guard let str = String(bytes: data, encoding: self.URLResponse.stringEncoding ?? .utf8) else {
                 throw URLError.stringEncoding(self.URLRequest, data, self.URLResponse)
@@ -33,7 +33,7 @@ public class URLDataPromise: Promise<Data> {
     }
 
     /// Decode the HTTP response as a JSON array
-    public func asArray(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSArray> {
+    open func asArray(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSArray> {
         return then(on: waldo) { data -> NSArray in
             switch encoding {
             case .json(let options):
@@ -46,7 +46,7 @@ public class URLDataPromise: Promise<Data> {
     }
 
     /// Decode the HTTP response as a JSON dictionary
-    public func asDictionary(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSDictionary> {
+    open func asDictionary(_ encoding: Encoding = .json(.allowFragments)) -> Promise<NSDictionary> {
         return then(on: waldo) { data -> NSDictionary in
             switch encoding {
             case .json(let options):
@@ -62,7 +62,7 @@ public class URLDataPromise: Promise<Data> {
     fileprivate var URLResponse: Foundation.URLResponse!
 
     /// Internal
-    public class func go(_ request: URLRequest, body: (@escaping (Data?, URLResponse?, Error?) -> Void) -> Void) -> URLDataPromise {
+    open class func go(_ request: URLRequest, body: (@escaping (Data?, URLResponse?, Error?) -> Void) -> Void) -> URLDataPromise {
         let (p, fulfill, reject) = URLDataPromise.pending()
         let promise  = p as! URLDataPromise
 

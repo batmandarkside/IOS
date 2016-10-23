@@ -56,27 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0A5FBA3C1C6C833C00D49909 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 88B182ACCAF2BB898807762E10C6A33A;
-			remoteInfo = RxBlocking;
-		};
-		0A5FBA3E1C6C833C00D49909 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4CF975375D4EC2CAC1AB1BD83ABEEECB;
-			remoteInfo = RxCocoa;
-		};
-		0A5FBA401C6C833C00D49909 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0106C11970AD322A896752D2E5C083FE;
-			remoteInfo = RxSwift;
-		};
 		0A6BB8E41C67991A009A6986 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */;
@@ -90,13 +69,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 7D6C9E98F5EB5D9D7027BD9628D3E8D0;
 			remoteInfo = ObjectMapper;
-		};
-		0A6BB8E81C67991A009A6986 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0A6BB8DA1C67991A009A6986 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B6B8899BB2783209EC5CC11D649DEE95;
-			remoteInfo = OMGHTTPURLRQ;
 		};
 		0A6BB8EA1C67991A009A6986 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -234,12 +206,8 @@
 			children = (
 				0A6BB8E51C67991A009A6986 /* Alamofire.framework */,
 				0A6BB8E71C67991A009A6986 /* ObjectMapper.framework */,
-				0A6BB8E91C67991A009A6986 /* OMGHTTPURLRQ.framework */,
 				0A6BB8EB1C67991A009A6986 /* Pods.framework */,
 				0A6BB8ED1C67991A009A6986 /* PromiseKit.framework */,
-				0A5FBA3D1C6C833C00D49909 /* RxBlocking.framework */,
-				0A5FBA3F1C6C833C00D49909 /* RxCocoa.framework */,
-				0A5FBA411C6C833C00D49909 /* RxSwift.framework */,
 				0A6BB8EF1C67991A009A6986 /* SDWebImage.framework */,
 				0A6BB8F11C67991A009A6986 /* SwiftyJSON.framework */,
 			);
@@ -555,9 +523,11 @@
 				TargetAttributes = {
 					B578AA0919F8332300A8C18E = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
 					};
 					B578AA1E19F8332300A8C18E = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = B578AA0919F8332300A8C18E;
 					};
 				};
@@ -588,27 +558,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0A5FBA3D1C6C833C00D49909 /* RxBlocking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxBlocking.framework;
-			remoteRef = 0A5FBA3C1C6C833C00D49909 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0A5FBA3F1C6C833C00D49909 /* RxCocoa.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxCocoa.framework;
-			remoteRef = 0A5FBA3E1C6C833C00D49909 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0A5FBA411C6C833C00D49909 /* RxSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxSwift.framework;
-			remoteRef = 0A5FBA401C6C833C00D49909 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		0A6BB8E51C67991A009A6986 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -621,13 +570,6 @@
 			fileType = wrapper.framework;
 			path = ObjectMapper.framework;
 			remoteRef = 0A6BB8E61C67991A009A6986 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0A6BB8E91C67991A009A6986 /* OMGHTTPURLRQ.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OMGHTTPURLRQ.framework;
-			remoteRef = 0A6BB8E81C67991A009A6986 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0A6BB8EB1C67991A009A6986 /* Pods.framework */ = {
@@ -901,6 +843,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IOS_first/IOS_first-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -919,6 +862,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "batmandarkside.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IOS_first/IOS_first-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -939,6 +883,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "batmandarkside.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOS_first.app/IOS_first";
 			};
 			name = Debug;
@@ -955,6 +900,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "batmandarkside.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOS_first.app/IOS_first";
 			};
 			name = Release;

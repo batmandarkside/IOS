@@ -12,10 +12,10 @@ class DKDatePickerView: UIView {
 	@IBOutlet weak var labelDatePicker: UILabel!
 	
     weak var datePickerDelegate: DKDatePickerViewProtocol!
-    private var dateDatePicker: NSDate!
+    fileprivate var dateDatePicker: Date!
 	
 	
-	@IBAction func actionDone(sender: UIButton) {
+	@IBAction func actionDone(_ sender: UIButton) {
         if(self.dateDatePicker == nil) {
             self.dateDatePicker = componentDatePicker.date
         }
@@ -23,25 +23,25 @@ class DKDatePickerView: UIView {
         self.viewHidden(true)
 	}
 	
-	@IBAction func actionCancel(sender: UIButton) {
+	@IBAction func actionCancel(_ sender: UIButton) {
 		self.viewHidden(true)
 	}
 	
 	
-	@IBAction func actionValueChangedDatePicker(sender: UIDatePicker) {
+	@IBAction func actionValueChangedDatePicker(_ sender: UIDatePicker) {
 		self.dateDatePicker = sender.date
 	}
 
 	// Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
 
         self.minMaxDateCalendar()
 
-        componentDatePickerViewWrapper.bounds = CGRectMake(0, -200, 320, 201)
+        componentDatePickerViewWrapper.bounds = CGRect(x: 0, y: -200, width: 320, height: 201)
         componentDatePickerViewWrapper.alpha = 0
-        componentDatePickerViewWrapper.hidden = true
+        componentDatePickerViewWrapper.isHidden = true
     }
     
     /**
@@ -65,37 +65,37 @@ class DKDatePickerView: UIView {
 		return componentDatePickerViewWrapper
 	}
 	
-	func viewHidden(param: Bool){
+	func viewHidden(_ param: Bool){
         
         let bounds: CGRect!
         let alpha: CGFloat!
         let hidden: Bool!
         
         if(!param) {
-            bounds = CGRectMake(0, 0, 320, 201)
+            bounds = CGRect(x: 0, y: 0, width: 320, height: 201)
             alpha = 1
-            self.componentDatePickerViewWrapper.hidden = param
+            self.componentDatePickerViewWrapper.isHidden = param
         } else {
-            bounds = CGRectMake(0, -200, 320, 201)
+            bounds = CGRect(x: 0, y: -200, width: 320, height: 201)
             alpha = 0
         }
         
-        UIView.animateWithDuration(0.2, delay: 0,
-            options: .CurveEaseIn,
+        UIView.animate(withDuration: 0.2, delay: 0,
+            options: .curveEaseIn,
             animations: {
                 self.componentDatePickerViewWrapper.bounds = bounds
                 self.componentDatePickerViewWrapper.alpha = alpha
             },
             completion: { (complete: Bool) in
                 if(!param) {
-                    self.componentDatePickerViewWrapper.hidden = param
+                    self.componentDatePickerViewWrapper.isHidden = param
                 }
             }
         )
 	}
 	
 	func viewToggle(){
-		if(componentDatePickerViewWrapper.hidden){
+		if(componentDatePickerViewWrapper.isHidden){
 			self.viewHidden(false)
 		} else {
 			self.viewHidden(true)
@@ -103,22 +103,22 @@ class DKDatePickerView: UIView {
 	}
 	
 	
-	func showDatePicker(sender: UIButton) {
+	func showDatePicker(_ sender: UIButton) {
 		self.viewHidden(false)
 		self.setLabel(sender.currentTitle!)
 	}
 	
-	func setLabel(text: String){
+	func setLabel(_ text: String){
 		labelDatePicker.text = text
 	}
 	
 	func sendDate(){
-        let dateFormater : NSDateFormatter = NSDateFormatter()
-        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let dateFormater : DateFormatter = DateFormatter()
+        let calendar: Calendar = Calendar.current
 		dateFormater.dateFormat = "d MMMM"
         
         if(self.dateDatePicker != nil){
-            let d = dateFormater.stringFromDate(self.dateDatePicker)
+            let d = dateFormater.string(from: self.dateDatePicker)
 		
             if((datePickerDelegate) != nil){
                 datePickerDelegate.datePickerChanged(d)

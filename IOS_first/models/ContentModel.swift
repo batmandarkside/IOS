@@ -14,9 +14,9 @@ class ContentModel : NSObject, Mappable {
     var count: Int = 0
     var items: [ContentModelItemMapper]?
     var page: [String : AnyObject] = [
-        "next" : "",
-        "page_size": 0,
-        "prev": ""
+        "next" : "" as AnyObject,
+        "page_size": 0 as AnyObject,
+        "prev": "" as AnyObject
     ]
     var request: [String : AnyObject] = [:]
     
@@ -30,7 +30,7 @@ class ContentModel : NSObject, Mappable {
     
     
     // Mappable
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         count    <- map["count"]
         items    <- map["items"]
         page     <- map["page"]
@@ -74,11 +74,11 @@ class ContentModelItemMapper : NSObject,  Mappable {
         return mainTag
     }
     
-    func getMainImage() -> NSURL {
+    func getMainImage() -> URL {
         if (self.main_image != nil){
             return (self.main_image?.getImage())!
         } else {
-            return NSURL(string : "")!
+            return URL(string : "")!
         }
     }
     
@@ -91,7 +91,7 @@ class ContentModelItemMapper : NSObject,  Mappable {
     }
     
     // Mappable
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         age 				<- map["age"]
         announce 			<- map["announce"]
         content_type		<- map["content_type"]
@@ -122,8 +122,8 @@ class MainImageMapper:  Mappable {
     
     required init?(_ map: Map) {}
     
-    func getImage() -> NSURL {
-        return NSURL(string : self.image_url)!
+    func getImage() -> URL {
+        return URL(string : self.image_url)!
     }
     
     
@@ -132,7 +132,7 @@ class MainImageMapper:  Mappable {
     }
     
     // Mappable
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         description 		<- map["description"]
         image_url 			<- map["image_url"]
         image_url_template	<- map["image_url_template"]
@@ -149,7 +149,7 @@ class TagsMapper: NSObject, Mappable {
     required init?(_ map: Map) {}
     
     // Mappable
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         slug    <- map["slug"]
         title    <- map["title"]
     }

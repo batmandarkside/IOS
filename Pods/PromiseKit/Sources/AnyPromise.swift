@@ -3,7 +3,7 @@ import Foundation
 /**
  AnyPromise is an Objective-C compatible promise.
 */
-@objc(AnyPromise) public class AnyPromise: NSObject {
+@objc(AnyPromise) open class AnyPromise: NSObject {
     let state: State<Any?>
 
     /**
@@ -14,7 +14,7 @@ import Foundation
     }
 
     /// hack to ensure Swift picks the right initializer for each of the below
-    private init(force: Promise<Any?>) {
+    fileprivate init(force: Promise<Any?>) {
         state = force.state
     }
 
@@ -45,7 +45,7 @@ import Foundation
      - Note: AnyPromises fulfilled with `PMKManifold` lose all but the first fulfillment object.
      - Remark: Could not make this an initializer of `Promise` due to generics issues.
      */
-    public func asPromise() -> Promise<Any?> {
+    open func asPromise() -> Promise<Any?> {
         return Promise(sealant: { resolve in
             state.pipe { resolution in
                 switch resolution {
@@ -60,42 +60,42 @@ import Foundation
     }
 
     /// - See: `Promise.then()`
-    public func then<T>(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> T) -> Promise<T> {
+    open func then<T>(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> T) -> Promise<T> {
         return asPromise().then(on: q, execute: body)
     }
 
     /// - See: `Promise.then()`
-    public func then(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> AnyPromise) -> Promise<Any?> {
+    open func then(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> AnyPromise) -> Promise<Any?> {
         return asPromise().then(on: q, execute: body)
     }
 
     /// - See: `Promise.then()`
-    public func then<T>(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> Promise<T>) -> Promise<T> {
+    open func then<T>(on q: DispatchQueue = .default, execute body: @escaping (Any?) throws -> Promise<T>) -> Promise<T> {
         return asPromise().then(on: q, execute: body)
     }
 
     /// - See: `Promise.always()`
-    public func always(on q: DispatchQueue = .default, execute body: @escaping () -> Void) -> Promise<Any?> {
+    open func always(on q: DispatchQueue = .default, execute body: @escaping () -> Void) -> Promise<Any?> {
         return asPromise().always(execute: body)
     }
 
     /// - See: `Promise.tap()`
-    public func tap(on q: DispatchQueue = .default, execute body: @escaping (Result<Any?>) -> Void) -> Promise<Any?> {
+    open func tap(on q: DispatchQueue = .default, execute body: @escaping (Result<Any?>) -> Void) -> Promise<Any?> {
         return asPromise().tap(execute: body)
     }
 
     /// - See: `Promise.recover()`
-    public func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Promise<Any?>) -> Promise<Any?> {
+    open func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Promise<Any?>) -> Promise<Any?> {
         return asPromise().recover(on: q, policy: policy, execute: body)
     }
 
     /// - See: `Promise.recover()`
-    public func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Any?) -> Promise<Any?> {
+    open func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Any?) -> Promise<Any?> {
         return asPromise().recover(on: q, policy: policy, execute: body)
     }
 
     /// - See: `Promise.catch()`
-    public func `catch`(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) -> Void) {
+    open func `catch`(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) -> Void) {
         state.catch(on: q, policy: policy, else: { _ in }, execute: body)
     }
 
@@ -105,7 +105,7 @@ import Foundation
      A promise starts pending and eventually resolves.
      - Returns: `true` if the promise has not yet resolved.
      */
-    @objc public var pending: Bool {
+    @objc open var pending: Bool {
         return state.get() == nil
     }
 
@@ -113,7 +113,7 @@ import Foundation
      A promise starts pending and eventually resolves.
      - Returns: `true` if the promise has resolved.
      */
-    @objc public var resolved: Bool {
+    @objc open var resolved: Bool {
         return !pending
     }
 
@@ -128,7 +128,7 @@ import Foundation
 
      - Returns If `resolved`, the object that was used to resolve this promise; if `pending`, nil.
      */
-    @objc private var __value: Any? {
+    @objc fileprivate var __value: Any? {
         switch state.get() {
         case nil:
             return nil
@@ -148,7 +148,7 @@ import Foundation
 
      - Returns: A resolved promise.
      */
-    @objc public class func promiseWithValue(_ value: Any?) -> AnyPromise {
+    @objc open class func promiseWithValue(_ value: Any?) -> AnyPromise {
         let state: State<Any?>
         switch value {
         case let promise as AnyPromise:
@@ -161,7 +161,7 @@ import Foundation
         return AnyPromise(state: state)
     }
 
-    private init(state: State<Any?>) {
+    fileprivate init(state: State<Any?>) {
         self.state = state
     }
 
@@ -185,7 +185,7 @@ import Foundation
      - SeeAlso: http://promisekit.org/sealing-your-own-promises/
      - SeeAlso: http://promisekit.org/wrapping-delegation/
      */
-    @objc public class func promiseWithResolverBlock(_ body: (@escaping (Any?) -> Void) -> Void) -> AnyPromise {
+    @objc open class func promiseWithResolverBlock(_ body: (@escaping (Any?) -> Void) -> Void) -> AnyPromise {
         return AnyPromise(sealant: { resolve in
             body { obj in
                 makeHandler({ _ in obj }, resolve)(obj)
@@ -193,7 +193,7 @@ import Foundation
         })
     }
 
-    private init(sealant: (@escaping (Resolution<Any?>) -> Void) -> Void) {
+    fileprivate init(sealant: (@escaping (Resolution<Any?>) -> Void) -> Void) {
         var resolve: ((Resolution<Any?>) -> Void)!
         state = UnsealedState(resolver: &resolve)
         sealant(resolve)
@@ -230,7 +230,7 @@ import Foundation
      - Returns: A `Promise<T>` with the requested type.
      - Throws: `CastingError.CastingAnyPromiseFailed(T)` if self's value cannot be downcasted to the given type.
      */
-    public func asPromise<T>(type: T.Type) -> Promise<T> {
+    open func asPromise<T>(_ type: T.Type) -> Promise<T> {
         return self.then(on: zalgo) { (value: Any?) -> T in
             if let value = value as? T {
                 return value
@@ -255,7 +255,7 @@ import Foundation
 
 
 extension AnyPromise {
-    override public var description: String {
+    override open var description: String {
         return "AnyPromise: \(state)"
     }
 }

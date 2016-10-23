@@ -11,18 +11,18 @@ import Alamofire
 import PromiseKit
 import ObjectMapper
 
-public enum HttpError: ErrorType {
-    case NotDetermined
-    case Restricted
-    case Denied
+public enum HttpError: Error {
+    case notDetermined
+    case restricted
+    case denied
     
     public var localizedDescription: String {
         switch self {
-        case .NotDetermined:
+        case .notDetermined:
             return "Access NotDetermined"
-        case .Restricted:
+        case .restricted:
             return "Restricted"
-        case .Denied:
+        case .denied:
             return "Denied"
         }
     }
@@ -30,11 +30,11 @@ public enum HttpError: ErrorType {
 
 struct Http {
     
-    private static let urlTempl = "http://family.rambler.ru/%@"
+    fileprivate static let urlTempl = "http://family.rambler.ru/%@"
     
     
     /*  */
-    static func get(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
+    static func get(_ urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
         
         
         let URL: String =  String(format: urlTempl, urlParam)
@@ -43,24 +43,24 @@ struct Http {
             Alamofire.request(.GET, URL, parameters: params)
                 .responseJSON { response in
                     switch response.result {
-                    case .Success(let JSON):
+                    case .success(let JSON):
                         fulfill(JSON)
-                    case .Failure(let error):
+                    case .failure(let error):
 						reject(error)
                     }
             }
         }
     }
     
-    static func post(urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
+    static func post(_ urlParam: String, params: [String: AnyObject]?) -> Promise<AnyObject>{
         let URL: String =  String(format: urlTempl, urlParam)
         return Promise { fulfill, reject in
             Alamofire.request(.POST, URL, parameters: params)
                 .responseJSON { response in
                     switch response.result {
-                    case .Success(let JSON):
+                    case .success(let JSON):
                         fulfill(JSON)
-                    case .Failure(let error):
+                    case .failure(let error):
                         reject(error)
                     }
             }

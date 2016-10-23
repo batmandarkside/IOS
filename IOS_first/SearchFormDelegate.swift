@@ -9,11 +9,11 @@
 import Foundation
 
 protocol SearchInputProtocol: class {
-    func searchInputChanged(data: String)
+    func searchInputChanged(_ data: String)
 }
 
 protocol DKDatePickerViewProtocol: class {
-	func datePickerChanged(data: String)
+	func datePickerChanged(_ data: String)
 }
 
 protocol DKPopoverViewControllerDelegate: class {

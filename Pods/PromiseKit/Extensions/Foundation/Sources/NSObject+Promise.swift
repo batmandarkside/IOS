@@ -24,7 +24,7 @@ extension NSObject {
       - Warning: *Important* The promise must not outlive the object under observation.
       - SeeAlso: Apple’s KVO documentation.
     */
-    public func observe<T>(keyPath: String) -> Promise<T> {
+    public func observe<T>(_ keyPath: String) -> Promise<T> {
         let (promise, fulfill, reject) = Promise<T>.pending()
         let proxy = KVOProxy(observee: self, keyPath: keyPath) { obj in
             if let obj = obj as? T {
@@ -58,7 +58,7 @@ private class KVOProxy: NSObject {
         }
     }
 
-    private lazy var pointer: UnsafeMutableRawPointer = {
+    fileprivate lazy var pointer: UnsafeMutableRawPointer = {
         return Unmanaged<KVOProxy>.passUnretained(self).toOpaque()
     }()
 }

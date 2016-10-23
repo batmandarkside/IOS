@@ -17,7 +17,7 @@ class SearchSuggestCell: UITableViewCell {
    
     @IBOutlet weak var lable: UILabel!
     
-    func bindViewModel(viewModel: AnyObject) {
+    func bindViewModel(_ viewModel: AnyObject) {
         
     }
     
@@ -27,7 +27,7 @@ class SearchSuggestCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

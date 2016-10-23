@@ -22,14 +22,14 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
         "Infant": 0
     ]
     
-    @IBAction func dateSelectDone(sender: UIBarButtonItem) {
+    @IBAction func dateSelectDone(_ sender: UIBarButtonItem) {
         self.postNotification()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func dateSelectCancel(sender: UIBarButtonItem) {
+    @IBAction func dateSelectCancel(_ sender: UIBarButtonItem) {
         self.postNotification()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -49,7 +49,7 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // Получаем данные через popoverDelegate из DKSearchFormController
         if(popoverDelegate != nil) {
             self.collectionLabelPassengerValue = popoverDelegate.getPassengersData() as! Dictionary<String, Int>
@@ -74,11 +74,11 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        let Label: UILabel = UILabel(frame: CGRectMake(40, 0, 70, 30))
-        Label.textAlignment = .Left
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let Label: UILabel = UILabel(frame: CGRect(x: 40, y: 0, width: 70, height: 30))
+        Label.textAlignment = .left
         Label.adjustsFontSizeToFitWidth = true
-        Label.font = UIFont.systemFontOfSize(25)
+        Label.font = UIFont.systemFont(ofSize: 25)
         
         var compArr: Array<Int> = self.peopleArr[component]!
         Label.text = NSString(format: "%d", compArr[row]) as String
@@ -86,7 +86,7 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
         return Label
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         var rowIndex = row
         if(component == 0) {
             rowIndex = (row + 1)
@@ -97,29 +97,29 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
         self.insertCollectionPassengerValue(component, row: rowIndex)
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let compArr: Array<Int> = self.peopleArr[component]!
         return compArr.count
     }
     
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 35
     }
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
    
     
-    func setTitleCountPeople(component: Int, row: Int){
+    func setTitleCountPeople(_ component: Int, row: Int){
         let label: UILabel = self.collectionLabelPassenger[component]
         label.text = NSString( format: "%d", row) as String
     }
     
     
     // Собираем данные в коллекцию
-    func insertCollectionPassengerValue(component: Int, row: Int){
+    func insertCollectionPassengerValue(_ component: Int, row: Int){
         var associationName = ""
         switch(component){
             case 0:
@@ -139,8 +139,8 @@ class DKPopoverViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     
     func postNotification(){
-        NSNotificationCenter.defaultCenter().postNotificationName(
-            DKNotification.PeopleChangeNotification,
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: DKNotification.PeopleChangeNotification),
             object: self.collectionLabelPassengerValue)
     }
 

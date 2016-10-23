@@ -9,29 +9,49 @@
 import UIKit
 import ObjectMapper
 import SDWebImage
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SearchInputProtocol {
     
     @IBOutlet weak var CurrentViewSearchSuggest: SearchSuggest!
     @IBOutlet weak var tableView: UITableView!
-    private var _newsItems : [ContentModelItemMapper]?
-    private var _pageNext = ""
+    fileprivate var _newsItems : [ContentModelItemMapper]?
+    fileprivate var _pageNext = ""
     
     var activityIndicator = ActivityIndicator()
     
-    let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .Alert)
+    let alert = UIAlertController(title: "Error", message: "Ошибка сервера", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
-        CurrentViewSearchSuggest.hidden = true
+        CurrentViewSearchSuggest.isHidden = true
         
         //tableView.delegate = self
         //tableView.dataSource = self
         
 
-        self.alert.addAction(UIAlertAction(title: "ok", style: .Default, handler: { (action) in
+        self.alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
             self.goBack()
         }))
         
@@ -40,11 +60,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.getNews()
         PagingSpinner.appendSpinner(self.tableView)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOfReceivedNotification:", name:"NotificationIdentifier", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.methodOfReceivedNotification(_:)), name:NSNotification.Name(rawValue: "NotificationIdentifier"), object: nil)
     }
     
     func goBack(){
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
         //self.navigationBarShow()
     }
     
@@ -63,29 +83,29 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    func methodOfReceivedNotification(notification: NSNotification){
-        print(notification.object!.dynamicType)
+    func methodOfReceivedNotification(_ notification: Notification){
+        print(type(of: (notification.object!) as AnyObject))
             //if(object.count > 3)
         //{
         //   self.CurrentViewSearchSuggest.hidden = false
         //}
     }
     
-    func searchInputChanged(data: String){
+    func searchInputChanged(_ data: String){
         print(data)
     }
     
     
-    @IBAction func newsAction(sender: AnyObject) {
+    @IBAction func newsAction(_ sender: AnyObject) {
         print("newsAction")
         
     }
     
-    @IBAction func articlesAction(sender: AnyObject) {
+    @IBAction func articlesAction(_ sender: AnyObject) {
         print("articlesAction")
     }
     
-    @IBAction func allResultAction(sender: AnyObject) {
+    @IBAction func allResultAction(_ sender: AnyObject) {
         print("allResultAction")
     }
     
@@ -112,7 +132,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
      создаем модель, достаем сам список и дальше работает с ним
      если список не пустой, то добавляем к нему новые элементы
      */
-    func setPageItensAndReloadTableView(data : NSDictionary) {
+    func setPageItensAndReloadTableView(_ data : NSDictionary) {
         let _model = Mapper<ContentModel>().map(data)
         
         if(self._newsItems != nil && self._newsItems?.count > 0){
@@ -129,7 +149,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     // список новостей по доскроллу
     // TODO : доработать
-    func onEndReached(url : String){
+    func onEndReached(_ url : String){
         PagingSpinner.show()
         ServicesNews.getNewsByUrl(url)
             .then { body -> Void in
@@ -142,7 +162,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func errorLoadContent(){
-        self.presentViewController(self.alert, animated: true, completion: nil)
+        self.present(self.alert, animated: true, completion: nil)
     }
     
     
@@ -150,43 +170,43 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     ячейка секции
     Заполняем ее данными в этом методе
     */
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let _newsItem  = self._newsItems![indexPath.row]
+        let _newsItem  = self._newsItems![(indexPath as NSIndexPath).row]
         let identifier = "myCell"
         
         // кастомный класс ячейки
         //var cell : DKViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! DKViewCell!
-        tableView.registerNib(UINib(nibName: "cell", bundle: nil), forCellReuseIdentifier: identifier)
-        let cell = (tableView.dequeueReusableCellWithIdentifier(identifier) as? DKViewCell)!
+        tableView.register(UINib(nibName: "cell", bundle: nil), forCellReuseIdentifier: identifier)
+        let cell = (tableView.dequeueReusableCell(withIdentifier: identifier) as? DKViewCell)!
         
         cell.cellText?.text = _newsItem.getTitle()
-        cell.cellRubricButton?.setTitle(_newsItem.getMainTagTitle(), forState: .Normal)
+        cell.cellRubricButton?.setTitle(_newsItem.getMainTagTitle(), for: UIControlState())
         //print(_newsItem.getTitle())
         
-        cell.cellImage?.sd_setImageWithURL(
-            _newsItem.getMainImage(),
+        cell.cellImage?.sd_setImage(
+            with: _newsItem.getMainImage() as URL,
             placeholderImage: UIImage(named :_newsItem.getNoImage()),
-            options:SDWebImageOptions.RetryFailed)
+            options:SDWebImageOptions.retryFailed)
         
         return cell
     }
     
     
     /* заголовок секции */
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ""
     }
     
     
     /* количество секций в таблице */
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     /* колличество рядов в секции */
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         if(self._newsItems != nil){
             count = self._newsItems!.count
@@ -194,9 +214,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return count
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRow = self._newsItems!.count - 1
-        if(indexPath.row == lastRow) {
+        if((indexPath as NSIndexPath).row == lastRow) {
             if !self._pageNext.isEmpty {
                 print("LOAD MORE", self._pageNext)
                 self.onEndReached(self._pageNext)

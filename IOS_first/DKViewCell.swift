@@ -14,7 +14,7 @@ class DKViewCell: UITableViewCell {
     @IBOutlet weak var cellText: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellRubricButton: UIButton!
-    func bindViewModel(viewModel: AnyObject) {
+    func bindViewModel(_ viewModel: AnyObject) {
 
     }
     
@@ -24,7 +24,7 @@ class DKViewCell: UITableViewCell {
         // Initialization code
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     
         // Configure the view for the selected state

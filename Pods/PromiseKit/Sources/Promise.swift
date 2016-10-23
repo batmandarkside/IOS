@@ -144,7 +144,7 @@ open class Promise<T> {
                //…
            }
      */
-    public func then<U>(on q: DispatchQueue = .default, execute body: @escaping (T) throws -> U) -> Promise<U> {
+    open func then<U>(on q: DispatchQueue = .default, execute body: @escaping (T) throws -> U) -> Promise<U> {
         return Promise<U> { resolve in
             state.then(on: q, else: resolve) { value in
                 resolve(.fulfilled(try body(value)))
@@ -167,7 +167,7 @@ open class Promise<T> {
                //…
            }
      */
-    public func then<U>(on q: DispatchQueue = .default, execute body: @escaping (T) throws -> Promise<U>) -> Promise<U> {
+    open func then<U>(on q: DispatchQueue = .default, execute body: @escaping (T) throws -> Promise<U>) -> Promise<U> {
         var rv: Promise<U>!
         rv = Promise<U> { resolve in
             state.then(on: q, else: resolve) { value in
@@ -195,7 +195,7 @@ open class Promise<T> {
      - Important: The promise that is returned is `self`. `catch` cannot affect the chain, in PromiseKit 3 no promise was returned to strongly imply this, however for PromiseKit 4 we started returning a promise so that you can `always` after a catch or return from a function that has an error handler.
      */
     @discardableResult
-    public func `catch`(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) -> Void) -> Promise {
+    open func `catch`(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) -> Void) -> Promise {
         state.catch(on: q, policy: policy, else: { _ in }, execute: body)
         return self
     }
@@ -215,7 +215,7 @@ open class Promise<T> {
      - Parameter execute: The handler to execute if this promise is rejected.
      - SeeAlso: [Cancellation](http://promisekit.org/docs/)
      */
-    public func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Promise) -> Promise {
+    open func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> Promise) -> Promise {
         var rv: Promise!
         rv = Promise { resolve in
             state.catch(on: q, policy: policy, else: resolve) { error in
@@ -242,7 +242,7 @@ open class Promise<T> {
      - Parameter execute: The handler to execute if this promise is rejected.
      - SeeAlso: [Cancellation](http://promisekit.org/docs/)
      */
-    public func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> T) -> Promise {
+    open func recover(on q: DispatchQueue = .default, policy: CatchPolicy = .allErrorsExceptCancellation, execute body: @escaping (Error) throws -> T) -> Promise {
         return Promise { resolve in
             state.catch(on: q, policy: policy, else: resolve) { error in
                 resolve(.fulfilled(try body(error)))
@@ -267,7 +267,7 @@ open class Promise<T> {
      - Parameter execute: The closure that executes when this promise resolves.
      - Returns: A new promise, resolved with this promise’s resolution.
      */
-    public func always(on q: DispatchQueue = .default, execute body: @escaping () -> Void) -> Promise {
+    open func always(on q: DispatchQueue = .default, execute body: @escaping () -> Void) -> Promise {
         state.always(on: q) { resolution in
             body()
         }
@@ -288,7 +288,7 @@ open class Promise<T> {
      - Returns: A new promise, resolved with this promise’s resolution.
      */
     @discardableResult
-    public func tap(on q: DispatchQueue = .default, execute body: @escaping (Result<T>) -> Void) -> Promise {
+    open func tap(on q: DispatchQueue = .default, execute body: @escaping (Result<T>) -> Void) -> Promise {
         state.always(on: q) { resolution in
             body(Result(resolution))
         }
@@ -299,38 +299,38 @@ open class Promise<T> {
      Void promises are less prone to generics-of-doom scenarios.
      - SeeAlso: when.swift contains enlightening examples of using `Promise<Void>` to simplify your code.
      */
-    public func asVoid() -> Promise<Void> {
+    open func asVoid() -> Promise<Void> {
         return then(on: zalgo) { _ in return }
     }
 
 //MARK: deprecations
 
     @available(*, unavailable, renamed: "always()")
-    public func finally(on: DispatchQueue = DispatchQueue.main, execute body: () -> Void) -> Promise { fatalError() }
+    open func finally(_ on: DispatchQueue = DispatchQueue.main, execute body: () -> Void) -> Promise { fatalError() }
 
     @available(*, unavailable, renamed: "always()")
-    public func ensure(on: DispatchQueue = DispatchQueue.main, execute body: () -> Void) -> Promise { fatalError() }
+    open func ensure(_ on: DispatchQueue = DispatchQueue.main, execute body: () -> Void) -> Promise { fatalError() }
 
     @available(*, unavailable, renamed: "pending()")
-    public class func `defer`() -> PendingTuple { fatalError() }
+    open class func `defer`() -> PendingTuple { fatalError() }
 
     @available(*, unavailable, renamed: "pending()")
-    public class func `pendingPromise`() -> PendingTuple { fatalError() }
+    open class func `pendingPromise`() -> PendingTuple { fatalError() }
 
     @available(*, unavailable, message: "deprecated: use then(on: .global())")
-    public func thenInBackground<U>(execute body: (T) throws -> U) -> Promise<U> { fatalError() }
+    open func thenInBackground<U>(execute body: (T) throws -> U) -> Promise<U> { fatalError() }
 
     @available(*, unavailable, renamed: "catch")
-    public func onError(policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
+    open func onError(_ policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
 
     @available(*, unavailable, renamed: "catch")
-    public func errorOnQueue(_ on: DispatchQueue, policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
+    open func errorOnQueue(_ on: DispatchQueue, policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
 
     @available(*, unavailable, renamed: "catch")
-    public func error(policy: CatchPolicy, execute body: (Error) -> Void) { fatalError() }
+    open func error(_ policy: CatchPolicy, execute body: (Error) -> Void) { fatalError() }
 
     @available(*, unavailable, renamed: "catch")
-    public func report(policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
+    open func report(_ policy: CatchPolicy = .allErrors, execute body: (Error) -> Void) { fatalError() }
 
     @available(*, unavailable, renamed: "init(value:)")
     public init(_ value: T) { fatalError() }
@@ -341,23 +341,23 @@ open class Promise<T> {
     public init<T: Error>(resolvers: (_ fulfill: (T) -> Void, _ reject: (Error) -> Void) throws -> Void) { fatalError() }
 
     @available(*, unavailable, message: "cannot instantiate Promise<Error>")
-    public class func pending<T: Error>() -> (promise: Promise, fulfill: (T) -> Void, reject: (Error) -> Void) { fatalError() }
+    open class func pending<T: Error>() -> (promise: Promise, fulfill: (T) -> Void, reject: (Error) -> Void) { fatalError() }
 
 //MARK: disallow returning `Error`
 
     @available (*, unavailable, message: "instead of returning the error; throw")
-    public func then<U: Error>(on: DispatchQueue = .default, execute body: (T) throws -> U) -> Promise<U> { fatalError() }
+    open func then<U: Error>(_ on: DispatchQueue = .default, execute body: (T) throws -> U) -> Promise<U> { fatalError() }
 
     @available (*, unavailable, message: "instead of returning the error; throw")
-    public func recover<T: Error>(on: DispatchQueue = .default, execute body: (Error) throws -> T) -> Promise { fatalError() }
+    open func recover<T: Error>(_ on: DispatchQueue = .default, execute body: (Error) throws -> T) -> Promise { fatalError() }
 
 //MARK: disallow returning `Promise?`
 
     @available(*, unavailable, message: "unwrap the promise")
-    public func then<U>(on: DispatchQueue = .default, execute body: (T) throws -> Promise<U>?) -> Promise<U> { fatalError() }
+    open func then<U>(_ on: DispatchQueue = .default, execute body: (T) throws -> Promise<U>?) -> Promise<U> { fatalError() }
 
     @available(*, unavailable, message: "unwrap the promise")
-    public func recover(on: DispatchQueue = .default, execute body: (Error) throws -> Promise?) -> Promise { fatalError() }
+    open func recover(_ on: DispatchQueue = .default, execute body: (Error) throws -> Promise?) -> Promise { fatalError() }
 }
 
 extension Promise: CustomStringConvertible {
@@ -399,7 +399,7 @@ public func firstly<T>(execute body: () throws -> Promise<T>) -> Promise<T> {
 public func firstly<T: Error>(execute body: () throws -> T) -> Promise<T> { fatalError() }
 
 @available(*, unavailable, message: "use DispatchQueue.promise")
-public func firstly<T>(on: DispatchQueue, execute body: () throws -> Promise<T>) -> Promise<T> { fatalError() }
+public func firstly<T>(_ on: DispatchQueue, execute body: () throws -> Promise<T>) -> Promise<T> { fatalError() }
 
 @available(*, deprecated: 4.0, renamed: "DispatchQueue.promise")
 public func dispatch_promise<T>(_ on: DispatchQueue, _ body: @escaping () throws -> T) -> Promise<T> {
@@ -437,7 +437,7 @@ public enum Result<T> {
 }
 
 
-public class PMKJoint<T> {
+open class PMKJoint<T> {
     fileprivate var resolve: ((Resolution<T>) -> Void)!
 }
 
@@ -468,7 +468,7 @@ extension Promise where T: Collection {
      - Parameter transform: The closure that executes when this promise resolves.
      - Returns: A new promise, resolved with this promise’s resolution.
      */
-    public func map<U>(on: DispatchQueue = .default, transform: @escaping (T.Iterator.Element) throws -> Promise<U>) -> Promise<[U]> {
+    public func map<U>(_ on: DispatchQueue = .default, transform: @escaping (T.Iterator.Element) throws -> Promise<U>) -> Promise<[U]> {
         return Promise<[U]> { resolve in
             return state.then(on: zalgo, else: resolve) { tt in
                 when(fulfilled: try tt.map(transform)).state.pipe(resolve)

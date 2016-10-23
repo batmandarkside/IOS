@@ -14,12 +14,12 @@ import SwiftyJSON
 struct ServicesNews {
     
     
-    static func getNews (page : Int? = 1, rubr : String? = "") -> Promise<AnyObject>{
+    static func getNews (_ page : Int? = 1, rubr : String? = "") -> Promise<AnyObject>{
         let url = String(format: "api/v1/content/news.json?page=%d", page!)
         return Http.get(url, params: nil)
     }
     
-    static func getNewsByUrl (url : String) -> Promise<AnyObject> {
+    static func getNewsByUrl (_ url : String) -> Promise<AnyObject> {
         return Http.get(url, params: nil)
     }
     
@@ -27,7 +27,7 @@ struct ServicesNews {
         
     }
     
-    static func getNewsId (id: Int){
+    static func getNewsId (_ id: Int){
         print(id)
     }
 

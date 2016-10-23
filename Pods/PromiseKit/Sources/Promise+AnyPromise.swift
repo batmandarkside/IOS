@@ -24,7 +24,7 @@ extension Promise {
     }
 
     @available(*, unavailable, message: "unwrap the promise")
-    public func then(on: DispatchQueue = .default, execute body: (T) throws -> AnyPromise?) -> Promise<AnyObject?> { fatalError() }
+    public func then(_ on: DispatchQueue = .default, execute body: (T) throws -> AnyPromise?) -> Promise<AnyObject?> { fatalError() }
 }
 
 /**

@@ -23,7 +23,7 @@ class State<T> {
     // it was a protocol. There is no work around. Update: nor Swift 3
 
     func get() -> Resolution<T>? { fatalError("Abstract Base Class") }
-    func get(body: @escaping (Seal<T>) -> Void) { fatalError("Abstract Base Class") }
+    func get(_ body: @escaping (Seal<T>) -> Void) { fatalError("Abstract Base Class") }
 
     final func pipe(_ body: @escaping (Resolution<T>) -> Void) {
         get { seal in
@@ -75,8 +75,8 @@ class State<T> {
 }
 
 class UnsealedState<T>: State<T> {
-    private let barrier = DispatchQueue(label: "org.promisekit.barrier", attributes: .concurrent)
-    private var seal: Seal<T>
+    fileprivate let barrier = DispatchQueue(label: "org.promisekit.barrier", attributes: .concurrent)
+    fileprivate var seal: Seal<T>
 
     /**
      Quick return, but will not provide the handlers array because
@@ -93,7 +93,7 @@ class UnsealedState<T>: State<T> {
         return result
     }
 
-    override func get(body: @escaping (Seal<T>) -> Void) {
+    override func get(_ body: @escaping (Seal<T>) -> Void) {
         var sealed = false
         barrier.sync {
             switch self.seal {
@@ -156,7 +156,7 @@ class SealedState<T>: State<T> {
         return resolution
     }
 
-    override func get(body: @escaping (Seal<T>) -> Void) {
+    override func get(_ body: @escaping (Seal<T>) -> Void) {
         body(.resolved(resolution))
     }
 }
